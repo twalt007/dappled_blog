@@ -1,0 +1,48 @@
+@font-face {
+    font-family: rustic;
+    src: url(../fonts/rustic.ttf);
+}
+
+body {
+    margin: 0;
+
+    .app {
+        background-color: #18343c;
+        display: flex;
+        height: 100vh;
+
+        .welcome {
+            color: #FFF;
+            font-family: rustic;
+            font-size: 30px;
+            margin: auto;
+            text-align: center;
+
+            .logo {
+                height: 250px;
+            }
+
+            .rotate {
+                animation: spin 10s linear infinite;
+            }
+
+            h1 {
+                color: #529baf;
+                font-size: 4em;
+                font-weight: normal;
+                letter-spacing: 2px;
+                margin: 0.6rem;
+                margin-bottom: 4rem;
+            }
+        }
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
