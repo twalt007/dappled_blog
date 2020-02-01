@@ -1,0 +1,7 @@
+npde_modules
+
+.vscode
+.DS-Store
+
+config/*.js
+config/*.json
