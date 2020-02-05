@@ -1,8 +1,12 @@
 import React from 'react';
+import AdminHeader from '../general/header'
 
 const AdminHome = props => {
     return(
-        <div>AdminHome</div>
+        <div>
+            <AdminHeader />
+            AdminHome
+        </div>
     )
 }
 
