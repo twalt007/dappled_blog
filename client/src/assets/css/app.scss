@@ -1,48 +1,19 @@
 @font-face {
-    font-family: rustic;
-    src: url(../fonts/rustic.ttf);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    src: local('Verdana'), local('Geneva'), local('Tahoma'), local('sans-serif');
 }
+
+$branding-color: #065f06;
+
 
 body {
-    margin: 0;
-
+    font-size: 62.5%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
     .app {
-        background-color: #18343c;
-        display: flex;
-        height: 100vh;
-
-        .welcome {
-            color: #FFF;
-            font-family: rustic;
-            font-size: 30px;
-            margin: auto;
-            text-align: center;
-
-            .logo {
-                height: 250px;
-            }
-
-            .rotate {
-                animation: spin 10s linear infinite;
-            }
-
-            h1 {
-                color: #529baf;
-                font-size: 4em;
-                font-weight: normal;
-                letter-spacing: 2px;
-                margin: 0.6rem;
-                margin-bottom: 4rem;
-            }
-        }
-    }
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
+        margin: 3% 4.5%;
+        background-color: white;
+        font-size: 1.6rem;        
+        color: $branding-color;
     }
 }
