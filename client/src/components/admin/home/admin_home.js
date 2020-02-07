@@ -1,12 +1,10 @@
 import React from 'react';
 import AdminHeader from '../general/header'
+import NavTitleButton from '../general/navTitleButton'
 import './admin_home.scss'
 
 const AdminHome = props => {
-    function createNewPost(){
-        console.log('function syntax worked');
-        props.history.push(`/new`)
-    }
+    const {history} = props
     return(
         <div className = "admin-home-container">
             <AdminHeader />
@@ -16,19 +14,11 @@ const AdminHome = props => {
             </div>
             
             <div className="function-buttons">
-                <div className = "button-container">
-                    <div className = "large-button fat-border button-text" onClick={createNewPost} >Create New Post</div>                
-                </div>
-                <div className = "button-container">
-                    <div className = "large-button fat-border button-text">Edit Post</div>                
-                </div> 
-                <div className = "button-container">
-                    <div className = "large-button fat-border button-text">Delete Post</div>                
-                </div>          
+                <NavTitleButton text='Create New Post' url='/new' mainHistory={history} />
+                <NavTitleButton text='Edit Post' url='/edit' mainHistory={history}/>
+                <NavTitleButton text='Delete Post' url='delete' mainHistory={history}/>
             </div>
-            <div className = "button-container">
-                <div className = "fat-border small-button right bottom button-text">View</div>                
-            </div>
+            <NavTitleButton buttonClasses='small-button fat-border right bottom' text='View' url='home' mainHistory={history}/>
         </div>
         
     )
