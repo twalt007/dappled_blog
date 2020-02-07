@@ -1,6 +1,6 @@
 @font-face {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    src: local('Verdana'), local('Geneva'), local('Tahoma'), local('sans-serif');
+    font-family: Arial, Helvetica, sans-serif;
+    src: local('Arial'), local('Helvetica'), local('sans-serif');
 }
 
 $branding-color: #065f06;
@@ -14,6 +14,36 @@ body {
         margin: 3% 4.5%;
         background-color: white;
         font-size: 1.6rem;        
-        color: $branding-color;
+        color: black;
+        .h1 {
+            font-size: 2.5rem;
+        }
+        .h2{
+            font-size: 2rem
+        }
+        .fat-border{
+            border-style: solid;
+            border-width: 2px;
+            border-color: $branding-color;
+            border-radius: 4px;;
+        }
+        .large-button, .small-button{
+            display: inline-block;
+            padding: .3rem;
+            text-align: center;
+        }
+        .large-button{
+            width: 30rem;
+        }
+        .small-button{
+            width: 12rem;
+            position: absolute;
+        }
+        .right{
+            right: 10%;
+        }
+        .bottom{
+            bottom: 10%
+        }
     }
 }
