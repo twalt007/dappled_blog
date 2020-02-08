@@ -18,7 +18,9 @@ const AdminHome = props => {
                 <NavTitleButton text='Edit Post' url='/edit' mainHistory={history}/>
                 <NavTitleButton text='Delete Post' url='delete' mainHistory={history}/>
             </div>
-            <NavTitleButton buttonClasses='small-button fat-border right bottom' text='View' url='home' mainHistory={history}/>
+            <div className="view-button right bottom">
+                <NavTitleButton buttonClasses='small-button fat-border ' text='View' url='home' mainHistory={history}/>
+            </div>
         </div>
         
     )

@@ -1,14 +1,15 @@
-import React from 'React'
+import React from 'react'
 
 const NavTitleButton = props => {
-    const {text, onClickFunction = null, buttonClasses = "large-button fat-border", url=null, mainHistory} = props;
+    console.log(props)
+    const {text, buttonClasses = "large-button fat-border", onClick = {reroute}, url=null, mainHistory} = props;
     function reroute(){
         console.log('props.history: ', mainHistory, 'this.props.history')
         mainHistory.push(url);
     }
     return (
         <div className = "button-container">
-            <div className = {buttonClasses} onClick={reroute} >{text}</div>                
+            <div className = {buttonClasses} {...onClick} >{text}</div>                
         </div>
     )
 }
