@@ -1,2 +1,2 @@
-import New from './new'
-export default New
+import NewPost from './new'
+export default NewPost

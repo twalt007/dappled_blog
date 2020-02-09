@@ -1,9 +1,14 @@
 import React from 'react'
+import AdminHeader from '../general/header/admin_header'
+import NavButton from '../general/navButton'
 
-const New = props => {
+const NewPost = props => {
     return (
-        <div>Create New Blog Post</div>
+        <div className="new-container">
+            <AdminHeader />
+                <NavButton text="Create New Post" buttonClasses = "title center" onClick="null"/>
+        </div>
     )
 }
 
-export default New
+export default NewPost;

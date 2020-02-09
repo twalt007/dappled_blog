@@ -1,6 +1,6 @@
 import React from 'react';
 import AdminHeader from '../general/header'
-import NavTitleButton from '../general/navTitleButton'
+import NavButton from '../general/navButton'
 import './admin_home.scss'
 
 const AdminHome = props => {
@@ -14,11 +14,13 @@ const AdminHome = props => {
             </div>
             
             <div className="function-buttons">
-                <NavTitleButton text='Create New Post' url='/new' mainHistory={history} />
-                <NavTitleButton text='Edit Post' url='/edit' mainHistory={history}/>
-                <NavTitleButton text='Delete Post' url='delete' mainHistory={history}/>
+                <NavButton text='Create New Post' url='/new' mainHistory={history} />
+                <NavButton text='Edit Post' url='/edit' mainHistory={history}/>
+                <NavButton text='Delete Post' url='delete' mainHistory={history}/>
             </div>
-            <NavTitleButton buttonClasses='small-button fat-border right bottom' text='View' url='home' mainHistory={history}/>
+            <div className="flexed">
+                <NavButton buttonClasses='small-button' text='View' url='home' mainHistory={history}/>
+            </div>
         </div>
         
     )
