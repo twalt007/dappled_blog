@@ -2,7 +2,7 @@ import React from 'react'
 
 const NavButton = props => {
     const {text, buttonClasses = "large-button", url=null, mainHistory} = props;
-
+    
     function reroute(){
         mainHistory.push(url);
     }
