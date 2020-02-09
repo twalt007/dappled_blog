@@ -33,7 +33,7 @@ body {
             padding: .3rem;
             text-align: center;
         }
-        .large-button:hover, .small-button:hover{
+        .large-button:hover, .small-button:hover, .title{
             background-color: $branding-light;
             font-weight: 600;
             text-decoration: underline;
@@ -45,6 +45,11 @@ body {
             width: 12rem;
             background-color: $branding-light;
         }
+        .title{
+            padding: .3rem;
+            text-align: center;
+            width: 30rem;
+        }
         .flexed{
             display: flex;
             width: 30rem;
@@ -52,12 +57,6 @@ body {
         }
         .center{
             margin: auto;
-        }
-        .title{
-            padding: .3rem;
-            text-align: center;
-            width: 30rem;
-            background-color: $branding-light;
         }
     }
 }

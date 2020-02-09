@@ -6,7 +6,7 @@ const NewPost = props => {
     return (
         <div className="new-container">
             <AdminHeader />
-                <NavButton text="Create New Post" buttonClasses = "large button title center" />
+                <NavButton text="Create New Post" buttonClasses = "title center" onClick="null"/>
         </div>
     )
 }
