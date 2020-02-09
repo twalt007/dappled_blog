@@ -10,7 +10,6 @@ $branding-light: rgba(6, 95, 6, 0.25);
 
 body {
     font-size: 62.5%;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     position: relative;
     .app {
         margin: 3% 4.5%;
@@ -30,25 +29,29 @@ body {
             border-radius: 4px;
         }
         .large-button, .small-button{
+            display: inline-block;
             padding: .3rem;
             text-align: center;
         }
+        .large-button:hover, .small-button:hover{
+            background-color: $branding-light;
+            font-weight: 600;
+            text-decoration: underline;
+        }
         .large-button{
             width: 30rem;
-            position: absolute;
         }
         .small-button{
             width: 12rem;
-            position: absolute;
+            background-color: $branding-light;
         }
-        .right{
-            right: 10%;
+        .flexed{
+            display: flex;
+            width: 30rem;
+            justify-content: flex-end;
         }
         .center{
             margin: auto;
-        }
-        .bottom{
-            bottom: -10vh
         }
         .title{
             padding: .3rem;

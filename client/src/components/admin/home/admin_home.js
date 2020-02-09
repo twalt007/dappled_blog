@@ -18,8 +18,8 @@ const AdminHome = props => {
                 <NavButton text='Edit Post' url='/edit' mainHistory={history}/>
                 <NavButton text='Delete Post' url='delete' mainHistory={history}/>
             </div>
-            <div className="view-button right bottom">
-                <NavButton buttonClasses='small-button fat-border ' text='View' url='home' mainHistory={history}/>
+            <div className="flexed">
+                <NavButton buttonClasses='small-button' text='View' url='home' mainHistory={history}/>
             </div>
         </div>
         

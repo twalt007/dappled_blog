@@ -7,8 +7,8 @@ const NavButton = props => {
         mainHistory.push(url);
     }
     return (
-        <div className = "button-container fat-border">
-            <div className = {buttonClasses} onClick={reroute}>{text}</div>                
+        <div className = "button-container">
+            <div className = {`${buttonClasses} + fat-border`} onClick={reroute}>{text}</div>                
         </div>
     )
 }
