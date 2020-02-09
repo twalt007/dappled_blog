@@ -4,6 +4,8 @@
 }
 
 $branding-color: #065f06;
+$branding-light: rgba(6, 95, 6, 0.25);
+
 
 
 body {
@@ -25,15 +27,15 @@ body {
             border-style: solid;
             border-width: 2px;
             border-color: $branding-color;
-            border-radius: 4px;;
+            border-radius: 4px;
         }
         .large-button, .small-button{
-            display: inline-block;
             padding: .3rem;
             text-align: center;
         }
         .large-button{
             width: 30rem;
+            position: absolute;
         }
         .small-button{
             width: 12rem;
@@ -42,8 +44,17 @@ body {
         .right{
             right: 10%;
         }
+        .center{
+            margin: auto;
+        }
         .bottom{
             bottom: -10vh
+        }
+        .title{
+            padding: .3rem;
+            text-align: center;
+            width: 30rem;
+            background-color: $branding-light;
         }
     }
 }

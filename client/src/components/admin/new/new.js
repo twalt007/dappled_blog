@@ -1,12 +1,12 @@
 import React from 'react'
 import AdminHeader from '../general/header/admin_header'
-import NavTitleButton from '../general/navTitleButton'
+import NavButton from '../general/navButton'
 
 const NewPost = props => {
     return (
-        <div className="admin-home">
+        <div className="new-container">
             <AdminHeader />
-            <NavTitleButton onClick={null} text="Create New Post" />
+                <NavButton text="Create New Post" buttonClasses = "large button title center" />
         </div>
     )
 }
