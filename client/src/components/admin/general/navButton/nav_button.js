@@ -1,7 +1,7 @@
 import React from 'react'
 
 const NavButton = props => {
-    const {text, buttonClasses = "large-button", url=null, mainHistory} = props;
+    const {text, buttonClasses = "large-button", url=null, mainHistory, type=null} = props;
 
     function reroute(){
         mainHistory.push(url);
