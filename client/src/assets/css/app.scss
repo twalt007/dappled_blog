@@ -50,6 +50,25 @@ body {
             text-align: center;
             width: 30rem;
         }
+        .form * {
+            display: block;
+        }
+        .form-label{
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .form-input{
+            width: 30rem;
+        }
+        .form-textarea{
+            width: 30rem;
+            height: 30rem;
+            font-size: 1rem;
+        }
+        .form-error{
+            font-size: 1rem;
+        }
+        
         .flexed{
             display: flex;
             width: 30rem;
