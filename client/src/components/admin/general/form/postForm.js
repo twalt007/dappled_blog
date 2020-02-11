@@ -2,7 +2,6 @@ import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import NavButton from '../navButton'
-// import './form.scss'
 
 //Formik own component
     // have the initialValues be variable 
@@ -15,10 +14,11 @@ import NavButton from '../navButton'
 // const { startingValues, schema, obSubmitFunction } = props;
 
 
-const PostForm = (startingValues, schema, onSubmitFunction, history, text) => {
+const PostForm = (props) => {
+    const {initialValues, text, mainHistory} = props;
     return (
         <Formik 
-            initialValues={{postTitle:'', postContent: '', postQuote: ''}}
+            initialValues={initialValues}
             validationSchema={Yup.object({
                 postTitle: Yup.string()
                     .required('Please provide a title. Don\'t forget to name your latest brainchild!')
@@ -46,8 +46,8 @@ const PostForm = (startingValues, schema, onSubmitFunction, history, text) => {
                 <Field className="fat-border form-input" name="postQuote" type="text" />
                 <ErrorMessage className="form-error" name="postQuote" />
                 <div className="flexed">
-                    <NavButton buttonClasses='small-button left' text='Return' url='/' mainHistory={history}/>
-                    <NavButton buttonClasses='small-button' type='submit' text={text} url='home' mainHistory={history}/>
+                    <NavButton buttonClasses='small-button left' text='Return' url='/' mainHistory={mainHistory}/>
+                    <NavButton buttonClasses='small-button' type='submit' text={text} url='home' mainHistory={mainHistory}/>
                 </div>
             </Form>
         </Formik>

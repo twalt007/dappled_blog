@@ -5,9 +5,12 @@
 
 $branding-color: #065f06;
 $branding-light: rgba(6, 95, 6, 0.25);
+// $breakpoint-tablet: ;
+// $breakpoint-phone-landscape: ;
+// $breakpoint-phone-portrait: ;
+// $breakpoint-max: ;
 
-
-
+// @media ()
 body {
     font-size: 62.5%;
     position: relative;
@@ -22,53 +25,64 @@ body {
         .h2{
             font-size: 2rem
         }
-        .fat-border{
-            border-style: solid;
-            border-width: 2px;
-            border-color: $branding-color;
-            border-radius: 4px;
+        .button-container, .form{
+            margin: 3% 4.5%;
+            .fat-border{
+                border-style: solid;
+                border-width: 2px;
+                border-color: $branding-color;
+                border-radius: 4px;
+            }
+            .large-button, .small-button{
+                display: inline-block;
+                padding: .3rem;
+                text-align: center;
+            }
+            .large-button:hover, .small-button:hover, .title{
+                background-color: $branding-light;
+                font-weight: 600;
+                text-decoration: underline;
+            }
+            .large-button{
+                width: 30rem;
+            }
+            .small-button{
+                width: 12rem;
+                background-color: $branding-light;
+            }
+            .title{
+                padding: .3rem;
+                text-align: center;
+                width: 30rem;
+                margin-bottom: 45px;
+            }
         }
-        .large-button, .small-button{
-            display: inline-block;
-            padding: .3rem;
-            text-align: center;
-        }
-        .large-button:hover, .small-button:hover, .title{
-            background-color: $branding-light;
-            font-weight: 600;
-            text-decoration: underline;
-        }
-        .large-button{
-            width: 30rem;
-        }
-        .small-button{
-            width: 12rem;
-            background-color: $branding-light;
-        }
-        .title{
-            padding: .3rem;
-            text-align: center;
-            width: 30rem;
-        }
-        .form * {
+        .form *{
             display: block;
         }
-        .form-label{
-            font-size: 1.5rem;
-            font-weight: bold;
+        .form{
+            display: block;
+            margin: 4.5%, 0;
+            .form-label{
+                display: block;
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-top: 22px;
+            }
+            .form-input{
+                width: 70vw;
+                font-size: 1.2rem;
+                height: 2.7rem;
+            }
+            .form-textarea{
+                width: 70vw;
+                height: 30rem;
+                font-size: 1.2rem;
+            }
+            .form-error{
+                font-size: 0.5rem;
+            }
         }
-        .form-input{
-            width: 30rem;
-        }
-        .form-textarea{
-            width: 30rem;
-            height: 30rem;
-            font-size: 1rem;
-        }
-        .form-error{
-            font-size: 1rem;
-        }
-        
         .flexed{
             display: flex;
             width: 30rem;
@@ -79,3 +93,5 @@ body {
         }
     }
 }
+
+

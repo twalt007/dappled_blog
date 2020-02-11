@@ -4,14 +4,14 @@ import NavButton from '../general/navButton'
 import PostForm from '../general/form/postForm'
 
 const NewPost = props => {
-    const history = props;
+    const {history} = props;
+    const initialValues = {postTitle:'', postContent: '', postQuote: ''}
     return (
-        <div className="new-container">
+        <div className="section-container">
             <AdminHeader />
             <NavButton text="Create New Post" buttonClasses = "title center" onClick="null"/>
-            <PostForm mainHistory={history} text="Post"/>
+            <PostForm mainHistory={history} text="Post" initialValues={initialValues}/>
         </div>
-        
     )
 }
 
