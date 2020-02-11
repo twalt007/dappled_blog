@@ -6,7 +6,7 @@ import './admin_home.scss'
 const AdminHome = props => {
     const {history} = props
     return(
-        <div className = "admin-home-container">
+        <div className = "section-container">
             <AdminHeader />
             <div className="home-text">
                 <h1 className="h1 text">Welcome to your happy place!</h1>
