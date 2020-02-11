@@ -61,8 +61,7 @@ body {
             display: block;
         }
         .form{
-            display: block;
-            margin: 4.5%, 0;
+            margin: 4.5% 0;
             .form-label{
                 display: block;
                 font-size: 1.5rem;
@@ -83,9 +82,13 @@ body {
                 font-size: 0.5rem;
             }
         }
+        .button{
+            margin: 3% 4.5%;
+            height: 51px;
+        }
         .flexed{
             display: flex;
-            width: 30rem;
+            width: 70vw;
             justify-content: flex-end;
         }
         .center{

@@ -15,10 +15,11 @@ import NavButton from '../navButton'
 
 
 const PostForm = (props) => {
-    const {initialValues, text, mainHistory} = props;
+    const {initialValues, text, mainHistory, handleSubmit} = props;
     return (
         <Formik 
             initialValues={initialValues}
+            
             validationSchema={Yup.object({
                 postTitle: Yup.string()
                     .required('Please provide a title. Don\'t forget to name your latest brainchild!')
@@ -29,9 +30,10 @@ const PostForm = (props) => {
                     .required('Please provide a quote to spark readers\' interest - preferably something witty.')
                     .max(255,'Sorry - too long!  There is a difference between a quote and a post you know!')
             })}
+            
             onSubmit = {(values, {setSubmitting})=>{
-                //run Api call to send this back to our server and trigger our success page;
-                //may need an 'await'
+                console.log("submit button working");
+                handleSubmit(values);
                 setSubmitting(false);
             }}
         >
@@ -47,7 +49,7 @@ const PostForm = (props) => {
                 <ErrorMessage className="form-error" name="postQuote" />
                 <div className="flexed">
                     <NavButton buttonClasses='small-button left' text='Return' url='/' mainHistory={mainHistory}/>
-                    <NavButton buttonClasses='small-button' type='submit' text={text} url='home' mainHistory={mainHistory}/>
+                    <button className='small-button fat-border button' type='submit'>{text}</button>
                 </div>
             </Form>
         </Formik>
