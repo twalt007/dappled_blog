@@ -36,12 +36,12 @@ module.exports = async (req, res) => {
             output.code = 200;
             delete output.errors;
             output.message = "POST request successful"
-
+            const[[trueUserId]] = await db.execute(`SELECT id from userAuth where pid=?`, [userId]);
             await db.execute(`
             INSERT INTO posts 
                 (pid, userId, postType, contentType, postTitle, postContent, postQuote)
                 VALUES (UUID(), ?, ?, ?, ?, ?, ?)`,
-                [userId, postType, contentType, postTitle, postContent, postQuote]);
+                [trueUserId.id, postType, contentType, postTitle, postContent, postQuote]);
             res.send(output);
         }
     }
