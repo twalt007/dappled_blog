@@ -3,6 +3,11 @@
   "version": "1.1.0",
   "description": "Full stack CMS app that allows users to create, read, update and delete blog posts.  Built using React.js, Redux, Node JS.",
   "main": "index.js",
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:3001"
+    }
+  },
   "scripts": {
     "start": "node dev_server.js",
     "build": "webpack --config webpack.prod.js --progress",
