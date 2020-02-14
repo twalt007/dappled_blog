@@ -24,16 +24,17 @@ const NewPost = props => {
         try{
             const resp = await axios.post(`/api/admin/new-post`, data);
             console.log("hanleSubmit resp from axios call: ", resp);
+            let state;
             if (resp.data.code===200){
-                history.push('/success');
+                state = 'success';         
             }
-            //else {
-                // history.push('/fail');
-            // }
+            history.push('/result-message', state);
+            // this.props.reset();
             return;
         }
         catch (error){
-            console.log("Error submitting content to be posted. ", error)
+            console.log("Error submitting content to be posted. ", error);
+            history.push('/success', state);
         }
         
         
