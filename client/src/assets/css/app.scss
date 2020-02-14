@@ -5,6 +5,7 @@
 
 $branding-color: #065f06;
 $branding-light: rgba(6, 95, 6, 0.25);
+$branding-extra-light: rgba(6, 95, 6, 0.10);
 // $breakpoint-tablet: ;
 // $breakpoint-phone-landscape: ;
 // $breakpoint-phone-portrait: ;
@@ -25,7 +26,10 @@ body {
         .h2{
             font-size: 2rem
         }
-        .button-container, .form{
+        .h4{
+            font-size: 1
+        }
+        .button-container, .form, .section-container{
             margin: 3% 4.5%;
             .fat-border{
                 border-style: solid;
@@ -90,6 +94,16 @@ body {
             display: flex;
             width: 70vw;
             justify-content: flex-end;
+        }
+        .green-space{
+            margin: auto;
+            min-height: 30vh;
+            max-height: max-content;
+            width: 75%;
+            padding: 3%;
+            border-top: 2px solid $branding-color;
+            border-bottom:2px solid $branding-color;
+            background-color: $branding-extra-light;
         }
         .center{
             margin: auto;

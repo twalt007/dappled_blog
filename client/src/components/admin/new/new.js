@@ -6,13 +6,13 @@ import axios from 'axios';
 
 const NewPost = props => {
     const {history} = props;
-    const userId = 'a9ec5c8d-455a-11ea-8fd0-a4db300c2566';
+    // const userId = 'a9ec5c8d-455a-11ea-8fd0-a4db300c2566';
     const handleSubmit = async(values) => {
         console.log("inside handleSubmit Funciton");
         console.log("form values: ", values);
         //need to get userId from elsewhere; can't hardcode
         const data = {
-            userId: userId,
+            userId: props.userId,
             post: {
                 postType: values.postType,
                 contentType: values.contentType,
@@ -24,8 +24,13 @@ const NewPost = props => {
         try{
             const resp = await axios.post(`/api/admin/new-post`, data);
             console.log("hanleSubmit resp from axios call: ", resp);
-            history.push('/success');
-            return ("Congratulations! Your content was successfully posted!");
+            if (resp.data.code===200){
+                history.push('/success');
+            }
+            //else {
+                // history.push('/fail');
+            // }
+            return;
         }
         catch (error){
             console.log("Error submitting content to be posted. ", error)
