@@ -99,7 +99,7 @@ body {
             margin: auto;
             min-height: 30vh;
             max-height: max-content;
-            width: 75%;
+            width: 94%;
             padding: 3%;
             border-top: 2px solid $branding-color;
             border-bottom:2px solid $branding-color;
@@ -107,6 +107,19 @@ body {
         }
         .center{
             margin: auto;
+        }
+        .list-item{
+            margin-bottom: 20px;
+        }
+        .edit-list-title:hover{
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        .italicized{
+            font-style: italic;
+        }
+        .indent{
+            padding-left: 45px;
         }
     }
 }

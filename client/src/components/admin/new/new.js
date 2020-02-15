@@ -6,7 +6,6 @@ import axios from 'axios';
 
 const NewPost = props => {
     const {history} = props;
-    // const userId = 'a9ec5c8d-455a-11ea-8fd0-a4db300c2566';
     const handleSubmit = async(values) => {
         console.log("inside handleSubmit Funciton");
         console.log("form values: ", values);
