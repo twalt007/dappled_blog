@@ -1,6 +1,11 @@
 const db = require('../../../db')
 
-module.exports = async (req, res) => {
+
+//I can't mix net and output style of error handling.  how would I change it so that I can 
+//use my middleware (I want to to this for my catch, to have a default 500 error response) 
+//but then I want to be able to have an array of errors when other values are missing such as my postTitle, postContent, etc.
+
+module.exports = async (req, res, next) => {
 
     try{
         const { userId='a9ec5c8d-455a-11ea-8fd0-a4db300c2566', post} = req.body;
@@ -14,18 +19,15 @@ module.exports = async (req, res) => {
             message: "Invalid POST Request"
         }
         if(!userId){
-            output.errors.push('userId missing');
+            var error = new ApiError(404, 'Specified userId not found');
+            next(error);
+            // output.errors.push('userId missing');
         }
         //add additional data verification and checking, to make sure there are no quotes around id, make sure correct number format, etc==> 422 invalid id recieved
-        const[[trueUserId= null]] = await db.execute(`SELECT id from userAuth where pid=?`, [userId]);
-        //belo error checking for trueUserId doesn't work.  need to find another way to check.  end up getting 500 error
-        if(!trueUserId){
-            output.code = 404;
-            output.errors.push('Specified userId not found');
-            return;
-        }
         if(!postTitle){
-            output.errors.push('Post missing title');
+            var error = new ApiError(404, 'Specified userId not found');
+            next(error);
+            // output.errors.push('Post missing title');
         };
         if(!postContent){
             output.errors.push('Post missing content');
@@ -36,7 +38,13 @@ module.exports = async (req, res) => {
         if ( !postType || postType !== 'standard' && postType !== 'recipe'){
             output.errors.push('Invalid post type recieved');
         }
-        //no check for content type because will later build out so that can add content types     
+        //no check for content type because will later build out so that can add content types    
+        const[[trueUserId = null]] = await db.execute(`SELECT id from userAuth where pid=?`, [userId]);
+        if(!trueUserId){
+            var error = new ApiError(404, 'Specified userId not found');
+            next(error);
+            return;
+        } 
         if (output.errors.length) {
             res.status(output.code).send(output);
             return;
@@ -54,8 +62,12 @@ module.exports = async (req, res) => {
             res.send(output);
         }
     }
-    catch(error){
-        console.log("error: ", error);
-        res.status(500).send("Server error");
+    catch(error){{
+        next(error);
     }
+
+    }
+    
+    
+
 };
