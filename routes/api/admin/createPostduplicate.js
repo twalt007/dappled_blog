@@ -20,13 +20,14 @@ module.exports = async (req, res, next) => {
         }
         if(!userId){
             var error = new ApiError(404, 'Specified userId not found');
-            next(error);
+            //push to errors, then later return next
+            // next(error);
             // output.errors.push('userId missing');
         }
         //add additional data verification and checking, to make sure there are no quotes around id, make sure correct number format, etc==> 422 invalid id recieved
         if(!postTitle){
             var error = new ApiError(404, 'Specified userId not found');
-            next(error);
+            // next(error);
             // output.errors.push('Post missing title');
         };
         if(!postContent){

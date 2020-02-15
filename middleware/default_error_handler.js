@@ -5,6 +5,7 @@ module.exports = (error, req, res, next) => {
     if(error instanceof ApiError){
         message = error.message;
         status = error.status
+
     }
     // if(error.status=422){
     //     //DELETE ME
