@@ -5,13 +5,10 @@ import PostForm from '../general/form/postForm'
 import axios from 'axios';
 
 const NewPost = props => {
-    const {history} = props;
+    const {history, userId='a9ec5c8d-455a-11ea-8fd0-a4db300c2566'} = props;
     const handleSubmit = async(values) => {
-        console.log("inside handleSubmit Funciton");
-        console.log("form values: ", values);
-        //need to get userId from elsewhere; can't hardcode
         const data = {
-            userId: props.userId,
+            userId: userId,
             post: {
                 postType: values.postType,
                 contentType: values.contentType,
@@ -20,20 +17,19 @@ const NewPost = props => {
                 postQuote: values.postQuote,
             }
         }
+        let state;
         try{
             const resp = await axios.post(`/api/admin/new-post`, data);
             console.log("hanleSubmit resp from axios call: ", resp);
-            let state;
             if (resp.data.code===200){
                 state = 'success';         
             }
             history.push('/result-message', state);
-            // this.props.reset();
             return;
         }
         catch (error){
             console.log("Error submitting content to be posted. ", error);
-            history.push('/success', state);
+            history.push('/result-message');
         }
         
         
