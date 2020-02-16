@@ -37,7 +37,7 @@ class EditList extends Component{
      
     componentDidMount= async()=>{
         const {history, userId = 'a9ec5c8d-455a-11ea-8fd0-a4db300c2566'} = this.props;
-        let state;
+        let resultMessageState;
         try{           
             const resp = await axios.get(`/api/admin/post-list/${userId}`);
             const returnedPosts = resp.data;
@@ -52,11 +52,24 @@ class EditList extends Component{
         }
         catch (error){
             console.log("Error getting list of posts.", error);
-            history.push('/result-message', state);
+            history.push('/result-message', resultMessageState);
         }  
     }
-    goToDetails(postId){
-
+    goToDetails = async(postId) => {
+        const {history} = this.props;
+        let resultMessageState;
+        try{           
+            const resp = await axios.get(`/api/admin/post-details/${postId}`);
+            console.log("goToDetails resp: ", resp);
+            // this.setState({
+            //     posts: returnedPosts
+            // }, () => {console.log('hi')})
+           
+        }
+        catch (error){
+            console.log("Error getting post details.", error);
+            history.push('/result-message', resultMessageState);
+        } 
     }
 
     render(){
