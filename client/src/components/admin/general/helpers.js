@@ -21,3 +21,13 @@ export const formatDate = (rawDate) => {
     const finalDate = `${month} ${day}, ${year}`
     return finalDate;
 }
+
+export const formatUrl = (postDetails) => {
+    const {postTitle} = postDetails;
+    const noSpecialCharacters = postTitle.replace(/([^0-9a-zA-Z\s]+)/g, "");
+    const lowerCase = noSpecialCharacters.toLowerCase();
+    const noLeadingSpaces = lowerCase.replace(/^\s*|\s*$/,"");
+    const hyphenated = noLeadingSpaces.replace(/\s+/g,'-');
+    
+    return hyphenated;    
+}

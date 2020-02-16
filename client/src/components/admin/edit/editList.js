@@ -3,28 +3,8 @@ import AdminHeader from '../general/header/admin_header'
 import NavButton from '../general/navButton'
 import EditListItem from './editListItem'
 import axios from 'axios';
-
-
-//hook up API call on front end withh server
-//make sure all console logging out
-//change below item to be a class component so that API call happening with pg load
-//feed content into props on list item to ahve render for each using map
-//update ontent to vary with logic for updated at (actually, don't need this yet.  no archive posibilities.  updated suffices for bothcreated and jpdate)
-//celebrate!!
-//set up onClick for going to page with details for that item; ==>
-//make api call for item
-//push into the editingpage
-//
-
-// console.log("hanleSubmit resp from axios call: ", resp);
-//             let state;
-//             if (resp.data.code===200){
-//                 state = 'success';         
-//             }
-//             history.push('/result-message', state);
-//             return;
-//         }
-        
+import { formatUrl } from '../general/helpers';
+       
 
 class EditList extends Component{
     constructor(props){
@@ -43,7 +23,7 @@ class EditList extends Component{
             const returnedPosts = resp.data;
             this.setState({
                 posts: returnedPosts
-            }, () => {console.log('hi')})
+            })
             //delete me!
             const test = this.state.posts;
             console.log("resp: ", resp);
@@ -61,9 +41,20 @@ class EditList extends Component{
         try{           
             const resp = await axios.get(`/api/admin/post-details/${postId}`);
             console.log("goToDetails resp: ", resp);
-            // this.setState({
-            //     posts: returnedPosts
-            // }, () => {console.log('hi')})
+            const [ postDetails ] = resp.data;
+            console.log("PostDetails: ", postDetails);
+            const titleUrl = formatUrl(postDetails);
+            history.push(`/edit-post/${titleUrl}`);
+            
+            
+            //send information on post clicked on and returned from resp to the next page
+            //set up page to decompose and recieve, and  place into the input sections
+            //fingers crossed this will work!!!
+
+            //set up API call so that is a patch request on these
+            //set up API to work accordingly  -copy much of error handling used in origional post
+
+            //celebrate!  and move on to delete section
            
         }
         catch (error){
