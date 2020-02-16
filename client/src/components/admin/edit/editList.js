@@ -75,8 +75,6 @@ class EditList extends Component{
                 </div>
             ); 
         }
-        console.log("did I finish the first half of the conditional?");
-        console.log("I'm missing!come find me!");
         const postList = postData.map((post,index) => {
             return(
                 <EditListItem 
