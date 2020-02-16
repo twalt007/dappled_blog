@@ -14,7 +14,6 @@ class Success extends Component{
     }
 
     render(){
-        console.log("post page switch, ", this.state.history);
         let text;
         let message;
     if (this.state.success==='success'){

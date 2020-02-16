@@ -4,9 +4,7 @@ import NavButton from '../general/navButton'
 import EditListItem from './editListItem'
 import axios from 'axios';
 
-//test to make sure this axios call is getting made, looks to be in order
-//create API on server
-//test API on server
+
 //hook up API call on front end withh server
 //make sure all console logging out
 //change below item to be a class component so that API call happening with pg load
@@ -18,59 +16,88 @@ import axios from 'axios';
 //push into the editingpage
 //
 
+// console.log("hanleSubmit resp from axios call: ", resp);
+//             let state;
+//             if (resp.data.code===200){
+//                 state = 'success';         
+//             }
+//             history.push('/result-message', state);
+//             return;
+//         }
+        
 
-const EditList = props => {
-    const {history, userId} = props;
-    const getPostList= async()=>{
-        try{
-            console.log("before apiCall");            
+class EditList extends Component{
+    constructor(props){
+        super(props);
+
+        this.state={
+            posts: []
+        }
+    }
+     
+    componentDidMount= async()=>{
+        const {history, userId = 'a9ec5c8d-455a-11ea-8fd0-a4db300c2566'} = this.props;
+        let state;
+        try{           
             const resp = await axios.get(`/api/admin/post-list/${userId}`);
-            console.log("apiCal resp from axios call: ", resp);            
+            const returnedPosts = resp.data;
+            this.setState({
+                posts: returnedPosts
+            }, () => {console.log('hi')})
+            //delete me!
+            const test = this.state.posts;
+            console.log("resp: ", resp);
+            console.log("posts after call: ", test);
+
         }
         catch (error){
-            // let state;
-            // history.push('/success', state);
+            console.log("Error getting list of posts.", error);
+            history.push('/result-message', state);
         }  
     }
-    return(
-        <div className='section-container'>
-            <AdminHeader />
-            <NavButton text="Edit Post" buttonClasses="title center" onClick="null" />
-            <h4 className="h4">Select Post</h4>
-            <div className="green-space">
-                <EditListItem onClick={getPostList}/>
-                <EditListItem />
-                <EditListItem />
-                <EditListItem />
+    goToDetails(postId){
 
-                <div className='list-item'>
-                    <h5 className="h5 edit-list-title" onClick={getPostList} >Post Title</h5>
-                    <h6 className="h6 indent italicized edit-list-date">Last Updated Month ##, ####</h6>
+    }
+
+    render(){
+        const postData = this.state.posts;
+        
+        if(!postData){
+            return(
+                <div className='section-container'>
+                    <AdminHeader />
+                    <NavButton text="Edit Post" buttonClasses="title center" onClick="null" />
+                    <h4 className="h4">Select Post</h4>
+                    <div className="green-space">
+                        <h2 className="h2 please-wait">Patience is a virtue!</h2>
+                        <h4 className="h4 please-wait">Please wait while retrieving data</h4>
+                    </div>
                 </div>
-                <div className='list-item'>
-                    <h5 className="h5 edit-list-title">Post Title</h5>
-                    <h6 className="h6 indent italicized edit-list-date">Last Updated Month ##, ####</h6>
+            ); 
+        }
+        console.log("did I finish the first half of the conditional?");
+        console.log("I'm missing!come find me!");
+        const postList = postData.map((post,index) => {
+            return(
+                <EditListItem 
+                    key={index}
+                    {...post}
+                    onClick={this.goToDetails.bind(this, post.postId)}
+                />
+            )
+        });
+        return(
+            <div className='section-container'>
+                <AdminHeader />
+                <NavButton text="Edit Post" buttonClasses="title center" onClick="null" />
+                <h4 className="h4">Select Post</h4>
+                <div className="green-space">
+                    {postList}                                  
                 </div>
-                <div className='list-item'>
-                    <h5 className="h5 edit-list-title">Post Title</h5>
-                    <h6 className="h6 indent italicized edit-list-date">Last Updated Month ##, ####</h6>
-                </div>                
             </div>
-        </div>
-    )
+        );
+    }
 }
+
 export default EditList;
-
-
-
-
-// class EditPost extends Component {
-//     constructor (props){
-//         super(props);
-
-//     }
-//     componentDidMount(e){
-//         axios.get('/')
-//     }
-// }
 
