@@ -1,10 +1,6 @@
 import React from 'react'
 import {formatDate} from '../general/helpers'
 
-//     0:
-    // postId: "a7bfa991-455b-11ea-8fd0-a4db300c2566"
-    // postTitle: "Hello World!"
-    // updatedAt: "2020-02-05T03:53:45.000Z"
 
 const EditListItem = (props) => {
     const {onClick, postTitle, createdAt, updatedAt } = props;
