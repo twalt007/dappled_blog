@@ -17,14 +17,15 @@ const NewPost = props => {
                 postQuote: values.postQuote,
             }
         }
-        let state;
+        console.log("handleSubmit new post data: ", data);
+        let resultMessageState;
         try{
             const resp = await axios.post(`/api/admin/new-post`, data);
             console.log("hanleSubmit resp from axios call: ", resp);
             if (resp.data.code===200){
-                state = 'success';         
+                resultMessageState = 'success';         
             }
-            history.push('/result-message', state);
+            history.push('/result-message', resultMessageState);
             return;
         }
         catch (error){
