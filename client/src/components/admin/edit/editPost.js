@@ -1,12 +1,24 @@
-import React from 'react'
+import React, {Component} from 'react'
 import AdminHeader from '../general/header/admin_header'
 import NavButton from '../general/navButton'
 import PostForm from '../general/form/postForm'
 import axios from 'axios';
 
-const EditPost = props => {
-    const {history, userId='a9ec5c8d-455a-11ea-8fd0-a4db300c2566'} = props;
-    const handleSubmit = async(values) => {
+class EditPost extends Component {
+    constructor (props){
+        super(props);
+        
+        this.state={
+            history: props.history,
+
+            postTitle: props.history.location.state.postTitle,
+            postContent: props.history.location.state.postContent,
+            postQuote: props.history.location.state.postQuote
+        }
+
+    }
+    
+    handleSubmit = async(values) => {
         const data = {
             userId: userId,
             post: {
@@ -34,14 +46,21 @@ const EditPost = props => {
         
         
     }
-    const initialValues = {postTitle:'testing', postContent: 'testing', postQuote: 'testing'}
-    return (
-        <div className="section-container">
-            <AdminHeader />
-            <NavButton text="Edit Post" buttonClasses = "title center" onClick="null"/>
-            <PostForm handleSubmit={handleSubmit} mainHistory={history} text="Post" initialValues={initialValues}/>
-        </div>
-    )
+    render(){
+        let initialValues = { 
+            postTitle: this.state.postTitle, 
+            postContent: this.state.postContent, 
+            postQuote: this.state.postQuote
+        };
+        
+        return (
+            <div className="section-container">
+                <AdminHeader />
+                <NavButton text="Edit Post" buttonClasses = "title center" onClick="null"/>
+                <PostForm handleSubmit={this.handleSubmit} mainHistory={this.state.history} text="Post" initialValues={initialValues}/>
+            </div>
+        )
+    }
 }
 
 export default EditPost;

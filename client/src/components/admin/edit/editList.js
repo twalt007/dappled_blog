@@ -24,10 +24,6 @@ class EditList extends Component{
             this.setState({
                 posts: returnedPosts
             })
-            //delete me!
-            const test = this.state.posts;
-            console.log("resp: ", resp);
-            console.log("posts after call: ", test);
 
         }
         catch (error){
@@ -35,27 +31,20 @@ class EditList extends Component{
             history.push('/result-message', resultMessageState);
         }  
     }
-    goToDetails = async(postId) => {
-        const {history} = this.props;
-        let resultMessageState;
-        try{           
-            const resp = await axios.get(`/api/admin/post-details/${postId}`);
-            console.log("goToDetails resp: ", resp);
-            const [ postDetails ] = resp.data;
-            console.log("PostDetails: ", postDetails);
-            const titleUrl = formatUrl(postDetails);
-            history.push(`/edit-post/${titleUrl}`);
-            
-            
-            //send information on post clicked on and returned from resp to the next page
-            //set up page to decompose and recieve, and  place into the input sections
-            //fingers crossed this will work!!!
 
             //set up API call so that is a patch request on these
             //set up API to work accordingly  -copy much of error handling used in origional post
 
             //celebrate!  and move on to delete section
-           
+    goToDetails = async(postId) => {
+        const {history} = this.props;
+        let resultMessageState;
+        try{           
+            const resp = await axios.get(`/api/admin/post-details/${postId}`);
+            const [ postDetails ] = resp.data;
+            const titleUrl = formatUrl(postDetails);
+            let editFormState = postDetails;
+            history.push(`/edit-post/${titleUrl}`, editFormState);   
         }
         catch (error){
             console.log("Error getting post details.", error);
