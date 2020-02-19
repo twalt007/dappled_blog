@@ -15,7 +15,7 @@ class DeleteList extends Component{
         }
     }
      
-    componentDidMount= async()=>{
+    componentDidMount = async()=>{
         const {history, userId = 'a9ec5c8d-455a-11ea-8fd0-a4db300c2566'} = this.props;
         let resultMessageState;
         try{           

@@ -13,7 +13,7 @@ module.exports = async (req,res) => {
             output.errors.push('postId missing');
         }
         const [postDetails] = await db.execute(`
-        SELECT postTitle, postContent, postQuote, id
+        SELECT postTitle, postContent, postQuote, id, updatedAt
         FROM posts
         WHERE pid=?`,
         [postId]);

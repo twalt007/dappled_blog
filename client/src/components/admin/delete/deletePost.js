@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import AdminHeader from '../general/header/admin_header'
 import NavButton from '../general/navButton'
-import PostForm from '../general/form/postForm'
+import {formatDate} from '../general/helpers'
 import axios from 'axios';
 
 class DeletePost extends Component {
@@ -12,52 +12,46 @@ class DeletePost extends Component {
             history: props.history,
 
             postTitle: props.history.location.state.postTitle,
-            postContent: props.history.location.state.postContent,
-            postQuote: props.history.location.state.postQuote,
+            // postContent: props.history.location.state.postContent,
+            // postQuote: props.history.location.state.postQuote,
             postId: props.history.location.state.id,
+            updatedAt: props.history.location.state.updatedAt
         }
     }
     
-    handleSubmit = async(values) => {
-        //create current date/need to ask how a delete request is normally performed
-        const data = {
-            post: {
-                id: this.state.postId,
-                postTitle: values.postTitle,
-                postContent: values.postContent,
-                postQuote: values.postQuote
-            }
-        }
-        let resultMessageState;
-        try{
-            const resp = await axios.patch(`/api/admin/post-details/${this.state.postId}`, data);
-            if (resp.status===200){
-                resultMessageState = 'success';         
-            }
-            this.state.history.push('/result-message', resultMessageState);
-            return;
-        }
-        catch (error){
-            console.log("Error attempting to delete content. ", error);
-            this.state.history.push('/result-message');
-        }
-        
-        
+    handleDelete = async() => {
+        console.log("handle delete called");
+        // let resultMessageState;
+        // try{
+        //     const resp = await axios.post(`/api/admin/delete-post/${this.state.postId}`);
+        //     if (resp.status===200){
+        //         resultMessageState = 'success';         
+        //     }
+        //     this.state.history.push('/result-message', resultMessageState);
+        //     return;
+        // }
+        // catch (error){
+        //     console.log("Error attempting to delete content. ", error);
+        //     this.state.history.push('/result-message');
+        // }
+             
     }
     render(){
-        //will return data -->  very similar to thhe post list, except for will only have one item and will show a preview of the first portion of the content.  in a future set.  right now simply show the title and the date, and add text to ask if want to delete for sure?  add note to meistertask about wanting to delete
-        
-        let initialValues = { 
-            postTitle: this.state.postTitle, 
-            postContent: this.state.postContent, 
-            postQuote: this.state.postQuote
-        };
-        
-        return (
+        //will return data -->  very similar to the post list, except for will only have one item and will show a preview of the first portion of the content.  in a future set.  right now simply show the title and the date, and add text to ask if want to delete for sure?  add note to meistertask about wanting to delete
+        const formattedDate = formatDate(this.state.updatedAt);
+        return (            
             <div className="section-container">
                 <AdminHeader />
                 <NavButton text="Delete Post" buttonClasses = "title center" onClick="null"/>
-                <PostForm handleSubmit={this.handleSubmit} mainHistory={this.state.history} text="Update" initialValues={initialValues}/>
+                <h4 className="h4">Are you sure you wish to delete?</h4>
+                <div className="green-space">
+                    <h5 className="h5 edit-list-title">{this.state.postTitle}</h5>
+                    <h6 className="h6 indent italicized edit-list-date">Last Modified on {formattedDate}</h6>
+                </div>
+                <div className="flexed">
+                    <NavButton buttonClasses='small-button left' text='Return' url='/' mainHistory={this.state.history}/>
+                    <div className='small-button fat-border button' onClick={this.handleDelete}>Delete</div>
+                </div>
             </div>
         )
     }
