@@ -13,35 +13,34 @@ class EditPost extends Component {
 
             postTitle: props.history.location.state.postTitle,
             postContent: props.history.location.state.postContent,
-            postQuote: props.history.location.state.postQuote
+            postQuote: props.history.location.state.postQuote,
+            postId: props.history.location.state.id,
         }
-
     }
     
     handleSubmit = async(values) => {
         const data = {
-            userId: userId,
             post: {
-                postType: values.postType,
-                contentType: values.contentType,
+                id: this.state.postId,
                 postTitle: values.postTitle,
                 postContent: values.postContent,
-                postQuote: values.postQuote,
+                postQuote: values.postQuote
             }
         }
-        let state;
+        console.log("handleSubmit data: ", data);
+        let resultMessageState;
         try{
-            const resp = await axios.post(`/api/admin/new-post`, data);
-            console.log("hanleSubmit resp from axios call: ", resp);
-            if (resp.data.code===200){
-                state = 'success';         
+            const resp = await axios.patch(`/api/admin/post-details/${this.state.postId}`, data);
+            console.log("handleSubmit resp from axios patch call: ", resp);
+            if (resp.status===200){
+                resultMessageState = 'success';         
             }
-            history.push('/result-message', state);
+            this.state.history.push('/result-message', resultMessageState);
             return;
         }
         catch (error){
             console.log("Error submitting content to be posted. ", error);
-            history.push('/result-message');
+            this.state.history.push('/result-message');
         }
         
         
@@ -57,7 +56,7 @@ class EditPost extends Component {
             <div className="section-container">
                 <AdminHeader />
                 <NavButton text="Edit Post" buttonClasses = "title center" onClick="null"/>
-                <PostForm handleSubmit={this.handleSubmit} mainHistory={this.state.history} text="Post" initialValues={initialValues}/>
+                <PostForm handleSubmit={this.handleSubmit} mainHistory={this.state.history} text="Update" initialValues={initialValues}/>
             </div>
         )
     }

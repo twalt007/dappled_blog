@@ -32,7 +32,6 @@ const PostForm = (props) => {
             })}
             
             onSubmit = {(values, {setSubmitting})=>{
-                console.log("submit button working");
                 handleSubmit(values);
                 setSubmitting(false);
             }}
