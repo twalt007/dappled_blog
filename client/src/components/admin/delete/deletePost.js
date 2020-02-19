@@ -4,7 +4,7 @@ import NavButton from '../general/navButton'
 import PostForm from '../general/form/postForm'
 import axios from 'axios';
 
-class EditPost extends Component {
+class DeletePost extends Component {
     constructor (props){
         super(props);
         
@@ -19,6 +19,7 @@ class EditPost extends Component {
     }
     
     handleSubmit = async(values) => {
+        //create current date/need to ask how a delete request is normally performed
         const data = {
             post: {
                 id: this.state.postId,
@@ -37,13 +38,15 @@ class EditPost extends Component {
             return;
         }
         catch (error){
-            console.log("Error submitting content to be posted. ", error);
+            console.log("Error attempting to delete content. ", error);
             this.state.history.push('/result-message');
         }
         
         
     }
     render(){
+        //will return data -->  very similar to thhe post list, except for will only have one item and will show a preview of the first portion of the content.  in a future set.  right now simply show the title and the date, and add text to ask if want to delete for sure?  add note to meistertask about wanting to delete
+        
         let initialValues = { 
             postTitle: this.state.postTitle, 
             postContent: this.state.postContent, 
@@ -53,11 +56,11 @@ class EditPost extends Component {
         return (
             <div className="section-container">
                 <AdminHeader />
-                <NavButton text="Edit Post" buttonClasses = "title center" onClick="null"/>
+                <NavButton text="Delete Post" buttonClasses = "title center" onClick="null"/>
                 <PostForm handleSubmit={this.handleSubmit} mainHistory={this.state.history} text="Update" initialValues={initialValues}/>
             </div>
         )
     }
 }
 
-export default EditPost;
+export default DeletePost;
