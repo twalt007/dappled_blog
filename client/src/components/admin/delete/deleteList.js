@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import AdminHeader from '../general/header/admin_header'
 import NavButton from '../general/navButton'
-import ListItem from '../general/AdminListItem/ListItem'
+import ListItem from '../general/adminListItem/listItem'
 import axios from 'axios';
 import { formatUrl } from '../general/helpers';
        
@@ -24,7 +24,6 @@ class DeleteList extends Component{
             this.setState({
                 posts: returnedPosts
             })
-
         }
         catch (error){
             console.log("Error getting list of posts.", error);
@@ -38,8 +37,8 @@ class DeleteList extends Component{
             const resp = await axios.get(`/api/admin/post-details/${postId}`);
             const [ postDetails ] = resp.data;
             const titleUrl = formatUrl(postDetails);
-            let editFormState = postDetails;
-            history.push(`/edit-post/${titleUrl}`, editFormState);   
+            let deletePageState = postDetails;
+            history.push(`/delete-post/${titleUrl}`, deletePageState);   
         }
         catch (error){
             console.log("Error getting post details.", error);
@@ -54,7 +53,7 @@ class DeleteList extends Component{
             return(
                 <div className='section-container'>
                     <AdminHeader />
-                    <NavButton text="Edit Post" buttonClasses="title center" onClick="null" />
+                    <NavButton text="Delete Post" buttonClasses="title center" onClick="null" />
                     <h4 className="h4">Select Post</h4>
                     <div className="green-space">
                         <h2 className="h2 please-wait">Patience is a virtue!</h2>
@@ -75,7 +74,7 @@ class DeleteList extends Component{
         return(
             <div className='section-container'>
                 <AdminHeader />
-                <NavButton text="Edit Post" buttonClasses="title center" onClick="null" />
+                <NavButton text="Delete Post" buttonClasses="title center" onClick="null" />
                 <h4 className="h4">Select Post</h4>
                 <div className="green-space">
                     {postList}                                  

@@ -1,8 +1,8 @@
 import React from 'react'
-import {formatDate} from '../general/helpers'
+import {formatDate} from '../helpers'
 
 
-const EditListItem = (props) => {
+const ListItem = (props) => {
     const {onClick, postTitle, createdAt, updatedAt } = props;
 
     let mostRecent = updatedAt;
@@ -23,4 +23,4 @@ const EditListItem = (props) => {
     )
 }
 
-export default EditListItem;
+export default ListItem;

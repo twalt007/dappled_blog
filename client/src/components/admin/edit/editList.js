@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import AdminHeader from '../general/header/admin_header'
 import NavButton from '../general/navButton'
-import ListItem from '../general/AdminListItem/ListItem'
+import ListItem from '../general/adminListItem/listItem'
 import axios from 'axios';
 import { formatUrl } from '../general/helpers';
        
