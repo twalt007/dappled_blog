@@ -27,11 +27,9 @@ class EditPost extends Component {
                 postQuote: values.postQuote
             }
         }
-        console.log("handleSubmit data: ", data);
         let resultMessageState;
         try{
             const resp = await axios.patch(`/api/admin/post-details/${this.state.postId}`, data);
-            console.log("handleSubmit resp from axios patch call: ", resp);
             if (resp.status===200){
                 resultMessageState = 'success';         
             }

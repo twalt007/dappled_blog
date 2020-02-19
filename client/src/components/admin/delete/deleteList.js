@@ -6,7 +6,7 @@ import axios from 'axios';
 import { formatUrl } from '../general/helpers';
        
 
-class EditList extends Component{
+class DeleteList extends Component{
     constructor(props){
         super(props);
 
@@ -85,5 +85,5 @@ class EditList extends Component{
     }
 }
 
-export default EditList;
+export default DeleteList;
 
