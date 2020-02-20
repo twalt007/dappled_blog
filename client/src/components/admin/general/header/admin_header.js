@@ -5,10 +5,14 @@ import ColoredLine from './coloredLine';
 import { BrandingColor } from '../helpers';
 
 const AdminHeader = props => {
+    const {mainHistory} = props;
+    const reroute = () =>{
+        mainHistory.push('/');
+    }
     return (
         <div className="admin-header-container">
             <div className='image-container'>
-                <img className="logo" src={logo} alt='Dappled Logo'/>
+                <img className="logo" src={logo} alt='Dappled Logo' onClick={reroute}/>
             </div>
             <ColoredLine color = {BrandingColor} />
             <ColoredLine color = {BrandingColor} />

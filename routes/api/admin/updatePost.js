@@ -31,7 +31,7 @@ module.exports = async (req,res) => {
         
         if( id && postTitle && postContent && postQuote){
             await db.execute(`
-            UPDATE posts 
+                UPDATE posts 
                 SET postTitle = ?, postContent =?, postQuote=?
                 WHERE id=?
                 `, [postTitle, postContent, postQuote, id]);

@@ -15,7 +15,7 @@ import NavButton from '../navButton'
 
 
 const PostForm = (props) => {
-    const {initialValues, text, mainHistory, handleSubmit} = props;
+    const {initialValues, text='Ok', mainHistory, handleSubmit, returnUrl='/'} = props;
     return (
         <Formik 
             initialValues={initialValues}
@@ -47,7 +47,7 @@ const PostForm = (props) => {
                 <Field className="fat-border form-input" name="postQuote" type="text" />
                 <ErrorMessage className="form-error" name="postQuote" />
                 <div className="flexed">
-                    <NavButton buttonClasses='small-button left' text='Return' url='/' mainHistory={mainHistory}/>
+                    <NavButton buttonClasses='small-button left' text='Return' url={returnUrl} mainHistory={mainHistory}/>
                     <button className='small-button fat-border button' type='submit'>{text}</button>
                 </div>
             </Form>

@@ -23,7 +23,7 @@ module.exports = async (req,res) => {
         const [allPosts] = await db.query(`
             SELECT pid AS postId, postTitle, createdAt, updatedAt 
             FROM posts 
-            WHERE userId=?`,
+            WHERE deletedAt IS NULL AND userId=?`,
             [trueUserId.id]);
         res.send(allPosts);
     }catch(error){

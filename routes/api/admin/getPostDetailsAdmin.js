@@ -3,7 +3,6 @@ const db = require('../../../db');
 module.exports = async (req,res) => {
     try{
         const { postId } = req.params;
-        console.log('postId: ', postId);
         let output = {
             code: 422,
             errors: [],
@@ -13,7 +12,7 @@ module.exports = async (req,res) => {
             output.errors.push('postId missing');
         }
         const [postDetails] = await db.execute(`
-        SELECT postTitle, postContent, postQuote, id
+        SELECT postTitle, postContent, postQuote, id, updatedAt
         FROM posts
         WHERE pid=?`,
         [postId]);

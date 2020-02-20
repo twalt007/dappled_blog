@@ -15,7 +15,7 @@ class DeleteList extends Component{
         }
     }
      
-    componentDidMount= async()=>{
+    componentDidMount = async()=>{
         const {history, userId = 'a9ec5c8d-455a-11ea-8fd0-a4db300c2566'} = this.props;
         let resultMessageState;
         try{           
@@ -52,7 +52,7 @@ class DeleteList extends Component{
         if(!postData){
             return(
                 <div className='section-container'>
-                    <AdminHeader />
+                    <AdminHeader mainHistory={history}/>
                     <NavButton text="Delete Post" buttonClasses="title center" onClick="null" />
                     <h4 className="h4">Select Post</h4>
                     <div className="green-space">
@@ -73,11 +73,14 @@ class DeleteList extends Component{
         });
         return(
             <div className='section-container'>
-                <AdminHeader />
+                <AdminHeader mainHistory={this.props.history}/>
                 <NavButton text="Delete Post" buttonClasses="title center" onClick="null" />
                 <h4 className="h4">Select Post</h4>
                 <div className="green-space">
                     {postList}                                  
+                </div>
+                <div className="flexed">
+                    <NavButton buttonClasses='small-button' text='Return' url='/' mainHistory={this.props.history}/>
                 </div>
             </div>
         );

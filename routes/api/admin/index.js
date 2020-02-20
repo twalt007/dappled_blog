@@ -9,6 +9,6 @@ router.post('/new-post', createRouter);
 router.get('/post-list/:userId', getAllRouterAdmin);
 router.get('/post-details/:postId', getDetailsRouterAdmin);
 router.patch('/post-details/:postId', updateRouter);
-router.delete('/post-list/:postId', deleteRouter);
+router.patch('/delete-post/:postId', deleteRouter);
 
 module.exports = router;
