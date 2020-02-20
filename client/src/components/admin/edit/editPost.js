@@ -52,9 +52,9 @@ class EditPost extends Component {
         
         return (
             <div className="section-container">
-                <AdminHeader />
+                <AdminHeader mainHistory={this.state.history}/>
                 <NavButton text="Edit Post" buttonClasses = "title center" onClick="null"/>
-                <PostForm handleSubmit={this.handleSubmit} mainHistory={this.state.history} text="Update" initialValues={initialValues}/>
+                <PostForm handleSubmit={this.handleSubmit} mainHistory={this.state.history} text="Update" initialValues={initialValues} returnUrl="/edit"/>
             </div>
         )
     }

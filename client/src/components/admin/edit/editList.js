@@ -53,7 +53,7 @@ class EditList extends Component{
         if(!postData){
             return(
                 <div className='section-container'>
-                    <AdminHeader />
+                    <AdminHeader mainHistory={history}/>
                     <NavButton text="Edit Post" buttonClasses="title center" onClick="null" />
                     <h4 className="h4">Select Post</h4>
                     <div className="green-space">
@@ -74,11 +74,14 @@ class EditList extends Component{
         });
         return(
             <div className='section-container'>
-                <AdminHeader />
+                <AdminHeader mainHistory={this.props.history}/>
                 <NavButton text="Edit Post" buttonClasses="title center" onClick="null" />
                 <h4 className="h4">Select Post</h4>
                 <div className="green-space">
                     {postList}                                  
+                </div>
+                <div className="flexed">
+                    <NavButton buttonClasses='small-button' text='Return' url='/edit' mainHistory={this.props.history}/>
                 </div>
             </div>
         );

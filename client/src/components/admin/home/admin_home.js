@@ -7,7 +7,7 @@ const AdminHome = props => {
     const {history} = props
     return(
         <div className = "section-container">
-            <AdminHeader />
+            <AdminHeader mainHistory={history}/>
             <div className="home-text">
                 <h1 className="h1 text">Welcome to your happy place!</h1>
                 <h2 className="h2 text">What would you like to do?</h2>

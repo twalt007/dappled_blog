@@ -21,27 +21,26 @@ class DeletePost extends Component {
     
     handleDelete = async() => {
         console.log("handle delete called");
-        // let resultMessageState;
-        // try{
-        //     const resp = await axios.post(`/api/admin/delete-post/${this.state.postId}`);
-        //     if (resp.status===200){
-        //         resultMessageState = 'success';         
-        //     }
-        //     this.state.history.push('/result-message', resultMessageState);
-        //     return;
-        // }
-        // catch (error){
-        //     console.log("Error attempting to delete content. ", error);
-        //     this.state.history.push('/result-message');
-        // }
+        let resultMessageState;
+        try{
+            const resp = await axios.post(`/api/admin/delete-post/${this.state.postId}`);
+            if (resp.status===200){
+                resultMessageState = 'success';         
+            }
+            this.state.history.push('/result-message', resultMessageState);
+            return;
+        }
+        catch (error){
+            console.log("Error attempting to delete content. ", error);
+            this.state.history.push('/result-message');
+        }
              
     }
     render(){
-        //will return data -->  very similar to the post list, except for will only have one item and will show a preview of the first portion of the content.  in a future set.  right now simply show the title and the date, and add text to ask if want to delete for sure?  add note to meistertask about wanting to delete
         const formattedDate = formatDate(this.state.updatedAt);
         return (            
             <div className="section-container">
-                <AdminHeader />
+                <AdminHeader mainHistory={this.state.history}/>
                 <NavButton text="Delete Post" buttonClasses = "title center" onClick="null"/>
                 <h4 className="h4">Are you sure you wish to delete?</h4>
                 <div className="green-space">
@@ -49,7 +48,7 @@ class DeletePost extends Component {
                     <h6 className="h6 indent italicized edit-list-date">Last Modified on {formattedDate}</h6>
                 </div>
                 <div className="flexed">
-                    <NavButton buttonClasses='small-button left' text='Return' url='/' mainHistory={this.state.history}/>
+                    <NavButton buttonClasses='small-button left' text='Return' url='/delete' mainHistory={this.state.history}/>
                     <div className='small-button fat-border button' onClick={this.handleDelete}>Delete</div>
                 </div>
             </div>

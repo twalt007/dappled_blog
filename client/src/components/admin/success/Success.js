@@ -34,7 +34,7 @@ class Success extends Component{
     }
     return (
         <div className = "section-container">
-            <AdminHeader />
+            <AdminHeader mainHistory={this.props.history}/>
             <NavButton text={text} buttonClasses = "title center" onClick="null"/>
             <div className = "green-space">{message}</div>
             <div className="flexed">
