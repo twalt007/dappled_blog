@@ -20,7 +20,6 @@ class DeletePost extends Component {
     }
     
     handleDelete = async() => {
-        console.log("handle delete called");
         let resultMessageState;
         try{
             const resp = await axios.patch(`/api/admin/delete-post/${this.state.postId}`);

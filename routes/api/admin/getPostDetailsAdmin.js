@@ -3,7 +3,6 @@ const db = require('../../../db');
 module.exports = async (req,res) => {
     try{
         const { postId } = req.params;
-        console.log('postId: ', postId);
         let output = {
             code: 422,
             errors: [],
