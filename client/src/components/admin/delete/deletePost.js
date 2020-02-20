@@ -23,7 +23,7 @@ class DeletePost extends Component {
         console.log("handle delete called");
         let resultMessageState;
         try{
-            const resp = await axios.post(`/api/admin/delete-post/${this.state.postId}`);
+            const resp = await axios.patch(`/api/admin/delete-post/${this.state.postId}`);
             if (resp.status===200){
                 resultMessageState = 'success';         
             }
