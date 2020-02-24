@@ -8,8 +8,8 @@ import EditPost from './admin/edit/editPost'
 import DeleteList from './admin/delete/deleteList'
 import DeletePost from './admin/delete/deletePost'
 import Success from './admin/success'
-import PublicHome from './blog/home'
-import Post from './blog/post'
+import BlogHome from './blog/home'
+import PostContent from './blog/post/postContent';
 
 const App = () => (
     <div className="app">
@@ -20,8 +20,8 @@ const App = () => (
         <Route path="/delete" component={DeleteList} />
         <Route path="/delete-post/:postTitle" component={DeletePost} />
         <Route path="/result-message" component={Success} />
-        <Route path="/home" component={PublicHome} />
-        <Route path="/post" component={Post} />
+        <Route path="/home" component={BlogHome} />
+        <Route path="/post/:postTitle" component={PostContent} />
     </div>
 );
 

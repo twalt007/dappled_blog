@@ -8,9 +8,10 @@ class Success extends Component{
         super(props);
 
         this.state={
-            history: props.history,
             success: props.history.location.state
         }
+
+        this.history = props.history
     }
 
     render(){
@@ -34,11 +35,11 @@ class Success extends Component{
     }
     return (
         <div className = "section-container">
-            <AdminHeader mainHistory={this.props.history}/>
+            <AdminHeader mainHistory={this.history}/>
             <NavButton text={text} buttonClasses = "title center" onClick="null"/>
             <div className = "green-space">{message}</div>
             <div className="flexed">
-                <NavButton buttonClasses='small-button' text='Admin Home' url='/' mainHistory={this.state.history}/>
+                <NavButton buttonClasses='small-button' text='Admin Home' url='/' mainHistory={this.history}/>
             </div>
         </div>
     )

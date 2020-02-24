@@ -1,5 +1,5 @@
 import React from 'react'
-import {formatDate} from '../helpers'
+import {formatDate} from '../../../general/helpers'
 
 
 const ListItem = (props) => {

@@ -9,13 +9,13 @@ class EditPost extends Component {
         super(props);
         
         this.state={
-            history: props.history,
-
             postTitle: props.history.location.state.postTitle,
             postContent: props.history.location.state.postContent,
             postQuote: props.history.location.state.postQuote,
             postId: props.history.location.state.id,
         }
+
+        this.history = props.history;
     }
     
     handleSubmit = async(values) => {
@@ -33,12 +33,12 @@ class EditPost extends Component {
             if (resp.status===200){
                 resultMessageState = 'success';         
             }
-            this.state.history.push('/result-message', resultMessageState);
+            this.history.push('/result-message', resultMessageState);
             return;
         }
         catch (error){
             console.log("Error submitting content to be posted. ", error);
-            this.state.history.push('/result-message');
+            this.history.push('/result-message');
         }
         
         
@@ -52,9 +52,9 @@ class EditPost extends Component {
         
         return (
             <div className="section-container">
-                <AdminHeader mainHistory={this.state.history}/>
+                <AdminHeader mainHistory={this.history}/>
                 <NavButton text="Edit Post" buttonClasses = "title center" onClick="null"/>
-                <PostForm handleSubmit={this.handleSubmit} mainHistory={this.state.history} text="Update" initialValues={initialValues} returnUrl="/edit"/>
+                <PostForm handleSubmit={this.handleSubmit} mainHistory={this.history} text="Update" initialValues={initialValues} returnUrl="/edit"/>
             </div>
         )
     }
