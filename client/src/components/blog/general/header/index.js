@@ -1,2 +1,2 @@
-import BlogHeader from './blog_header'
+import BlogHeader from './blogHeader'
 export default BlogHeader

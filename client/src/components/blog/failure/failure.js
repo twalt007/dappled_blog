@@ -1,33 +1,22 @@
 import React, {Component} from 'react'
 import BlogHeader from '../general/header'
 import BlogFooter from '../general/footer'
-
-
-
-/// want to add in footer here - need to craete footer elsewehere
-//need to add this to the indext for failure
-//onblog home, need to make api call to get inforamtion
-//need to create blogtile component - use dummy info
-//need to push real info into blogtile component
-//need to make api call to render details
-// need to make the blog post page
-// need to clean up my css
-
-
+import NavButton from '../../general/navButton'
 
 
 class Failure extends Component{
     constructor (props){
         super(props);
 
-        this.state={
-            success: props.history.location.state
+        this.state = {
+            text: props.history.location.state
         }
 
         this.history = props.history
     }
 
     render(){
+        console.log("inside failr component; state passed from props: ", this.state.text)
         const { text } = this.props;
         let message =
         <div className="message">
@@ -41,7 +30,7 @@ class Failure extends Component{
             <div className="flexed">
                 <NavButton buttonClasses='small-button' text='Home' url='/home' mainHistory={this.history}/>
             </div>
-
+            <BlogFooter />
         </div>
     )
     }

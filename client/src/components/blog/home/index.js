@@ -1,2 +1,2 @@
-import BlogHome from './blog_home'
+import BlogHome from './blogHome'
 export default BlogHome

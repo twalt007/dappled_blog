@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import AdminHeader from '../general/header'
-import NavButton from '../general/navButton'
+import NavButton from '../../general/navButton'
 
 
 class Success extends Component{

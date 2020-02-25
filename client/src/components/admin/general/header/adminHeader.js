@@ -1,23 +1,23 @@
 import React from 'react';
-import './blog_header.scss'
+import './adminHeader.scss'
 import logo from '../../../../assets/images/logo.jpg';
 import ColoredLine from '../../../general/coloredLine';
-import { Black } from '../../../general/helpers';
+import { BrandingColor } from '../../../general/helpers';
 
-const BlogHeader = props => {
-    const {mainHistory, text} = props;
+const AdminHeader = props => {
+    const {mainHistory} = props;
     const reroute = () =>{
-        mainHistory.push('/home');
+        mainHistory.push('/');
     }
     return (
         <div className="admin-header-container">
             <div className='image-container'>
                 <img className="logo" src={logo} alt='Dappled Logo' onClick={reroute}/>
-                <h1 className="h1 page-name">{text}</h1>
             </div>
-            <ColoredLine color = {Black} />
+            <ColoredLine color = {BrandingColor} />
+            <ColoredLine color = {BrandingColor} />
         </div>
     )
 }
 
-export default BlogHeader;
+export default AdminHeader

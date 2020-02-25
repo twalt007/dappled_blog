@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import AdminHeader from '../general/header/admin_header'
-import NavButton from '../general/navButton'
-import ListItem from '../general/adminListItem/listItem'
+import AdminHeader from '../general/header/adminHeader'
+import NavButton from '../../general/navButton'
+import ListItem from '../general/listItem'
 import axios from 'axios';
 import { formatUrl } from '../../general/helpers';
        
@@ -11,7 +11,7 @@ class EditList extends Component{
         super(props);
 
         this.state={
-            posts: []
+            posts: null,
         }
 
         this.history = props.history;

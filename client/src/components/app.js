@@ -10,6 +10,7 @@ import DeletePost from './admin/delete/deletePost'
 import Success from './admin/success'
 import BlogHome from './blog/home'
 import PostContent from './blog/post/postContent';
+import Failure from './blog/failure'
 
 const App = () => (
     <div className="app">
@@ -22,6 +23,7 @@ const App = () => (
         <Route path="/result-message" component={Success} />
         <Route path="/home" component={BlogHome} />
         <Route path="/post/:postTitle" component={PostContent} />
+        <Route path="/error-retrieving-content" component={Failure} />
     </div>
 );
 

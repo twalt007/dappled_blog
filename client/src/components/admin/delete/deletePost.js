@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import AdminHeader from '../general/header/admin_header'
-import NavButton from '../general/navButton'
+import AdminHeader from '../general/header/adminHeader'
+import NavButton from '../../general/navButton'
 import {formatDate} from '../../general/helpers'
 import axios from 'axios';
 
@@ -46,7 +46,7 @@ class DeletePost extends Component {
                 <h4 className="h4">Are you sure you wish to delete?</h4>
                 <div className="green-space">
                     <h5 className="h5 edit-list-title">{this.state.postTitle}</h5>
-                    <h6 className="h6 indent italicized edit-list-date">Last Modified on {formattedDate}</h6>
+                    <h6 className="h6 indent italicized last-edit-date">Last Modified on {formattedDate}</h6>
                 </div>
                 <div className="flexed">
                     <NavButton buttonClasses='small-button left' text='Return' url='/delete' mainHistory={this.history}/>

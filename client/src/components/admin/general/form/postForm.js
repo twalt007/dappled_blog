@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import NavButton from '../navButton'
+import NavButton from '../../../general/navButton'
 
 
 const PostForm = (props) => {
