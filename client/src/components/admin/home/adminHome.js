@@ -1,7 +1,6 @@
 import React from 'react';
 import AdminHeader from '../general/header'
-import NavButton from '../general/navButton'
-import './admin_home.scss'
+import NavButton from '../../general/navButton'
 
 const AdminHome = props => {
     const {history} = props
@@ -19,7 +18,7 @@ const AdminHome = props => {
                 <NavButton text='Delete Post' url='/delete' mainHistory={history}/>
             </div>
             <div className="flexed">
-                <NavButton buttonClasses='small-button' text='View' url='home' mainHistory={history}/>
+                <NavButton buttonClasses='small-button' text='View' url='/home' mainHistory={history}/>
             </div>
         </div>
         

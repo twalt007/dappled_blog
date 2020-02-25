@@ -1,5 +1,5 @@
 import React from 'react'
-import {formatDate} from '../helpers'
+import {formatDate} from '../../../general/helpers'
 
 
 const ListItem = (props) => {
@@ -18,7 +18,7 @@ const ListItem = (props) => {
     return(
         <div className='list-item' onClick={onClick}>
             <h5 className="h5 edit-list-title">{postTitle}</h5>
-            <h6 className="h6 indent italicized edit-list-date">{dateText} {formattedDate}</h6>
+            <h6 className="h6 indent italicized last-edit-date">{dateText} {formattedDate}</h6>
         </div> 
     )
 }

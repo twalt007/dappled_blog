@@ -1,2 +1,2 @@
-import AdminHome from './admin_home'
+import AdminHome from './adminHome'
 export default AdminHome

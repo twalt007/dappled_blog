@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import AdminHeader from '../general/header/admin_header'
-import NavButton from '../general/navButton'
-import ListItem from '../general/adminListItem/listItem'
+import AdminHeader from '../general/header/adminHeader'
+import NavButton from '../../general/navButton'
+import ListItem from '../general/listItem'
 import axios from 'axios';
-import { formatUrl } from '../general/helpers';
+import { formatUrl } from '../../general/helpers';
        
 
 class EditList extends Component{
@@ -11,12 +11,14 @@ class EditList extends Component{
         super(props);
 
         this.state={
-            posts: []
+            posts: null,
         }
+
+        this.history = props.history;
     }
      
     componentDidMount= async()=>{
-        const {history, userId = 'a9ec5c8d-455a-11ea-8fd0-a4db300c2566'} = this.props;
+        const { userId = 'a9ec5c8d-455a-11ea-8fd0-a4db300c2566'} = this.props;
         let resultMessageState;
         try{           
             const resp = await axios.get(`/api/admin/post-list/${userId}`);
@@ -28,22 +30,21 @@ class EditList extends Component{
         }
         catch (error){
             console.log("Error getting list of posts.", error);
-            history.push('/result-message', resultMessageState);
+            this.history.push('/result-message', resultMessageState);
         }  
     }
     goToDetails = async(postId) => {
-        const {history} = this.props;
         let resultMessageState;
         try{           
             const resp = await axios.get(`/api/admin/post-details/${postId}`);
             const [ postDetails ] = resp.data;
             const titleUrl = formatUrl(postDetails);
             let editFormState = postDetails;
-            history.push(`/edit-post/${titleUrl}`, editFormState);   
+            this.history.push(`/edit-post/${titleUrl}`, editFormState);   
         }
         catch (error){
             console.log("Error getting post details.", error);
-            history.push('/result-message', resultMessageState);
+            this.history.push('/result-message', resultMessageState);
         } 
     }
 
@@ -53,7 +54,7 @@ class EditList extends Component{
         if(!postData){
             return(
                 <div className='section-container'>
-                    <AdminHeader mainHistory={history}/>
+                    <AdminHeader mainHistory={this.history}/>
                     <NavButton text="Edit Post" buttonClasses="title center" onClick="null" />
                     <h4 className="h4">Select Post</h4>
                     <div className="green-space">
@@ -74,14 +75,14 @@ class EditList extends Component{
         });
         return(
             <div className='section-container'>
-                <AdminHeader mainHistory={this.props.history}/>
+                <AdminHeader mainHistory={this.history}/>
                 <NavButton text="Edit Post" buttonClasses="title center" onClick="null" />
                 <h4 className="h4">Select Post</h4>
                 <div className="green-space">
                     {postList}                                  
                 </div>
                 <div className="flexed">
-                    <NavButton buttonClasses='small-button' text='Return' url='/edit' mainHistory={this.props.history}/>
+                    <NavButton buttonClasses='small-button' text='Return' url='/' mainHistory={this.history}/>
                 </div>
             </div>
         );

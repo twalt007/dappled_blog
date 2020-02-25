@@ -21,7 +21,7 @@ module.exports = async (req,res) => {
             return;
         }
         const [allPosts] = await db.query(`
-            SELECT pid AS postId, postTitle, createdAt, updatedAt 
+            SELECT pid AS postId, postTitle, contentType, createdAt, updatedAt 
             FROM posts 
             WHERE deletedAt IS NULL AND userId=?`,
             [trueUserId.id]);

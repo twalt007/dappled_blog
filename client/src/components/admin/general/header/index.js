@@ -1,2 +1,2 @@
-import AdminHeader from './admin_header';
+import AdminHeader from './adminHeader';
 export default AdminHeader

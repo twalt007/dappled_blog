@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import AdminHeader from '../general/header/admin_header'
-import NavButton from '../general/navButton'
-import {formatDate} from '../general/helpers'
+import AdminHeader from '../general/header/adminHeader'
+import NavButton from '../../general/navButton'
+import {formatDate} from '../../general/helpers'
 import axios from 'axios';
 
 class DeletePost extends Component {
@@ -17,6 +17,8 @@ class DeletePost extends Component {
             postId: props.history.location.state.id,
             updatedAt: props.history.location.state.updatedAt
         }
+        
+        this.history = props.history;
     }
     
     handleDelete = async() => {
@@ -26,12 +28,12 @@ class DeletePost extends Component {
             if (resp.status===200){
                 resultMessageState = 'success';         
             }
-            this.state.history.push('/result-message', resultMessageState);
+            this.history.push('/result-message', resultMessageState);
             return;
         }
         catch (error){
             console.log("Error attempting to delete content. ", error);
-            this.state.history.push('/result-message');
+            this.history.push('/result-message');
         }
              
     }
@@ -39,15 +41,15 @@ class DeletePost extends Component {
         const formattedDate = formatDate(this.state.updatedAt);
         return (            
             <div className="section-container">
-                <AdminHeader mainHistory={this.state.history}/>
+                <AdminHeader mainHistory={this.history}/>
                 <NavButton text="Delete Post" buttonClasses = "title center" onClick="null"/>
                 <h4 className="h4">Are you sure you wish to delete?</h4>
                 <div className="green-space">
                     <h5 className="h5 edit-list-title">{this.state.postTitle}</h5>
-                    <h6 className="h6 indent italicized edit-list-date">Last Modified on {formattedDate}</h6>
+                    <h6 className="h6 indent italicized last-edit-date">Last Modified on {formattedDate}</h6>
                 </div>
                 <div className="flexed">
-                    <NavButton buttonClasses='small-button left' text='Return' url='/delete' mainHistory={this.state.history}/>
+                    <NavButton buttonClasses='small-button left' text='Return' url='/delete' mainHistory={this.history}/>
                     <div className='small-button fat-border button' onClick={this.handleDelete}>Delete</div>
                 </div>
             </div>

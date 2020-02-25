@@ -1,6 +1,5 @@
-import React from 'react';
-
 export const BrandingColor = '#065f06';
+export const Black = '#000000';
 
 
 export const formatDate = (rawDate) => {

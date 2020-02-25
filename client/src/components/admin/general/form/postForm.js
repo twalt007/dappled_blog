@@ -1,17 +1,7 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import NavButton from '../navButton'
-
-//Formik own component
-    // have the initialValues be variable 
-    //for basic stuff, fine to use typical variable
-    //have a helper function that we can call elsewhere that will do the Api call
-//validation Schema object pass in
-
-
-// passed in: startingValues = {postTitle:'', postContent: '', postQuote: ''}
-// const { startingValues, schema, obSubmitFunction } = props;
+import NavButton from '../../../general/navButton'
 
 
 const PostForm = (props) => {

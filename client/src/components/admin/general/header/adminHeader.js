@@ -1,8 +1,8 @@
 import React from 'react';
-import './admin_header.scss'
-import logo from '../../../../assets/images/temp_header.jpg';
-import ColoredLine from './coloredLine';
-import { BrandingColor } from '../helpers';
+import './adminHeader.scss'
+import logo from '../../../../assets/images/logo.jpg';
+import ColoredLine from '../../../general/coloredLine';
+import { BrandingColor } from '../../../general/helpers';
 
 const AdminHeader = props => {
     const {mainHistory} = props;

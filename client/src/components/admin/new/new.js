@@ -1,7 +1,7 @@
 import React from 'react'
-import AdminHeader from '../general/header/admin_header'
-import NavButton from '../general/navButton'
-import PostForm from '../general/form/postForm'
+import AdminHeader from '../general/header/adminHeader'
+import NavButton from '../../general/navButton'
+import PostForm from '../general/form'
 import axios from 'axios';
 
 const NewPost = props => {
