@@ -36,9 +36,11 @@ const PostForm = (props) => {
                 <label className="form-label" htmlFor="postQuote">Post Quote</label>
                 <Field className="fat-border form-input" name="postQuote" type="text" />
                 <ErrorMessage className="form-error" name="postQuote" />
-                <div className="flexed">
-                    <NavButton buttonClasses='small-button left' text='Return' url={returnUrl} mainHistory={mainHistory}/>
-                    <button className='small-button fat-border button' type='submit'>{text}</button>
+                <div className="xlrg-flx-container flex-right">
+                    <div className="lrg-container align-right">
+                        <NavButton buttonClasses='small-button' text='Return' url={returnUrl} mainHistory={mainHistory}/>
+                        <button className='small-button fat-border' type='submit'>{text}</button>
+                    </div>
                 </div>
             </Form>
         </Formik>

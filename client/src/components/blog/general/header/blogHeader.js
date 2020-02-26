@@ -10,11 +10,9 @@ const BlogHeader = props => {
         mainHistory.push('/home');
     }
     return (
-        <div className="admin-header-container">
-            <div className='image-container'>
-                <img className="logo" src={logo} alt='Dappled Logo' onClick={reroute}/>
-                <h1 className="h1 page-name">{name}</h1>
-            </div>
+        <div className="header-container">
+            <img className="logo left" src={logo} alt='Dappled Logo' onClick={reroute}/>
+            <h1 className="h1 page-name center">{name}</h1>
             <ColoredLine color = {Black} />
         </div>
     )
