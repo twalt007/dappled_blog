@@ -17,7 +17,8 @@ body {
     font-size: 62.5%;
     position: relative;
     .app {
-        margin: 3% 4.5%;
+        margin: 0 4.5%;
+        padding: 0;
         background-color: white;
         font-size: 1.6rem;        
         color: black;
@@ -33,12 +34,15 @@ body {
         }
         .header-container{
             margin-bottom: 4rem; 
+            .logo{
+                height: 6rem;
+            }
         }
         .intro{
             margin-bottom: 4rem;
         }
         .button-container, .form, .section-container{
-            margin: 3% 4.5%;
+            margin: 1.5% 4.5%;
             .fat-border{
                 border-style: solid;
                 border-width: 2px;
@@ -46,7 +50,7 @@ body {
                 border-radius: 4px;
             }
             .large-button, .small-button{
-                display: inline-block;
+                margin: auto;
                 padding: .3rem;
                 text-align: center;
             }
@@ -63,22 +67,24 @@ body {
                 background-color: $branding-light;
             }
             .title{
+                display: inline-block;
                 padding: .3rem;
                 text-align: center;
                 width: 30rem;
-                margin-bottom: 45px;
             }
         }
         .form *{
-            display: block;
+            display: inline-block;
         }
         .form{
-            margin: 4.5% 0;
+            display: inline-block;
+            width: 70vw;
             .form-label{
                 display: block;
                 font-size: 1.5rem;
                 font-weight: bold;
                 margin-top: 22px;
+                text-align: left;
             }
             .form-input{
                 width: 70vw;
@@ -94,10 +100,6 @@ body {
                 font-size: 0.5rem;
             }
         }
-        .button{
-            margin: 3% 4.5%;
-            height: 51px;
-        }
         .list-item{
             margin-bottom: 20px;
         }
@@ -105,8 +107,17 @@ body {
             font-weight: 600;
             text-decoration: underline;
         }
+        
 
 //general CSS styling
+        .lrg-container{
+            width: 33rem;
+            margin-top: 22px;
+        }
+        .xlrg-flx-container{
+            width: 70vw;
+            display: flex;
+        }
         .lrg-flx-container{
             margin: auto;
             width: 33rem;
@@ -131,7 +142,6 @@ body {
         .align-right{
             text-align: right;
         }
-        
         .italicized{
             font-style: italic;
         }
