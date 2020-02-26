@@ -10,7 +10,7 @@ const AdminHeader = props => {
         mainHistory.push('/');
     }
     return (
-        <div className="admin-header-container">
+        <div className="header-container">
             <div className='image-container'>
                 <img className="logo" src={logo} alt='Dappled Logo' onClick={reroute}/>
             </div>

@@ -21,6 +21,7 @@ body {
         background-color: white;
         font-size: 1.6rem;        
         color: black;
+//element styling
         .h1 {
             font-size: 2.5rem;
         }
@@ -29,6 +30,12 @@ body {
         }
         .h4{
             font-size: 1
+        }
+        .header-container{
+            margin-bottom: 4rem; 
+        }
+        .intro{
+            margin-bottom: 4rem;
         }
         .button-container, .form, .section-container{
             margin: 3% 4.5%;
@@ -91,9 +98,21 @@ body {
             margin: 3% 4.5%;
             height: 51px;
         }
-        .flexed{
+        .list-item{
+            margin-bottom: 20px;
+        }
+        .edit-list-title:hover{
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+//general CSS styling
+        .lrg-flx-container{
+            margin: auto;
+            width: 33rem;
             display: flex;
-            width: 70vw;
+        }
+        .flex-right{
             justify-content: flex-end;
         }
         .green-space{
@@ -107,15 +126,12 @@ body {
             background-color: $branding-extra-light;
         }
         .center{
-            margin: auto;
+            text-align: center;
         }
-        .list-item{
-            margin-bottom: 20px;
+        .align-right{
+            text-align: right;
         }
-        .edit-list-title:hover{
-            font-weight: 600;
-            text-decoration: underline;
-        }
+        
         .italicized{
             font-style: italic;
         }
