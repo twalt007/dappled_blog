@@ -17,7 +17,7 @@ body {
     font-size: 62.5%;
     position: relative;
     .app {
-        margin: 0 4.5%;
+        margin: 0 4.5% 3%;
         padding: 0;
         background-color: white;
         font-size: 1.6rem;        
@@ -41,8 +41,10 @@ body {
         .intro{
             margin-bottom: 4rem;
         }
+        .button-container, .section-container{
+            margin: 1.5% 0;
+        }
         .button-container, .form, .section-container{
-            margin: 1.5% 4.5%;
             .fat-border{
                 border-style: solid;
                 border-width: 2px;
@@ -50,7 +52,7 @@ body {
                 border-radius: 4px;
             }
             .large-button, .small-button{
-                margin: auto;
+                display: inline-block;
                 padding: .3rem;
                 text-align: center;
             }
@@ -70,11 +72,9 @@ body {
                 display: inline-block;
                 padding: .3rem;
                 text-align: center;
+                margin: auto;
                 width: 30rem;
             }
-        }
-        .form *{
-            display: inline-block;
         }
         .form{
             display: inline-block;
@@ -101,7 +101,7 @@ body {
             }
         }
         .list-item{
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
         .edit-list-title:hover{
             font-weight: 600;
@@ -110,6 +110,16 @@ body {
         
 
 //general CSS styling
+        .green-space{
+            margin: auto;
+            min-height: 30vh;
+            max-height: max-content;
+            width: 70vw;
+            padding: 3%;
+            border-top: 2px solid $branding-color;
+            border-bottom:2px solid $branding-color;
+            background-color: $branding-extra-light;
+        }
         .lrg-container{
             width: 33rem;
             margin-top: 22px;
@@ -119,28 +129,42 @@ body {
             display: flex;
         }
         .lrg-flx-container{
-            margin: auto;
-            width: 33rem;
+            width: 30rem;
             display: flex;
         }
         .flex-right{
             justify-content: flex-end;
         }
-        .green-space{
-            margin: auto;
-            min-height: 30vh;
-            max-height: max-content;
-            width: 94%;
-            padding: 3%;
-            border-top: 2px solid $branding-color;
-            border-bottom:2px solid $branding-color;
-            background-color: $branding-extra-light;
+        .flex-left{
+            justify-content: flex-start;
         }
         .center{
             text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .center-text{
+            text-align: center;
+        }
+        .center-margins{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .center-vertically{
+            margin-top: auto;
+            margin-bottom: auto
         }
         .align-right{
             text-align: right;
+        }
+        .align-left{
+            text-align: left;
+        }
+        .after-space{
+            margin-right: 35px;
+        }
+        .top-space{
+            margin-top: 35px;
         }
         .italicized{
             font-style: italic;

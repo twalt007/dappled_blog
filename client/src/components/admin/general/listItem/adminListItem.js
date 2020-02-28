@@ -16,7 +16,7 @@ const ListItem = (props) => {
     const formattedDate = formatDate(mostRecent);
     
     return(
-        <div className='list-item' onClick={onClick}>
+        <div className='list-item align-left' onClick={onClick}>
             <h5 className="h5 edit-list-title">{postTitle}</h5>
             <h6 className="h6 indent italicized last-edit-date">{dateText} {formattedDate}</h6>
         </div> 

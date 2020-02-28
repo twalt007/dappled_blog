@@ -20,7 +20,9 @@ class DeletePost extends Component {
         
         this.history = props.history;
     }
-    
+    reroute = () => {
+        mainHistory.push('/delete');
+    }
     handleDelete = async() => {
         let resultMessageState;
         try{
@@ -40,18 +42,26 @@ class DeletePost extends Component {
     render(){
         const formattedDate = formatDate(this.state.updatedAt);
         return (            
-            <div className="section-container">
+            <div className="section-container center">
                 <AdminHeader mainHistory={this.history}/>
                 <NavButton text="Delete Post" buttonClasses = "title center" onClick="null"/>
-                <h4 className="h4">Are you sure you wish to delete?</h4>
-                <div className="green-space">
+                <div className="xlrg-flx-container center-margins flex-left">
+                    <h4 className="h4 top-space">Are you sure you wish to delete?</h4>
+                </div>
+                <div className="green-space align-left">
                     <h5 className="h5 edit-list-title">{this.state.postTitle}</h5>
                     <h6 className="h6 indent italicized last-edit-date">Last Modified on {formattedDate}</h6>
                 </div>
-                <div className="flexed">
-                    <NavButton buttonClasses='small-button left' text='Return' url='/delete' mainHistory={this.history}/>
-                    <div className='small-button fat-border button' onClick={this.handleDelete}>Delete</div>
+                <div className="xlrg-flx-container center-margins flex-right">
+                    <div className="lrg-container align-right top-space">
+                        <div className = 'small-button fat-border after-space' onClick={this.reroute} >Return</div>                
+                        <div className='small-button fat-border' onClick={this.handleDelete}>Delete</div>
+                    </div>
                 </div>
+                {/* <div className="xlrg-flx-container center-margins flex-right">
+                    <NavButton buttonClasses='small-button left' text='Return' url='/delete' mainHistory={this.history}/>
+                    <div className='small-button fat-border' onClick={this.handleDelete}>Delete</div>
+                </div> */}
             </div>
         )
     }

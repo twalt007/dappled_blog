@@ -6,6 +6,9 @@ import NavButton from '../../../general/navButton'
 
 const PostForm = (props) => {
     const {initialValues, text='Ok', mainHistory, handleSubmit, returnUrl='/'} = props;
+    function reroute(){
+        mainHistory.push(returnUrl);
+    }
     return (
         <Formik 
             initialValues={initialValues}
@@ -37,8 +40,8 @@ const PostForm = (props) => {
                 <Field className="fat-border form-input" name="postQuote" type="text" />
                 <ErrorMessage className="form-error" name="postQuote" />
                 <div className="xlrg-flx-container flex-right">
-                    <div className="lrg-container align-right">
-                        <NavButton buttonClasses='small-button' text='Return' url={returnUrl} mainHistory={mainHistory}/>
+                    <div className="lrg-container align-right top-space">
+                        <div className = 'small-button fat-border after-space' onClick={reroute} >Return</div>                
                         <button className='small-button fat-border' type='submit'>{text}</button>
                     </div>
                 </div>
@@ -46,5 +49,6 @@ const PostForm = (props) => {
         </Formik>
     )
 }
+
 
 export default PostForm;
