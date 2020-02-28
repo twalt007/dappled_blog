@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import AdminHeader from '../general/header/adminHeader'
 import NavButton from '../../general/navButton'
 import ListItem from '../general/listItem'
+import PleaseWait from '../general/pleaseWait'
 import axios from 'axios';
 import { formatUrl } from '../../general/helpers';
        
@@ -53,15 +54,7 @@ class EditList extends Component{
         
         if(!postData){
             return(
-                <div className='section-container'>
-                    <AdminHeader mainHistory={this.history}/>
-                    <NavButton text="Edit Post" buttonClasses="title center" onClick="null" />
-                    <h4 className="h4">Select Post</h4>
-                    <div className="green-space">
-                        <h2 className="h2 please-wait">Patience is a virtue!</h2>
-                        <h4 className="h4 please-wait">Please wait while retrieving data</h4>
-                    </div>
-                </div>
+                <PleaseWait mainHistory = {this.history} text="Edit Post" />
             ); 
         }
         const postList = postData.map((post,index) => {
@@ -74,14 +67,16 @@ class EditList extends Component{
             )
         });
         return(
-            <div className='section-container'>
+            <div className='section-container center'>
                 <AdminHeader mainHistory={this.history}/>
                 <NavButton text="Edit Post" buttonClasses="title center" onClick="null" />
-                <h4 className="h4">Select Post</h4>
+                <div className="xlrg-flx-container center-margins flex-left">
+                        <h4 className="h4">Select Post</h4>
+                </div>
                 <div className="green-space">
                     {postList}                                  
                 </div>
-                <div className="flexed">
+                <div className="xlrg-flx-container center-margins flex-right">
                     <NavButton buttonClasses='small-button' text='Return' url='/' mainHistory={this.history}/>
                 </div>
             </div>
