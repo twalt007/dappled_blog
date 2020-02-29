@@ -9,7 +9,7 @@ class Failure extends Component{
         super(props);
 
         this.state = {
-            text: props.history.location.state
+            text: props.history.location.state,
         }
 
         this.history = props.history
@@ -20,14 +20,14 @@ class Failure extends Component{
         const { text } = this.props;
         let message =
         <div className="message">
-            <h4 className="h4 center">*Well this is embarassing*</h4>
-            <h4 className="h4 center">Something didn't work right!</h4>
+            <h2 className="h2 center">*Well this is embarassing*</h2>
+            <h4 className="h4 center top-space">Something didn't work right!</h4>
         </div>
     return (
         <div className = "section-container">
-            <BlogHeader mainHistory={this.history} text={text}/>
+            <BlogHeader mainHistory={this.history}/>
             <div className = "green-space">{message}</div>
-            <div className="flexed">
+            <div className="xlrg-flx-container center-margins flex-right">
                 <NavButton buttonClasses='small-button' text='Home' url='/home' mainHistory={this.history}/>
             </div>
             <BlogFooter />

@@ -58,10 +58,6 @@ class DeletePost extends Component {
                         <div className='small-button fat-border' onClick={this.handleDelete}>Delete</div>
                     </div>
                 </div>
-                {/* <div className="xlrg-flx-container center-margins flex-right">
-                    <NavButton buttonClasses='small-button left' text='Return' url='/delete' mainHistory={this.history}/>
-                    <div className='small-button fat-border' onClick={this.handleDelete}>Delete</div>
-                </div> */}
             </div>
         )
     }
