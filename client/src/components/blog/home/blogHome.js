@@ -6,18 +6,12 @@ import axios from 'axios'
 import { formatUrl } from '../../general/helpers'
 
 
-
-// need to make the blog post page
-// need to clean up my css
-
-
 class BlogHome extends Component{
     constructor(props){
         super(props);
 
         this.state={
             posts: null,
-            name: "Dappled"
         }
 
         this.history = props.history;
@@ -59,10 +53,10 @@ class BlogHome extends Component{
         if(!postData){
             return(
                 <div className='section-container'>
-                    <BlogHeader mainHistory={this.history} name={name}/>
-                    <div className="welcome-text green-space">
-                        <h1 className="h1 text center">Welcome to Dappled! </h1>
-                        <h1 className="h1 text center">We're busy getting your content.</h1>                        
+                    <BlogHeader mainHistory={this.history} />
+                    <div className="welcome-text green-space center">
+                        <h1 className="h1 text">Welcome to Dappled! </h1>
+                        <h1 className="h1 text">We're busy getting your content.</h1>                        
                         <h2 className="h2 please-wait">Please take this wait as an opportunity to relax and practice being fully present</h2>
                     </div>
                 </div>
@@ -80,7 +74,7 @@ class BlogHome extends Component{
         });
         return(
             <div className = "section-container">
-                <BlogHeader mainHistory={this.history} name={name}/>
+                <BlogHeader mainHistory={this.history}/>
                 <div className="welcome-text green-space">
                     <h1 className="h1 text center">Welcome to Dappled!</h1>
                 </div>
