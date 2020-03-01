@@ -34,10 +34,10 @@ class PostContent extends Component {
             <div className="section-container">
                 <BlogHeader mainHistory={this.history} name={name} />                
                 <div className="green-space">
-                    <h2 className="h2 edit-list-title">{this.state.postTitle}</h2>
-                    <div className='post-quote'>{this.state.postQuote}</div>
-                    <div className='post-content'>{this.state.postContent}</div>
-                    <h6 className="h6 indent italicized last-edit-date">{formattedDate}</h6>
+                    <h2 className="text edit-list-title">{this.state.postTitle}</h2>
+                    <div className='text post-quote'>{this.state.postQuote}</div>
+                    <div className='text post-content'>{this.state.postContent}</div>
+                    <h6 className="text indent italicized last-edit-date">{formattedDate}</h6>
                 </div>
                 <div className="xlrg-flx-container center-margins flex-right">
                     <NavButton buttonClasses='small-button left' text='Return' url='/home' mainHistory={this.history}/>

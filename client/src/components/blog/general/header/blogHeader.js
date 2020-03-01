@@ -2,6 +2,8 @@ import React from 'react';
 import logo from '../../../../assets/images/logo.jpg';
 import ColoredLine from '../../../general/coloredLine';
 import { Black } from '../../../general/helpers';
+import './blogHeader.scss'
+
 
 const BlogHeader = props => {
     const {mainHistory} = props;
@@ -10,8 +12,8 @@ const BlogHeader = props => {
     }
     return (
         <div className="blog-header center">
-            <img className="logo blog-logo" src={logo} alt='Dappled Logo' onClick={reroute}/>
-            <h1 className="page-name center-margins">Dappled</h1>
+            <img className="logo" src={logo} alt='Dappled Logo' onClick={reroute}/>
+            <h1 className="text page-name center-margins">Dappled</h1>
             <ColoredLine color = {Black} />
         </div>
     )

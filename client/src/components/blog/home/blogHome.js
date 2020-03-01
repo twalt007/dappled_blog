@@ -55,9 +55,11 @@ class BlogHome extends Component{
                 <div className='section-container'>
                     <BlogHeader mainHistory={this.history} />
                     <div className="welcome-text green-space center">
-                        <h1 className="h1 text">Welcome to Dappled! </h1>
-                        <h1 className="h1 text">We're busy getting your content.</h1>                        
-                        <h2 className="h2 please-wait">Please take this wait as an opportunity to relax and practice being fully present</h2>
+                        <div className="tile-container">
+                            <h2 className="text">Welcome to Dappled! </h2>
+                            <h4 className="text top-space">We're busy getting your content.</h4>                        
+                            <h4 className="text please-wait">Please take this wait as an opportunity to relax and practice being fully present.</h4>
+                        </div>
                     </div>
                 </div>
             ); 
@@ -76,10 +78,9 @@ class BlogHome extends Component{
             <div className = "section-container">
                 <BlogHeader mainHistory={this.history}/>
                 <div className="welcome-text green-space">
-                    <h1 className="h1 text center">Welcome to Dappled!</h1>
-                </div>
-                
-                <div className="post-list flexed">
+                    <h1 className="text center">Welcome to Dappled!</h1>
+                </div>                
+                <div className="tile-list center-margins">
                     {postList}
                 </div>
                 <BlogFooter mainHistory={history} name={name}/>

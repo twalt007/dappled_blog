@@ -1,2 +1,2 @@
-import BlogFooter from './blog_footer'
+import BlogFooter from './blogFooter'
 export default BlogFooter

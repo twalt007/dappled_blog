@@ -71,7 +71,7 @@ class EditList extends Component{
                 <AdminHeader mainHistory={this.history}/>
                 <NavButton text="Edit Post" buttonClasses="title center" onClick="null" />
                 <div className="xlrg-flx-container center-margins flex-left">
-                        <h4 className="h4">Select Post</h4>
+                        <h4 className="text">Select Post</h4>
                 </div>
                 <div className="green-space">
                     {postList}                                  

@@ -1,0 +1,25 @@
+.form{
+    display: inline-block;
+    width: 85vw;
+}
+.form-label{
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 22px;
+    text-align: left;
+}
+.form-input{
+    width: 85vw;
+    font-size: 1.2rem;
+    height: 2.7rem;
+}
+.form-textarea{
+    width: 85vw;
+    height: 15rem;
+    min-height: 15rem;
+    font-size: 1.2rem;
+}
+.form-error{
+    font-size: 0.5rem;
+} 

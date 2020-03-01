@@ -14,10 +14,12 @@ class DeleteList extends Component{
         this.state={
             posts: null,
         }
+
+        this.history = props.history
     }
      
     componentDidMount = async()=>{
-        const {history, userId = 'a9ec5c8d-455a-11ea-8fd0-a4db300c2566'} = this.props;
+        const {userId = 'a9ec5c8d-455a-11ea-8fd0-a4db300c2566'} = this.props;
         let resultMessageState;
         try{           
             const resp = await axios.get(`/api/admin/post-list/${userId}`);
@@ -28,22 +30,21 @@ class DeleteList extends Component{
         }
         catch (error){
             console.log("Error getting list of posts.", error);
-            history.push('/result-message', resultMessageState);
+            this.history.push('/result-message', resultMessageState);
         }  
     }
     goToDetails = async(postId) => {
-        const {history} = this.props;
         let resultMessageState;
         try{           
             const resp = await axios.get(`/api/admin/post-details/${postId}`);
             const [ postDetails ] = resp.data;
             const titleUrl = formatUrl(postDetails);
             let deletePageState = postDetails;
-            history.push(`/delete-post/${titleUrl}`, deletePageState);   
+            this.history.push(`/delete-post/${titleUrl}`, deletePageState);   
         }
         catch (error){
             console.log("Error getting post details.", error);
-            history.push('/result-message', resultMessageState);
+            this.history.push('/result-message', resultMessageState);
         } 
     }
 
@@ -67,9 +68,9 @@ class DeleteList extends Component{
         return(
             <div className='section-container center'>
                 <AdminHeader mainHistory={this.props.history}/>
-                <NavButton text="Delete Post" buttonClasses="title center" onClick="null" />
+                <NavButton text="Delete Post" buttonClasses="center" onClick="null" />
                 <div className="xlrg-flx-container center-margins flex-left">
-                        <h4 className="h4">Select Post</h4>
+                        <h4 className="text">Select Post</h4>
                 </div>
                 <div className="green-space">
                     {postList}                                  

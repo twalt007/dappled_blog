@@ -1,18 +1,28 @@
 import React from 'react'
 import {formatDate} from '../../../general/helpers'
+import './postTile.scss'
 
 
 const PostTile = (props) => {
-    const {onClick, postTitle, updatedAt, contentType='philosophy' } = props;
-
-    
+    const {onClick, postTitle, updatedAt, postQuote, contentType='philosophy' } = props;
     const formattedDate = formatDate(updatedAt);
+
+    const limitTitle = (postTitle) => {
+
+    }
     
     return(
-        <div className='list-item' onClick={onClick}>
-            <h5 className="h5 edit-list-title">{postTitle}</h5>
-            <h6 className="h6 indent italicized edit-list-date">{formattedDate}</h6>
-        </div> 
+        <div>
+            <div className='tile' onClick={onClick}>
+                <div className="preview-container">
+                    <div className="center-text">
+                        <h3 className="text tile-quote italicized">{postQuote}</h3>
+                    </div>
+                </div>
+                <h4 className="text tile-title">{postTitle}</h4>
+            </div> 
+            <h6 className="text tile-date italicized align-right">{formattedDate}</h6>
+        </div>
     )
 }
 
