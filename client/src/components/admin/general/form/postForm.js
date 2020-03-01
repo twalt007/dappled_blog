@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import NavButton from '../../../general/navButton'
+import './postForm.scss'
 
 
 const PostForm = (props) => {
@@ -42,7 +42,7 @@ const PostForm = (props) => {
                 <div className="xlrg-flx-container flex-right">
                     <div className="lrg-container align-right top-space">
                         <div className = 'small-button fat-border after-space' onClick={reroute} >Return</div>                
-                        <button className='small-button fat-border' type='submit'>{text}</button>
+                        <button className='text small-button fat-border' type='submit'>{text}</button>
                     </div>
                 </div>
             </Form>

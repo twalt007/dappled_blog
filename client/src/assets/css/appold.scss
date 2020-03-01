@@ -1,0 +1,271 @@
+@font-face {
+    font-family: Arial, Helvetica, sans-serif;
+    src: local('Arial'), local('Helvetica'), local('sans-serif');
+}
+@import url('https://fonts.googleapis.com/css?family=Allura&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Simonetta&display=swap');
+
+//hove hand
+//reture on delete
+//hover on delete title should not bold
+//button change color darker with white
+//bring to edge of page
+
+$branding-color: #065f06;
+$branding-light: rgba(6, 95, 6, 0.25);
+$branding-extra-light: rgba(6, 95, 6, 0.10);
+$branding-dark: rgba(4, 75, 4, 0.336);
+$branding-extra-dark: rgba(3, 51, 3, 0.493);
+
+// $breakpoint-tablet: ;
+// $breakpoint-phone-landscape: ;
+// $breakpoint-phone-portrait: ;
+// $breakpoint-max: ;
+
+// @media ()
+body {
+//core set-up
+    font-size: 62.5%;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2{
+        font-size: 2rem
+    }
+    h4{
+        font-size: 1
+    }
+    .app {
+        margin: 0 4.5% 3%;
+        padding: 0;
+        background-color: white;
+        font-size: 1.6rem;        
+        color: black;
+//element styling
+        .header-container, .blog-header{    //***//
+            margin-bottom: 4rem; 
+            .logo{
+                height: 6rem;
+            }
+        }
+        .blog-header{           //***//
+            .logo{
+                position: absolute;
+                top: 20px;
+                left: 135px;
+            }
+            .page-name{
+                margin-top: 45px;
+                display: inline-block;
+                font-family: 'Allura';
+                font-size: 4rem;
+                font-weight: 700;
+            }
+        }
+        .blog-footer{
+            background-color: $branding-dark;
+            .logo{
+                position: absolute;
+                bottom: 25px;
+                left: 135px;
+                height: 5rem;
+            }
+            .page-name{
+                margin-top: 17px;
+                margin-bottom: 17px;
+                display: inline-block;
+                font-family: Allura;
+                font-size: 3rem;
+                font-weight: 600;
+            }
+        }
+        .intro{
+            margin-bottom: 4rem;
+        }
+        .button-container, .section-container{
+            margin: 1.5% 0;
+        }
+        .button-container, .form, .section-container{
+            .fat-border{
+                border-style: solid;
+                border-width: 2px;
+                border-color: $branding-color;
+                border-radius: 4px;
+            }
+            .large-button, .small-button{
+                display: inline-block;
+                padding: .3rem;
+                text-align: center;
+            }
+            .large-button:hover, .small-button:hover, .title{
+                background-color: $branding-light;
+                font-weight: 600;
+                text-decoration: underline;
+            }
+            .large-button{
+                width: 30rem;
+            }
+            .small-button{
+                width: 12rem;
+                background-color: $branding-light;
+            }
+            .title{
+                display: inline-block;
+                padding: .3rem;
+                text-align: center;
+                margin: auto;
+                width: 30rem;
+            }
+        }
+        .form{
+            display: inline-block;
+            width: 70vw;
+            .form-label{
+                display: block;
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-top: 22px;
+                text-align: left;
+            }
+            .form-input{
+                width: 70vw;
+                font-size: 1.2rem;
+                height: 2.7rem;
+            }
+            .form-textarea{
+                width: 70vw;
+                height: 30rem;
+                font-size: 1.2rem;
+            }
+            .form-error{
+                font-size: 0.5rem;
+            }
+        }
+        .tile-list{
+            max-width: 70vw;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 30px;
+            margin-bottom: 25px;
+            .tile{
+                margin: 16px;
+                width: 280px;
+                // height: 400px;
+                border: 2px solid $branding-extra-dark;
+                .preview-container{
+                    display: absolute;
+                    height: 260px;
+                    margin-top: 70px;
+                    background-color: $branding-light;
+                    .center-text{
+                        display: flex;
+                        justify-content: wrap;
+                        align-items: center;
+                        padding: 10px;
+                        height: 260px;
+                        font-family: 'Simonetta';
+                    }
+                }
+                .tile-title{
+                    font-size: 1.5rem;
+                    min-height: 70px;
+                    margin: 5px 10px;
+                }
+            }
+            .tile:hover{
+                border: 3px solid $branding-color;
+                cursor: pointer;
+                .tile-title{
+                    font-weight: 500;
+                    text-decoration: underline;
+                }
+            }
+            .tile-date{
+                text-align: right;
+                margin-right: 16px;
+            }
+        }
+        .list-item{
+            margin-bottom: 30px;
+        }
+        .edit-list-title:hover{
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        
+
+//general CSS styling
+//container types
+        .green-space{
+            margin: auto;
+            // min-height: 25vh;
+            max-height: max-content;
+            width: 70vw;
+            padding: 3%;
+            border-top: 2px solid $branding-color;
+            border-bottom:2px solid $branding-color;
+            background-color: $branding-extra-light;
+        }
+        .lrg-container{
+            width: 33rem;
+            margin-top: 22px;
+        }
+        .xlrg-flx-container{
+            width: 70vw;
+            display: flex;
+        }
+        .lrg-flx-container{
+            width: 30rem;
+            display: flex;
+        }
+//alignment
+        .flex-right{
+            justify-content: flex-end;
+        }
+        .flex-left{
+            justify-content: flex-start;
+        }
+        .center{
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .center-text{
+            text-align: center;
+        }
+        .center-margins{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        // .center-vertically{
+        //     margin-top: auto;
+        //     margin-bottom: auto
+        // }
+        .align-right{
+            text-align: right;
+        }
+        .align-left{
+            text-align: left;
+        }
+//spacing and padding
+        .after-space{
+            margin-right: 35px;
+        }
+        .top-space{
+            margin-top: 35px;
+        }
+        .indent{
+            padding-left: 45px;
+        }
+//text
+        .italicized{
+            font-style: italic;
+        }
+
+    }
+}
+
+

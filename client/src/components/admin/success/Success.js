@@ -21,23 +21,23 @@ class Success extends Component{
         text = "Success!";
         message = 
         <div className="message">
-            <h4 className="h4 center">Congratulations! Action successfully completed!</h4>
-            <h5 className="h5 center top-space">You can rest in peace knowing this was done.</h5>
+            <h4 className="text center">Congratulations! Action successfully completed!</h4>
+            <h5 className="text center top-space">You can rest in peace knowing this was done.</h5>
         </div>
     }else{
         text = "Whoops!";
         message =
         <div className="message">
-            <h4 className="h4 center">*Wilting Feeling*</h4>
-            <h5 className="h5 center top-space">Something didn't work right!</h5>
-            <h5 className="h5 center">Time to pull out the sluething glasses and do some investigating.</h5>
+            <h4 className="text center">*Wilting Feeling*</h4>
+            <h5 className="text center top-space">Something didn't work right!</h5>
+            <h5 className="text center">Time to pull out the sluething glasses and do some investigating.</h5>
         </div>
     }
     return (
         <div className = "section-container center">
             <AdminHeader mainHistory={this.history}/>
             <NavButton text={text} buttonClasses = "title center" onClick="null"/>
-            <div className = "green-space">{message}</div>
+            <div className = "text green-space">{message}</div>
             <div className="xlrg-flx-container center-margins flex-right">
                 <NavButton buttonClasses='small-button' text='Admin Home' url='/' mainHistory={this.history}/>
             </div>

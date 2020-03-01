@@ -8,8 +8,8 @@ const AdminHome = props => {
         <div className = "section-container center">
             <AdminHeader mainHistory={history}/>
             <div className="intro">
-                <h1 className="h1 text">Welcome to your happy place!</h1>
-                <h2 className="h2 text">What would you like to do?</h2>
+                <h1 className="text">Welcome to your happy place!</h1>
+                <h2 className="text">What would you like to do?</h2>
             </div>
             <div className="function-buttons">
                 <NavButton text='Create New Post' url='/new' mainHistory={history} />
