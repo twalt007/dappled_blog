@@ -77,7 +77,7 @@ class BlogHome extends Component{
         return(
             <div className = "section-container">
                 <BlogHeader mainHistory={this.history}/>
-                <div className="welcome-text green-space">
+                <div className="welcome-text dark-green-space">
                     <h1 className="text center">Welcome to Dappled!</h1>
                 </div>                
                 <div className="tile-list center-margins">
