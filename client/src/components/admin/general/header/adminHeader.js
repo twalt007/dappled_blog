@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../../../assets/images/logo.jpg';
+import logo from '../../../../assets/images/logo.png';
 import ColoredLine from '../../../general/coloredLine';
 import { BrandingColor } from '../../../general/helpers';
 import './adminHeader.scss'

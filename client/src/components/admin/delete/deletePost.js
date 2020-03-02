@@ -21,7 +21,7 @@ class DeletePost extends Component {
         this.history = props.history;
     }
     reroute = () => {
-        mainHistory.push('/delete');
+        this.history.push('/delete');
     }
     handleDelete = async() => {
         let resultMessageState;

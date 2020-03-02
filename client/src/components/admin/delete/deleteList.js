@@ -68,7 +68,7 @@ class DeleteList extends Component{
         return(
             <div className='section-container center'>
                 <AdminHeader mainHistory={this.props.history}/>
-                <NavButton text="Delete Post" buttonClasses="center" onClick="null" />
+                <NavButton text="Delete Post" buttonClasses="title center" onClick="null" />
                 <div className="xlrg-flx-container center-margins flex-left">
                         <h4 className="text">Select Post</h4>
                 </div>

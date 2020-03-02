@@ -3,10 +3,8 @@ import BlogHeader from '../general/header'
 import BlogFooter from '../general/footer'
 import NavButton from '../../general/navButton'
 import {formatDate} from '../../general/helpers'
+import './postContent.scss'
 
-//need to figure out why name won't render
-//perhaprs just hardcode everything so that contentType not needed and doesn't update the brand name at top
-//next steps - make header, footer, css for each part
 
 class PostContent extends Component {
     constructor (props){
@@ -15,7 +13,7 @@ class PostContent extends Component {
         this.state={
             history: props.history,
 
-            postId: props.history.location.state.id,
+            // postId: props.history.location.state.id,
             contentType: props.history.location.state.contentType,
             postTitle: props.history.location.state.postTitle,
             postContent: props.history.location.state.postContent,
@@ -33,11 +31,13 @@ class PostContent extends Component {
         return (            
             <div className="section-container">
                 <BlogHeader mainHistory={this.history} name={name} />                
-                <div className="green-space">
-                    <h2 className="text edit-list-title">{this.state.postTitle}</h2>
-                    <div className='text post-quote'>{this.state.postQuote}</div>
-                    <div className='text post-content'>{this.state.postContent}</div>
-                    <h6 className="text indent italicized last-edit-date">{formattedDate}</h6>
+                <div className="dark-green-space">                    
+                    <h3 className='text italicized post-quote'>{this.state.postQuote}</h3>
+                </div>
+                <div className="post-body indent">
+                    <h1 className="text post-title top-space">{this.state.postTitle}</h1>
+                    <h5 className="text italicized last-edit-date">{formattedDate}</h5>
+                    <div className='text post-content top-space'>{this.state.postContent}</div>
                 </div>
                 <div className="xlrg-flx-container center-margins flex-right">
                     <NavButton buttonClasses='small-button left' text='Return' url='/home' mainHistory={this.history}/>

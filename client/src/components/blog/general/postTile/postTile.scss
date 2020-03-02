@@ -18,28 +18,31 @@ $branding-extra-dark: rgba(3, 51, 3, 0.493);
 // }
 .tile{
     margin: 16px;
-    width: 280px;
-    // height: 400px;
-    border: 2px solid $branding-extra-dark;
+    width: 240px;
+    border: 1px solid $branding-extra-dark;
     border-radius: 4px;
 }
 .preview-container{
     display: absolute;
-    height: 260px;
-    margin-top: 70px;
+    height: 200px;
+    margin-top: 45px;
     background-color: $branding-light;
 }
 .center-text{
     display: flex;
-    justify-content: wrap;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 10px;
-    height: 260px;
+    height: 200px;
     font-family: 'Simonetta';
+}
+.tile-quote{
+    margin-bottom: 0;
 }
 .tile-title{
     font-size: 1.5rem;
-    min-height: 70px;
+    min-height: 45px;
     margin: 5px 10px;
 }
     
