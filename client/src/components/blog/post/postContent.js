@@ -29,12 +29,12 @@ class PostContent extends Component {
         const name = this.state.contentType;
         console.log ("name: ", name);
         return (            
-            <div className="section-container">
+            <div className="post-container">
                 <BlogHeader mainHistory={this.history} name={name} />                
                 <div className="dark-green-space">                    
                     <h3 className='text italicized post-quote'>{this.state.postQuote}</h3>
                 </div>
-                <div className="post-body indent">
+                <div className="post-body">
                     <h1 className="text post-title top-space">{this.state.postTitle}</h1>
                     <h5 className="text italicized last-edit-date">{formattedDate}</h5>
                     <div className='text post-content top-space'>{this.state.postContent}</div>

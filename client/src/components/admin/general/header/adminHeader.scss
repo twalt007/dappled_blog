@@ -1,6 +1,19 @@
+$breakpoint-phone: 414px;
+
 .header-container{ 
+    margin-left: 4.5%;
+    margin-right: 4.5%;
     margin-bottom: 4rem; 
     .logo{
         height: 6rem;
+    }
+}
+
+
+@media (max-width: $breakpoint-phone){
+    .header-container{
+        .logo{
+            margin-bottom: 10px;
+        }
     }
 }
