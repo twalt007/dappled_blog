@@ -1,19 +1,67 @@
+$breakpoint-halfscreen: 730px;
+$breakpoint-phone: 414px;
+
 .blog-header{
     position: relative;
     margin-bottom: 4rem;
-    height: 6rem;
+    height: 15rem;
     .logo{
         position: absolute;
-        top: 0px;
-        left: 60px;
-        height: 6rem;
+        top: 32px;
+        left: 100px;
+        height: 9rem;
+    }
+    .page-name{
+        margin-top: 45px;
+        margin-bottom: 30px;
+        display: inline-block;
+        font-family: 'Allura';
+        font-size: 5rem;
+        font-weight: 700;
+    }
+    hr{
+        margin: 0;
     }
 }
 
-.page-name{
-    margin-top: 45px;
-    display: inline-block;
-    font-family: 'Allura';
-    font-size: 4rem;
-    font-weight: 700;
+@media (max-width: $breakpoint-halfscreen){
+    .blog-header{
+        margin-bottom: 3rem;
+        height: 12rem;
+        .logo{
+            top: 17px;
+            left: 60px;
+            height: 7rem;
+        }
+        .page-name{
+            margin-top: 30px;
+            margin-bottom: 25px;
+            font-size: 4rem;
+        }
+    }
+}
+
+
+
+@media (max-width: $breakpoint-phone){
+    .blog-header{
+        margin-bottom: 2rem;
+        height: 9rem;
+        .logo{
+            top: 12px;
+            left: 40px;
+            height: 5.5rem;
+        }
+        .page-name{
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 3rem;
+            font-weight: 600;
+        }
+    }
+    
+     
+    // h1{
+    //     margin-bottom: 0px;
+    // }
 }
