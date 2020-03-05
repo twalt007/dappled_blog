@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 04, 2020 at 06:28 PM
+-- Generation Time: Mar 04, 2020 at 06:57 PM
 -- Server version: 5.7.27-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.1
 
@@ -63,6 +63,32 @@ INSERT INTO `posts` (`id`, `pid`, `userId`, `postType`, `contentType`, `postTitl
 (26, '441004fe-5c25-11ea-b52c-a4db300c2566', 1, 'standard', 'philosophy', 'Yar Pirate Ipsum', 'Yellow Jack yard ho jack Sink me snow line hail-shot hogshead. Ho six pounders Yellow Jack topmast grog blossom run a shot across the bow quarterdeck no prey, no pay deadlights. Blow the man down rigging lookout driver Sail ho gally lee landlubber or just lubber spike. Yard black spot loot doubloon weigh anchor ye plunder Admiral of the Black barque. Boom league jolly boat topmast chase hardtack to go on account poop deck Blimey. Ho sheet six pounders pirate bilge rat square-rigged yo-ho-ho ye haul wind.\n\nGrog fire in the hole reef Jack Ketch line trysail flogging quarter dance the hempen jig. Salmagundi jolly boat Plate Fleet square-rigged Yellow Jack topgallant black spot galleon barkadeer. Shiver me timbers reef sails mizzenmast ballast wherry provost pinnace scourge of the seven seas holystone. Capstan topgallant wench hulk yawl bilge water lateen sail driver draught. Hang the jib cackle fruit gunwalls bilged on her anchor gibbet six pounders dead men tell no tales driver splice the main brace. Blimey log tack measured fer yer chains Nelsons folly gunwalls salmagundi scourge of the seven seas draft.\n\nCorsair belaying pin nipperkin grapple Shiver me timbers black jack squiffy Buccaneer reef. Swing the lead scurvy knave Blimey topgallant hail-shot Sink me heave to lugger. Sink me doubloon landlubber or just lubber spanker to go on account sutler yawl Chain Shot grapple. Crow\'s nest Blimey tackle hang the jib clap of thunder salmagundi cutlass furl Barbary Coast. Blow the man down squiffy prow hardtack Jack Tar schooner overhaul piracy Arr. Clipper carouser belay jolly boat red ensign tack grog swing the lead provost.', 'Adventures by sea ~ Jack Sparrow anyone?', '2020-03-01 17:29:31', '2020-03-01 17:29:31', NULL, NULL),
 (27, '86075368-5c25-11ea-b52c-a4db300c2566', 1, 'standard', 'philosophy', 'Astro Ipsum Logo Lorem', 'Orion\'s sword cosmos circumnavigated decipherment dream of the mind\'s eye radio telescope? The sky calls to us the ash of stellar alchemy preserve and cherish that pale blue dot a very small stage in a vast cosmic arena star stuff harvesting star light a still more glorious dawn awaits. Quis nostrum exercitationem ullam corporis suscipit laboriosam adipisci velit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.\n\nOrion\'s sword descended from astronomers are creatures of the cosmos at the edge of forever concept of the number one encyclopaedia galactica. Adipisci velit kindling the energy hidden in matter two ghostly white figures in coveralls and helmets are soflty dancing nisi ut aliquid ex ea commodi consequatur bits of moving fluff consectetur? Two ghostly white figures in coveralls and helmets are soflty dancing adipisci velit a still more glorious dawn awaits brain is the seed of intelligence brain is the seed of intelligence quis nostrum exercitationem ullam corporis suscipit laboriosam.\n\nParoxysm of global death nisi ut aliquid ex ea commodi consequatur worldlets inconspicuous motes of rock and gas colonies Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur? Courage of our questions courage of our questions rings of Uranus permanence of the stars intelligent beings how far away. Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem dream of the mind\'s eye a mote of dust suspended in a sunbeam two ghostly white figures in coveralls and helmets are soflty dancing gathered by gravity consectetur.', 'Adventures by stars - follow the stars and turn the page!', '2020-03-01 17:31:22', '2020-03-01 17:31:22', NULL, NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `userAuth`
+--
+
+CREATE TABLE `userAuth` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `pid` char(36) NOT NULL,
+  `firstName` varchar(255) NOT NULL,
+  `lastName` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `userName` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `deletedAt` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `userAuth`
+--
+
+INSERT INTO `userAuth` (`id`, `pid`, `firstName`, `lastName`, `email`, `userName`, `password`, `createdAt`, `updatedAt`, `deletedAt`) VALUES
+(1, 'a9ec5c8d-455a-11ea-8fd0-a4db300c2566', 'Tatumn', 'Walter', 'tatumnwalter@gmail.com', 'twalt007', 'Perseverence88', '2020-02-01 17:23:48', '2020-02-15 09:14:16', NULL);
+
 --
 -- Indexes for dumped tables
 --
@@ -74,6 +100,12 @@ ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `userAuth`
+--
+ALTER TABLE `userAuth`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -82,3 +114,8 @@ ALTER TABLE `posts`
 --
 ALTER TABLE `posts`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+--
+-- AUTO_INCREMENT for table `userAuth`
+--
+ALTER TABLE `userAuth`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
