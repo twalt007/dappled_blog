@@ -39,17 +39,16 @@ class EditPost extends Component {
         catch (error){
             console.log("Error submitting content to be posted. ", error);
             this.history.push('/result-message');
-        }
-        
-        
+        }      
     }
+
     render(){
         let initialValues = { 
             postTitle: this.state.postTitle, 
-            postContent: this.state.postContent, 
+            postContent: this.state.postContent,  
             postQuote: this.state.postQuote
         };
-        
+        console.log("initialValues: ", initialValues);
         return (
             <div className="section-container center">
                 <AdminHeader mainHistory={this.history}/>
