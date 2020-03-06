@@ -23,14 +23,9 @@ class PostContent extends Component {
         
         this.history = props.history;
     }
-    // formatContent(content){
-    //     content = content.replace(/(?:\r\n|\r|\n)/g, '<br>');
-    //     return content;
-    // }
+
     render(){
         const formattedDate = formatDate(this.state.updatedAt);
-        // let postContent = this.formatContent(this.state.postContent);
-        console.log ("name: ", name);
         return (            
             <div className="post-container">
                 <BlogHeader mainHistory={this.history} />                
