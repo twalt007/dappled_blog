@@ -23,14 +23,17 @@ class PostContent extends Component {
         
         this.history = props.history;
     }
-    
+    // formatContent(content){
+    //     content = content.replace(/(?:\r\n|\r|\n)/g, '<br>');
+    //     return content;
+    // }
     render(){
         const formattedDate = formatDate(this.state.updatedAt);
-        const name = this.state.contentType;
+        // let postContent = this.formatContent(this.state.postContent);
         console.log ("name: ", name);
         return (            
             <div className="post-container">
-                <BlogHeader mainHistory={this.history} name={name} />                
+                <BlogHeader mainHistory={this.history} />                
                 <div className="dark-green-space">                    
                     <h3 className='text italicized post-quote'>{this.state.postQuote}</h3>
                 </div>
@@ -42,7 +45,7 @@ class PostContent extends Component {
                 <div className="xlrg-flx-container center-margins flex-right">
                     <NavButton buttonClasses='small-button left' text='Return' url='/home' mainHistory={this.history}/>
                 </div>
-                <BlogFooter mainHistory={this.history} name={name}/>
+                <BlogFooter mainHistory={this.history}/>
             </div>
         )
     }
