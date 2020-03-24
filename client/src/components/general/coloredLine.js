@@ -6,6 +6,8 @@ const ColoredLine = ({ color }) => {
             color: color,
             backgroundColor: color,
             height: 0.01,
+            marginLeft: "4%",
+            marginRight: "4%"
         }}
         />
     )

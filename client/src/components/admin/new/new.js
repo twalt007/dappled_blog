@@ -37,10 +37,13 @@ const NewPost = props => {
     }
     const initialValues = {postTitle:'', postContent: '', postQuote: ''}
     return (
-        <div className="section-container center">
-            <AdminHeader mainHistory={history}/>
-            <NavButton text="Create New Post" buttonClasses = "title" onClick="null"/>
-            <PostForm handleSubmit={handleSubmit} mainHistory={history} text="Post" initialValues={initialValues}/>
+        <div className="admin section-container center">
+            <div className="admin-background">
+                <AdminHeader mainHistory={history}/>
+                <NavButton text="Create New Post" buttonClasses = "title" onClick="null"/>
+                <PostForm handleSubmit={handleSubmit} mainHistory={history} text="Post" initialValues={initialValues}/>
+                <div className="bottom-space"></div>
+            </div>
         </div>
     )
 }

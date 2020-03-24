@@ -67,7 +67,7 @@ class EditList extends Component{
             )
         });
         return(
-            <div className='section-container center'>
+            <div className='admin admin-background section-container center'>
                 <AdminHeader mainHistory={this.history}/>
                 <NavButton text="Edit Post" buttonClasses="title center" onClick="null" />
                 <div className="xlrg-flx-container center-margins flex-left">

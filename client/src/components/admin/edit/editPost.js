@@ -50,7 +50,7 @@ class EditPost extends Component {
         };
         console.log("initialValues: ", initialValues);
         return (
-            <div className="section-container center">
+            <div className="admin admin-background section-container center">
                 <AdminHeader mainHistory={this.history}/>
                 <NavButton text="Edit Post" buttonClasses = "title center" onClick="null"/>
                 <PostForm handleSubmit={this.handleSubmit} mainHistory={this.history} text="Update" initialValues={initialValues} returnUrl="/edit"/>

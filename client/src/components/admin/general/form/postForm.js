@@ -27,9 +27,10 @@ const PostForm = (props) => {
             onSubmit = {(values, {setSubmitting})=>{
                 handleSubmit(values);
                 setSubmitting(false);
+                console.log("formvalues on Form: ", values);
             }}
         >
-            <Form className="form">
+            <Form className="form" enctype="multipart/form-data">
                 <label className="form-label" htmlFor="postTitle">Post Title</label>
                 <Field className="fat-border form-input" name="postTitle" type="text" />
                 <ErrorMessage className="form-error" name="postTitle" />
@@ -39,6 +40,10 @@ const PostForm = (props) => {
                 <label className="form-label" htmlFor="postQuote">Post Quote</label>
                 <Field className="fat-border form-input" name="postQuote" type="text" />
                 <ErrorMessage className="form-error" name="postQuote" />
+                <label className="form-label" htmlFor="postImage">Upload Image</label>
+                <Field className="fat-border form-input" id="t1" name="postImage" type="file" accept="image/*"></Field>
+                {/* <input className="fat-border form-input" name="postImage" type="file" accept="image/*" /> */}
+                <ErrorMessage className="form-error" name="postImage" />
                 <div className="xlrg-flx-container flex-right">
                     <div className="lrg-container align-right top-space">
                         <div className = 'small-button fat-border after-space' onClick={reroute} >Return</div>                
@@ -52,3 +57,6 @@ const PostForm = (props) => {
 
 
 export default PostForm;
+
+//remove ids
+//create new componenet for file input
