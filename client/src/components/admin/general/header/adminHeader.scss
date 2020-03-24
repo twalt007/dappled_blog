@@ -1,9 +1,12 @@
 $breakpoint-phone: 414px;
 
 .header-container{ 
-    margin-left: 4.5%;
-    margin-right: 4.5%;
+    background-color: white;
+    margin-left: 0;
+    margin-right: 0;
     margin-bottom: 4rem; 
+    padding-top: 10px;
+    padding-bottom: 1px;
     .logo{
         height: 6rem;
     }

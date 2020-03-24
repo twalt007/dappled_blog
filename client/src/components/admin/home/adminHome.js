@@ -5,7 +5,7 @@ import NavButton from '../../general/navButton'
 const AdminHome = props => {
     const {history} = props
     return(
-        <div className = "section-container center">
+        <div className = "admin admin-background section-container center">
             <AdminHeader mainHistory={history}/>
             <div className="intro">
                 <h1 className="text">Welcome to your happy place!</h1>

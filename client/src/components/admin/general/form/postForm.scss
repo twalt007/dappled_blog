@@ -1,3 +1,6 @@
+$branding-color: #065f06;
+$branding-white-transparent: rgba(218, 217, 206, 0.61); 
+
 .form{
     display: inline-block;
     width: 85vw;
@@ -13,7 +16,8 @@
     width: 85vw;
     font-size: 1.2rem;
     height: 2.7rem;
-    padding: 3px
+    padding: 3px;
+    background-color: $branding-white-transparent
 }
 .form-textarea{
     width: 85vw;
@@ -21,4 +25,9 @@
     min-height: 15rem;
     font-size: 1.2rem;
     padding: 3px;
+    background-color: $branding-white-transparent
+}
+button{
+    color: $branding-color;
+    background-color: $branding-white-transparent
 }

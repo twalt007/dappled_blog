@@ -15,6 +15,8 @@ $branding-light: rgba(6, 95, 6, 0.25);
 $branding-extra-light: rgba(6, 95, 6, 0.10);
 $branding-dark: rgba(4, 75, 4, 0.336);
 $branding-extra-dark: rgba(3, 51, 3, 0.493);
+$branding-white: rgb(218, 217, 206); 
+$branding-white-transparent: rgba(218, 217, 206, 0.61); 
 //used on 
 //blogFooter.scss
 //postTile.scss
@@ -32,14 +34,14 @@ html{
 
 body {
 //core set-up
-    position: relative;
-    font-family: Arial, Helvetica, sans-serif;
 }
 .app {
     // margin: 0 4.5% 3%;
     background-color: white;
     font-size: 1.6rem;        
-    color: black;    
+    color: $branding-color;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
 }
 h1 {
     font-size: 2.5rem;
@@ -59,13 +61,31 @@ h4{
     margin: 1.5rem 0;
 }    
 .section-container{
-    margin: 1.5rem 0;
-}    
+    padding-bottom: 1.5rem;
+}  
+.admin-background{
+    background-image: url(../images/backlit_leaves2.JPG);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: $branding-extra-dark;
+}  
 .fat-border{
     border-style: solid;
     border-width: 1.5px;
     border-color: $branding-color;
     border-radius: 4px;
+}
+.admin{
+    height: 100vh;
+    color: $branding-white;
+    .large-button{
+        background-color: $branding-extra-dark;
+    }
+    .small-button{
+        background-color: $branding-white-transparent
+    }
 }
 .large-button, .small-button{
     display: inline-block;
@@ -75,12 +95,12 @@ h4{
 .large-button:hover{
     background-color: $branding-light;
     text-decoration: underline;
-    border: 1px solid $branding-color;
+    border: 1.5px solid $branding-color;
     cursor: pointer;
 }
 .small-button:hover{
     background-color: $branding-color;
-    color: white;
+    color: $branding-white;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -168,6 +188,9 @@ h4{
 }
 .top-space{
     margin-top: 35px;
+}
+.bottom-space{
+    padding-bottom: 20px;
 }
 .indent{
     padding-left: 45px;

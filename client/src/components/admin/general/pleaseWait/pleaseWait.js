@@ -5,7 +5,7 @@ import NavButton from '../../../general/navButton'
 const PleaseWait = (props) => {
     const {text, mainHistory } = props;
     return(
-        <div className='section-container center'>
+        <div className='admin admin-background section-container center'>
             <AdminHeader mainHistory={mainHistory}/>
             <NavButton text={text} buttonClasses="title center" onClick="null" />
             <div className="xlrg-flx-container center-margins flex-left">

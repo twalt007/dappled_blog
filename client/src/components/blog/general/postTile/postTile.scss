@@ -17,6 +17,7 @@ $branding-extra-dark: rgba(3, 51, 3, 0.493);
 //     flex: auto;
 // }
 .tile{
+    box-sizing: border-box;
     margin: 16px;
     width: 240px;
     border: 1px solid $branding-extra-dark;
@@ -47,11 +48,15 @@ $branding-extra-dark: rgba(3, 51, 3, 0.493);
 }
     
 .tile:hover{
-    border: 3px solid $branding-color;
+    box-sizing: border-box;
+    border: 2px solid $branding-color;
     cursor: pointer;
     .tile-title{
         font-weight: 500;
         text-decoration: underline;
+    }
+    .preview-container{
+        height: 198px;
     }
 }
 .tile-date{
