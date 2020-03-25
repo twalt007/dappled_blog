@@ -1,7 +1,8 @@
 $breakpoint-phone: 414px;
+$transparent-overlay: rgba(255, 255, 255, 0.384);
 
 .header-container{ 
-    background-color: white;
+    background-color: $transparent-overlay;
     margin-left: 0;
     margin-right: 0;
     margin-bottom: 4rem; 
@@ -9,6 +10,11 @@ $breakpoint-phone: 414px;
     padding-bottom: 1px;
     .logo{
         height: 6rem;
+        background-color: rgba(255, 255, 255, 0.582);
+        border-radius: 8px;
+    }
+    .logo:hover{
+        cursor: pointer;
     }
 }
 
