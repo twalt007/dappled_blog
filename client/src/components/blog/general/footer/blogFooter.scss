@@ -1,12 +1,6 @@
 $breakpoint-halfscreen: 730px;
 $breakpoint-phone: 414px;
 
-
-
-$branding-color: #065f06;
-$branding-light: rgba(6, 95, 6, 0.25);
-$branding-extra-light: rgba(6, 95, 6, 0.10);
-$branding-dark: rgba(4, 75, 4, 0.336);
 $branding-extra-dark: rgba(3, 51, 3, 0.493);
 
 .blog-footer{
@@ -22,6 +16,9 @@ $branding-extra-dark: rgba(3, 51, 3, 0.493);
         bottom: 22px;
         left: 100px;
         height: 9rem;
+    }
+    .logo:hover{
+        cursor: pointer;
     }
     .page-name{
         margin-top: 40px;
