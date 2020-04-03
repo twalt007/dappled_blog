@@ -48,7 +48,6 @@ class EditPost extends Component {
             postContent: this.state.postContent,  
             postQuote: this.state.postQuote
         };
-        console.log("initialValues: ", initialValues);
         return (
             <div className="admin admin-background section-container center">
                 <AdminHeader mainHistory={this.history}/>
