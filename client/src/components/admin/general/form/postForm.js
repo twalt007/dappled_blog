@@ -1,30 +1,78 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Field, FormButton } from './formComponents'
 import * as Yup from 'yup';
 import './postForm.scss'
 
 
-const PostForm = (props) => {
+class PostForm extends Component {
+    state = {
+        data: {},
+        errors: {}
+    };
+
+
+    (props) => {
     const {initialValues, text='Ok', mainHistory, returnUrl='/'} = props;  //handleSubmit
     function reroute(){
         mainHistory.push(returnUrl);
-    }
-    
+    };
+    const validateForm = () => {
+        console.log("testing validation function");
+        if (!error) {
+            return null;
+        }
+        //something to push error messages to variable
+        return errors
+    };
+    const validateField = () => {
+        console.log("testing validate property function");
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("testing submit functionality");
-    }
+    };
+
+    const handleChange = (e) => {
+        const { value } = e.currentTarget;
+        console.log("inside onchange event, e props", value);
+
+    };
 
     return (
        <form className="form" encType="multipart/form-data" onSubmit={handleSubmit}>
-            <Field name="testingDefault" label="Testing Default" type="text" />
-            <Field name="testingTextArea" label="testing Text Area" type="text" fieldClass="textarea" />
-            <Field name="testingOverridingStyle" label="testing Overriding style" type="text" labelClass="new-label-class" divClass="new-div-class" id="new-id" />
+            <Field name="testingDefault" label="Testing Default" />
+            <Field name="testingTextArea" label="testing Text Area" fieldClass="textarea" />
+            <Field name="testingOnChange" label="testing On Change" onChange={handleChange} />
             <Field name="testingImage" label="testingimage" type="file" />
             <FormButton returnText="ReturnTest" text={text} reroute={reroute}/>
         </form>
     )
 }
+
+
+const postList = postData.map((post,index) => {
+    return(
+        <PostTile 
+            key={index}
+            {...post}
+            onClick={this.goToDetails.bind(this, post.postId)}
+        />
+    )
+});
+return(
+        <div className = "client-container blog-container">
+            <BlogHeader mainHistory={this.history}/>
+            <div className="welcome-text green-space">
+                <h1 className="text center">Welcome to Dappled!</h1>
+            </div>                
+            <div className="tile-list center-margins">
+                {postList}
+            </div>
+            <BlogFooter mainHistory={history} name={name}/>
+        </div>
+);
+
 
 
 export default PostForm;

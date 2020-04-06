@@ -35,13 +35,23 @@ const NewPost = props => {
         
         
     }
+    
     const initialValues = {postTitle:'', postContent: '', postQuote: ''}
+    const formFields = [
+        <Field name="testingDefault" label="Testing Default" />,
+        <Field name="testingTextArea" label="testing Text Area" fieldClass="textarea" />,
+        <Field name="testingOnChange" label="testing On Change" onChange={handleChange} />,
+        <Field name="testingImage" label="testingimage" type="file" />,
+        <FormButton returnText="ReturnTest" text={text} reroute={reroute}/>
+    ];
+
     return (
         <div className="admin section-container center">
             <div className="admin-background">
                 <AdminHeader mainHistory={history}/>
                 <NavButton text="Create New Post" buttonClasses = "title" onClick="null"/>
-                <PostForm handleSubmit={handleSubmit} mainHistory={history} text="Post" initialValues={initialValues}/>
+                <Form formFields={formFields} handleSubmit={handleSubmit} mainHistory={history} text="Post" initialValues={initialValues}></Form>
+                {/* <PostForm handleSubmit={handleSubmit} mainHistory={history} text="Post" initialValues={initialValues}/> */}
                 <div className="bottom-space"></div>
             </div>
         </div>

@@ -6,10 +6,6 @@ import './postTile.scss'
 const PostTile = (props) => {
     const {onClick, postTitle, updatedAt, postQuote, contentType='philosophy' } = props;
     const formattedDate = formatDate(updatedAt);
-
-    const limitTitle = (postTitle) => {
-
-    }
     
     return(
         <div>
