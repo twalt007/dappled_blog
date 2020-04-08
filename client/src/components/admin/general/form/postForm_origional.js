@@ -60,3 +60,5 @@ export default PostForm;
 
 //remove ids
 //create new componenet for file input
+
+
