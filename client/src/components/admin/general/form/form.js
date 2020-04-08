@@ -1,22 +1,29 @@
 import React, { Component } from 'react';
 import { Field, FormButton } from './formComponents'
 import * as Yup from 'yup';
-import './postForm.scss'
+import './form.scss'
 
 
-class PostForm extends Component {
-    state = {
-        data: {},
-        errors: {}
-    };
+class Form extends Component {
+    constructor(props){
+        super(props);
 
-
-    (props) => {
-    const {initialValues, text='Ok', mainHistory, returnUrl='/'} = props;  //handleSubmit
-    function reroute(){
+        this.state = {
+            data: {},
+            errors: {}
+        }
+        this.reroute = this.reroute.bind(this);
+        this.validateForm = this.validateForm.bind(this);
+        this.validateField = this.validateField.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+    
+    reroute(){
         mainHistory.push(returnUrl);
     };
-    const validateForm = () => {
+
+    validateForm(){
         console.log("testing validation function");
         if (!error) {
             return null;
@@ -24,58 +31,61 @@ class PostForm extends Component {
         //something to push error messages to variable
         return errors
     };
-    const validateField = () => {
+    
+    validateField(){
         console.log("testing validate property function");
     };
 
-    const handleSubmit = (e) => {
+    handleSubmit(e){
         e.preventDefault();
         console.log("testing submit functionality");
     };
 
-    const handleChange = (e) => {
+    handleChange(e){
         const { value } = e.currentTarget;
         console.log("inside onchange event, e props", value);
 
     };
 
-    return (
-       <form className="form" encType="multipart/form-data" onSubmit={handleSubmit}>
-            <Field name="testingDefault" label="Testing Default" />
-            <Field name="testingTextArea" label="testing Text Area" fieldClass="textarea" />
-            <Field name="testingOnChange" label="testing On Change" onChange={handleChange} />
-            <Field name="testingImage" label="testingimage" type="file" />
-            <FormButton returnText="ReturnTest" text={text} reroute={reroute}/>
-        </form>
-    )
+    render (){
+        // const { initialValues, text= 'ok', mainHistory, returnUrl= '/'} = this.props //handleSubmit 
+        console.log("this.props.children", this.props.children);
+        // <form className="form" encType="multipart/form-data" onSubmit={handleSubmit}>
+        return(
+            <form className="form" encType="multipart/form-data">
+                {this.props.children}
+            </form>
+        )
+        
+    }        
 }
 
 
-const postList = postData.map((post,index) => {
-    return(
-        <PostTile 
-            key={index}
-            {...post}
-            onClick={this.goToDetails.bind(this, post.postId)}
-        />
-    )
-});
-return(
-        <div className = "client-container blog-container">
-            <BlogHeader mainHistory={this.history}/>
-            <div className="welcome-text green-space">
-                <h1 className="text center">Welcome to Dappled!</h1>
-            </div>                
-            <div className="tile-list center-margins">
-                {postList}
-            </div>
-            <BlogFooter mainHistory={history} name={name}/>
-        </div>
-);
+// const postList = postData.map((post,index) => {
+//     return(
+//         <PostTile 
+//             key={index}
+//             {...post}
+//             onClick={this.goToDetails.bind(this, post.postId)}
+//         />
+//     )
+// });
+// return(
+//         <div className = "client-container blog-container">
+//             <BlogHeader mainHistory={this.history}/>
+//             <div className="welcome-text green-space">
+//                 <h1 className="text center">Welcome to Dappled!</h1>
+//             </div>                
+//             <div className="tile-list center-margins">
+//                 {postList}
+//             </div>
+//             <BlogFooter mainHistory={history} name={name}/>
+//         </div>
+// );
 
 
 
-export default PostForm;
+export default Form;
 
 //remove ids
 //create new componenet for file input
