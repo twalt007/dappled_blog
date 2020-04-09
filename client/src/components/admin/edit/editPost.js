@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import AdminHeader from '../general/header/adminHeader'
 import NavButton from '../../general/navButton'
-import PostForm from '../general/form'
+import FormOriginal from '../general/form/form_original'
 import axios from 'axios';
 
 class EditPost extends Component {
@@ -52,7 +52,7 @@ class EditPost extends Component {
             <div className="admin admin-background section-container center">
                 <AdminHeader mainHistory={this.history}/>
                 <NavButton text="Edit Post" buttonClasses = "title center" onClick="null"/>
-                <PostForm handleSubmit={this.handleSubmit} mainHistory={this.history} text="Update" initialValues={initialValues} returnUrl="/edit"/>
+                <FormOriginal handleSubmit={this.handleSubmit} mainHistory={this.history} text="Update" initialValues={initialValues} returnUrl="/edit"/>
             </div>
         )
     }

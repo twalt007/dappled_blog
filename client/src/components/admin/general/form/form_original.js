@@ -1,10 +1,10 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import './postForm.scss'
+import './form.scss'
 
 
-const PostForm = (props) => {
+const FormOriginal = (props) => {
     const {initialValues, text='Ok', mainHistory, handleSubmit, returnUrl='/'} = props;
     function reroute(){
         mainHistory.push(returnUrl);
@@ -56,7 +56,7 @@ const PostForm = (props) => {
 }
 
 
-export default PostForm;
+export default FormOriginal;
 
 //remove ids
 //create new componenet for file input
