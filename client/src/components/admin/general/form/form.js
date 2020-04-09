@@ -47,16 +47,16 @@ class Form extends Component {
 
     };
 
-    // render (){
-    //     const { initialValues, text= 'ok', mainHistory, returnUrl= '/', reroute} = this.props //handleSubmit 
-    //     console.log("this.props.children", this.props.children);
-    //     return(
-    //         <form className="form" encType="multipart/form-data" onSubmit={this.handleSubmit}>
-    //             {this.props.children}
-    //         </form>
-    //     )
+    render (){
+        const { initialValues, text= 'ok', mainHistory, returnUrl= '/', reroute} = this.props //handleSubmit 
+        console.log("this.props.children", this.props.children);
+        return(
+            <form className="form" encType="multipart/form-data" onSubmit={this.handleSubmit}>
+                {this.props.children}
+            </form>
+        )
         
-    // }        
+    }        
 }
 
 

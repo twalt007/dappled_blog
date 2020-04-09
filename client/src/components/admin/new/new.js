@@ -1,7 +1,7 @@
 import React from 'react'
 import AdminHeader from '../general/header/adminHeader'
 import NavButton from '../../general/navButton'
-import Form from '../general/form'
+import Form from '../general/form/form'
 import { Field, FormButton } from '../general/form/formComponents'
 import axios from 'axios';
 
