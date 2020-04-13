@@ -1,7 +1,11 @@
-npde_modules
+node_modules
 
 .vscode
 .DS-Store
 
 config/*.js
 config/*.json
+
+questions
+
+to-dos
