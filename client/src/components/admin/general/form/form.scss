@@ -1,6 +1,7 @@
 $branding-color: #065f06;
 $branding-white-transparent: rgba(200, 211, 187, 0.377); 
 $branding-grey: rgb(197, 196, 194);
+$disabled-background: rgb(218, 30, 30);
 
 .form{
     display: inline-block;
@@ -30,5 +31,9 @@ $branding-grey: rgb(197, 196, 194);
 }
 button{
     color: $branding-grey;
-    background-color: $branding-white-transparent
+    background-color: $branding-white-transparent;
 }
+.disabled{
+    color: $branding-white-transparent
+}
+

@@ -2,6 +2,7 @@ import React from "react";
 
 export const Field = ({
     name, label, onChange, onBlur, value, initVal, error, accept, max, min,
+    disabled=false,
     type="text",
     divClass="input-group", 
     labelClass="form-label", 
@@ -21,6 +22,14 @@ export const Field = ({
     if (error){
         errorMessage = error[name];
     };
+
+    if (disabled){
+        divClass="input-group disabled", 
+        labelClass="form-label disabled", 
+        fieldClass="fat-border form-input disabled", 
+        errorClass="form-error disabled" 
+    };
+
     return (
         <div className = {divClass}>
             <label className= {labelClass} htmlFor={name}>{label}</label>
@@ -45,22 +54,28 @@ export const Field = ({
 }
 
 export const FormButton = ({
-    text, error, reroute, onClick,
+    text, error, reroute, onClick, 
+    disabled=false,
     type="submit",
     returnText="Return",
     componentDivClass="xlrg-flx-container flex-right", 
     groupDivClass="lrg-container align-right top-space", 
     divClass='small-button fat-border after-space', 
-    buttonClass='text small-button fat-border', 
+    buttonClass='text small-button fat-border disabled', 
     errorClass="form-error", 
     id=null,
     }) => {
-        
+    
+    if (disabled) {
+        divClass='small-button fat-border after-space disabled', 
+        buttonClass='text small-button fat-border disabled'
+    }
+
     return (
         <div className={componentDivClass}>
             <div className={groupDivClass}>
                 <div className ={divClass} onClick={reroute} role="button">{returnText}</div>                
-                <button className={buttonClass} type={type} onClick={onClick}>{text}</button>
+                <button className={`text small-button fat-border ${buttonClass}`} type={type} onClick={onClick}>{text}</button>
             </div>
             {error && <div className={errorClass} >{error}</div>}
         </div>

@@ -3,7 +3,8 @@ import AdminHeader from '../general/header/adminHeader'
 import NavButton from '../../general/navButton'
 import { Field, FormButton } from '../general/form/formComponents'
 import * as yup from 'yup'
-import axios from 'axios';
+import axios from 'axios'
+import '../general/form/form.scss'
 
 class NewPost extends Component {
     constructor(props){
@@ -12,7 +13,9 @@ class NewPost extends Component {
         this.state = {
             data: {},
             errors: {},
-            initVal: {}
+            initVal: {},
+            buttonClass: "text small-button fat-border disabled" ,
+            disabled: false
         }
 
         this.validSchema = {
@@ -44,12 +47,9 @@ class NewPost extends Component {
     async validateForm(){
         const data = {...this.state};
         const schema = yup.object().shape(this.validSchema);
-        console.log("validateForm starting state: ", data)
         let errors = {};
         await schema.validate(this.state.data, {abortEarly:false}).catch(errs => {
-            errs.inner.map(err=>{
-                errors[err.path] = err.message;
-            });            
+            errs.inner.map(err=>{ errors[err.path] = err.message; });            
         });
         return errors;
     };
@@ -69,62 +69,62 @@ class NewPost extends Component {
         let allErrors = await this.validateForm();
         this.setState({errors : allErrors });
 
-        if (Object.keys(allErrors).length !== 0) {
-            return;
-        };
-
+        if (Object.keys(allErrors).length !== 0)return;
         this.submitForm(this.state.data);
     };
 
     async handleChangeBlur({currentTarget: input}){
+
         const errors = {...this.state.errors};
 
         let errorMessage = await this.validateField(input);
         if (errorMessage) errors[input.name] = errorMessage;
-        else delete errors[input.name];
+        else {
+            delete errors[input.name];
+            let allErrors = await this.validateForm();
+            if (Object.keys(allErrors).length == 0) this.setState({ buttonClass : "text small-button fat-border" });
+        };  
 
         const data = { ...this.state.data };
         data[input.name] = input.value;
-        this.setState({ data, errors });
+        this.setState({ data, errors })        
     };
 
     submitForm = async(values) => {
-        const {history, userId='a9ec5c8d-455a-11ea-8fd0-a4db300c2566'} = this.props;
-        console.log("newPost handleSubmit form Values: ", values)
-        const data = {
-            userId: userId,
-            post: values 
-        }
-        let resultMessageState;
-        try{
-            const resp = await axios.post(`/api/admin/new-post`, data);
-            if (resp.data.code===200){
-                resultMessageState = 'success';         
-            }
-            history.push('/result-message', resultMessageState);
-            return;
-        }
-        catch (error){
-            console.log("Error submitting content to be posted. ", error);
-            history.push('/result-message');
-        }      
-        
+        this.setState({ disabled: true});
+        // const {history, userId='a9ec5c8d-455a-11ea-8fd0-a4db300c2566'} = this.props;
+        // const data = {
+        //     userId: userId,
+        //     post: values 
+        // }
+        // let resultMessageState;
+        // try{
+        //     const resp = await axios.post(`/api/admin/new-post`, data);
+        //     if (resp.data.code===200) resultMessageState = 'success'
+        //     history.push('/result-message', resultMessageState);
+        //     return;
+        // }
+        // catch (error){
+        //     console.log("Error submitting content to be posted. ", error);
+        //     history.push('/result-message');
+        // }            
     }
 
     render(){
         let oCB = this.handleChangeBlur;
         let err = this.state.errors;
+        let dis = this.state.disabled;
         return (
             <div className="admin section-container center">
                 <div className="admin-background">
                     <AdminHeader mainHistory={history}/>
                     <NavButton text="Create New Post" buttonClasses = "title" onClick="null"/>
                     <form className="form" encType="multipart/form-data" onSubmit={this.handleSubmit}>
-                        <Field name='postTitle' label="Post Title" max="60" min="1" error={err} onChange={oCB} onBlur={oCB} />
-                        <Field name="postContent" label="Post Content" fieldClass="textarea" min="1" error={err} onChange={oCB} onBlur={oCB}/>
-                        <Field name="postQuote" label="Post Quote" max="255" min="1" error={err} onChange={oCB} onBlur={oCB} />
-                        <Field name="postImage" label="Post Image" type="file" accept="image/*" error={err} onChange={oCB} onBlur={oCB} />
-                        <FormButton text="Post" reroute={this.reroute}/>
+                        <Field name='postTitle' label="Post Title" max="60" min="1" error={err} onChange={oCB} onBlur={oCB} disabled={dis}/>
+                        <Field name="postContent" label="Post Content" fieldClass="textarea" min="1" error={err} onChange={oCB} onBlur={oCB} disabled={dis}/>
+                        <Field name="postQuote" label="Post Quote" max="255" min="1" error={err} onChange={oCB} onBlur={oCB} disabled={dis}/>
+                        <Field name="postImage" label="Post Image" type="file" accept="image/*" error={err} onChange={oCB} onBlur={oCB} disabled={dis}/>
+                        <FormButton text="Post" onClick={this.validateForm} reroute={this.reroute} buttonClass={this.state.buttonClass} disabled={dis}/>
                     </form>
                     <div className="bottom-space"></div>
                 </div>
