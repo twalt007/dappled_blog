@@ -9,3 +9,5 @@ config/*.json
 questions
 
 to-dos
+
+db_dump_copy.sql
