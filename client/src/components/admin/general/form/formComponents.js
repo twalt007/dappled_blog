@@ -24,10 +24,9 @@ export const Field = ({
     };
 
     if (disabled){
-        divClass="input-group disabled", 
-        labelClass="form-label disabled", 
-        fieldClass="fat-border form-input disabled", 
-        errorClass="form-error disabled" 
+        divClass=`${divClass} disabled`, 
+        labelClass=`${labelClass} disabled`, 
+        fieldClass=`${fieldClass} disabled`
     };
 
     return (
@@ -48,34 +47,38 @@ export const Field = ({
                 max={max}
                 min={min}
             />
-            <div className={errorClass} name={name}>{error[name]}</div>
+            <div className={errorClass} name={name}>{errorMessage}</div>
         </div>
     )
 }
 
 export const FormButton = ({
     text, error, reroute, onClick, 
-    disabled=false,
+    disabled='submit',
     type="submit",
     returnText="Return",
     componentDivClass="xlrg-flx-container flex-right", 
     groupDivClass="lrg-container align-right top-space", 
     divClass='small-button fat-border after-space', 
-    buttonClass='text small-button fat-border disabled', 
+    buttonClass='text small-button fat-border', 
     errorClass="form-error", 
     id=null,
     }) => {
     
-    if (disabled) {
-        divClass='small-button fat-border after-space disabled', 
-        buttonClass='text small-button fat-border disabled'
+    if (disabled === 'submit'){
+        divClass= divClass, 
+        buttonClass=`${buttonClass} disabled` 
+    }
+    if (disabled === 'both') {
+        divClass=`${divClass} disabled`, 
+        buttonClass=`${buttonClass} disabled` 
     }
 
     return (
         <div className={componentDivClass}>
             <div className={groupDivClass}>
                 <div className ={divClass} onClick={reroute} role="button">{returnText}</div>                
-                <button className={`text small-button fat-border ${buttonClass}`} type={type} onClick={onClick}>{text}</button>
+                <button className={buttonClass} type={type} onClick={onClick}>{text}</button>
             </div>
             {error && <div className={errorClass} >{error}</div>}
         </div>
