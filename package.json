@@ -3,14 +3,6 @@
   "version": "1.0.0",
   "description": "Full stack CMS app that allows users to create, read, update and delete blog posts.  Built using React.js, Redux, Node JS.",
   "main": "index.js",
-  "proxy": {
-    "/api/*": {
-      "target": "http://localhost:3001"
-    },
-    "/images/*": {
-      "target": "http://localhost:3001"
-    }
-  },
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
     "dev:server": "nodemon server.js",
@@ -30,7 +22,9 @@
   "dependencies": {
     "express": "^4.17.1",
     "jwt-simple": "^0.5.6",
-    "mysql2": "^2.1.0"
+    "mysql2": "^2.1.0",
+    "webpack": "^4.42.1",
+    "webpack-dev-server": "^3.10.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.2",
