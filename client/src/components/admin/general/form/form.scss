@@ -1,25 +1,30 @@
-$branding-color: #065f06;
-$branding-white-transparent: rgba(200, 211, 187, 0.377); 
-$branding-grey: rgb(197, 196, 194);
-$disabled-background: rgb(218, 30, 30);
-
+$white-transparent: rgba(241, 247, 234, 0.57); 
+$white-opaque: rgba(241, 247, 234, 0.73); 
+$grey: rgb(63, 66, 62);
+$disabled: rgba(241, 247, 234, 0.37);
 .form{
     display: inline-block;
     width: 85vw;
+    margin-top: 20px;
 }
 .form-label{
     display: block;
     font-size: 1.5rem;
     font-weight: bold;
-    margin-top: 22px;
     text-align: left;
+    margin-top: 7px;
 }
 .form-input{
     width: 85vw;
     font-size: 1.2rem;
     height: 2.7rem;
     padding: 3px;
-    background-color: $branding-white-transparent
+    background-color: $white-transparent;
+    color: $grey;
+    outline: none;
+    :focus{
+        background-color: red;
+    }
 }
 .form-textarea{
     width: 85vw;
@@ -27,17 +32,22 @@ $disabled-background: rgb(218, 30, 30);
     min-height: 15rem;
     font-size: 1.2rem;
     padding: 3px;
-    background-color: $branding-white-transparent
+    background-color: $white-transparent;
+    color: $grey;
+    vertical-align: top;
+    outline: none;
 }
 .form-error{
     min-height: 2.7rem;
+    min-width: 0.75vw;
+    font-size: 1.3rem;
 }
 button{
-    color: $branding-grey;
-    background-color: $branding-white-transparent;
+    color: $grey;
+    background-color: $white-transparent;
 }
 .disabled{
-    color: $branding-white-transparent
+    color: $disabled
 }
 
  

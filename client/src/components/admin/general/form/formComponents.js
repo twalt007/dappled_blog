@@ -2,6 +2,7 @@ import React from "react";
 
 export const Field = ({
     name, label, onChange, onBlur, value, initVal, error, accept, max, min,
+    rows='15',
     disabled=false,
     type="text",
     divClass="input-group", 
@@ -44,8 +45,7 @@ export const Field = ({
                 id={id}
                 maxLength={max}
                 minLength={min}
-                max={max}
-                min={min}
+                rows={rows}
             />
             <div className={errorClass} name={name}>{errorMessage}</div>
         </div>
