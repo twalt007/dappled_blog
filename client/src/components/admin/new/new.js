@@ -127,7 +127,7 @@ class NewPost extends Component {
                         <Field name='postTitle' label="Post Title" max="60" min="1" error={err} onChange={oCB} onBlur={oCB} disabled={formDisabled}/>
                         <Field name="postContent" label="Post Content" fieldClass="textarea" min="1" error={err} onChange={oCB} onBlur={oCB} disabled={formDisabled}/>
                         <Field name="postQuote" label="Post Quote" max="255" min="1" error={err} onChange={oCB} onBlur={oCB} disabled={formDisabled}/>
-                        <Field name="postImage" label="Post Image" type="file" accept="image/*" error={err} onChange={oCB} onBlur={oCB} disabled={formDisabled}/>
+                        {/* <Field name="postImage" label="Post Image" type="file" accept="image/*" error={err} onChange={oCB} onBlur={oCB} disabled={formDisabled}/> */}
                         <FormButton text="Post" onClick={this.validateForm} reroute={this.reroute} buttonClass={this.state.buttonClass} disabled={buttonDisabled}/>
                     </form>
                     <div className="bottom-space"></div>
