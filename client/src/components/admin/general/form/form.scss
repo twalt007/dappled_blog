@@ -22,9 +22,7 @@ $disabled: rgba(241, 247, 234, 0.37);
     background-color: $white-transparent;
     color: $grey;
     outline: none;
-    :focus{
-        background-color: red;
-    }
+    border-radius: 4px;
 }
 .form-textarea{
     width: 85vw;
@@ -36,6 +34,7 @@ $disabled: rgba(241, 247, 234, 0.37);
     color: $grey;
     vertical-align: top;
     outline: none;
+    border-radius: 4px;
 }
 .form-error{
     min-height: 2.7rem;

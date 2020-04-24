@@ -54,8 +54,8 @@ class DeletePost extends Component {
                 </div>
                 <div className="xlrg-flx-container center-margins flex-right">
                     <div className="lrg-container align-right top-space">
-                        <div className = 'text small-button fat-border after-space' onClick={this.reroute} >Return</div>                
-                        <div className='text small-button fat-border' onClick={this.handleDelete}>Delete</div>
+                        <div className = 'text small-button after-space' onClick={this.reroute} >Return</div>                
+                        <div className='text small-button' onClick={this.handleDelete}>Delete</div>
                     </div>
                 </div>
             </div>

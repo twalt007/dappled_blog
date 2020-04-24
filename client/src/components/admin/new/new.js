@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import AdminHeader from '../general/header/adminHeader'
 import NavButton from '../../general/navButton'
-import { Field, FormButton } from '../general/form/formComponents'
+import { Field, Textarea, FormButton } from '../general/form/formComponents'
 import * as yup from 'yup'
 import axios from 'axios'
 import '../general/form/form.scss'
@@ -124,9 +124,9 @@ class NewPost extends Component {
                     <AdminHeader mainHistory={history}/>
                     <NavButton text="Create New Post" buttonClasses = "title" onClick="null"/>
                     <form className="form" encType="multipart/form-data" onSubmit={this.handleSubmit}>
-                        <Field name='postTitle' label="Post Title" max="60" min="1" error={err} onChange={oCB} onBlur={oCB} disabled={formDisabled}/>
-                        <Field name="postContent" label="Post Content" fieldClass="textarea" min="1" error={err} onChange={oCB} onBlur={oCB} disabled={formDisabled}/>
-                        <Field name="postQuote" label="Post Quote" max="255" min="1" error={err} onChange={oCB} onBlur={oCB} disabled={formDisabled}/>
+                        <Field name='postTitle' label="Post Title" max="60" error={err} onChange={oCB} onBlur={oCB} disabled={formDisabled}/>
+                        <Textarea name="postContent" label="Post Content" error={err} onChange={oCB} onBlur={oCB} disabled={formDisabled}/>
+                        <Field name="postQuote" label="Post Quote" error={err} onChange={oCB} onBlur={oCB} disabled={formDisabled}/>
                         {/* <Field name="postImage" label="Post Image" type="file" accept="image/*" error={err} onChange={oCB} onBlur={oCB} disabled={formDisabled}/> */}
                         <FormButton text="Post" onClick={this.validateForm} reroute={this.reroute} buttonClass={this.state.buttonClass} disabled={buttonDisabled}/>
                     </form>
