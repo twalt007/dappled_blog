@@ -22,9 +22,6 @@ $disabled: rgba(241, 247, 234, 0.37);
     background-color: $white-transparent;
     color: $grey;
     outline: none;
-    :focus{
-        background-color: red;
-    }
 }
 .form-textarea{
     width: 85vw;
