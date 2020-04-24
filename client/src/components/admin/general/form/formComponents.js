@@ -1,8 +1,9 @@
 import React from "react";
 
 export const Field = ({
-    name, label, onChange, onBlur, value, initVal, error, accept, max, min,
-    rows='15',
+    name, label, onChange, onBlur, value, initVal, error, accept, 
+    max='255', 
+    min='1',
     disabled=false,
     type="text",
     divClass="input-group", 
@@ -10,19 +11,12 @@ export const Field = ({
     fieldClass="fat-border form-input", 
     errorClass="form-error", 
     id=null,
-    onClick=null
     }) => {
         
-    if (fieldClass==="textarea"){ fieldClass="fat-border form-textarea"};
-
-    if (!value && initVal) {
-        value=initVal[name];
-    }
+    if (!value && initVal) { value=initVal[name] }
 
     let errorMessage = ' ';
-    if (error){
-        errorMessage = error[name];
-    };
+    if (error){errorMessage = error[name]};
 
     if (disabled){
         divClass=`${divClass} disabled`, 
@@ -41,16 +35,60 @@ export const Field = ({
                 value={value} 
                 onChange={onChange}
                 onBlur={onBlur}
-                onClick={onClick}
                 id={id}
                 maxLength={max}
                 minLength={min}
-                rows={rows}
             />
             <div className={errorClass} name={name}>{errorMessage}</div>
         </div>
     )
 }
+
+export const Textarea = ({
+    name, label, onChange, onBlur, value, initVal, error, accept, max, 
+    min='1',
+    rows='15',
+    disabled=false,
+    type="text",
+    divClass="input-group", 
+    labelClass="form-label", 
+    fieldClass="fat-border form-textarea", 
+    errorClass="form-error", 
+    id=null,
+    }) => {
+        
+    if (!value && initVal) { value=initVal[name] }
+
+    let errorMessage = ' ';
+    if (error){errorMessage = error[name]};
+
+    if (disabled){
+        divClass=`${divClass} disabled`, 
+        labelClass=`${labelClass} disabled`, 
+        fieldClass=`${fieldClass} disabled`
+    };
+
+    return (
+        <div className = {divClass}>
+            <label className= {labelClass} htmlFor={name}>{label}</label>
+            <textarea 
+                className={fieldClass} 
+                name={name} 
+                type={type} 
+                accept={accept}
+                value={value} 
+                onChange={onChange}
+                onBlur={onBlur}
+                id={id}
+                rows={rows}
+                maxLength={max}
+                minLength={min}
+            />
+            <div className={errorClass} name={name}>{errorMessage}</div>
+        </div>
+    )
+}
+
 
 export const FormButton = ({
     text, error, reroute, onClick, 
