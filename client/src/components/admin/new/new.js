@@ -74,7 +74,6 @@ class NewPost extends Component {
     };
 
     async handleChangeBlur({currentTarget: input}){
-
         const errors = {...this.state.errors};
 
         let errorMessage = await this.validateField(input);
@@ -92,14 +91,14 @@ class NewPost extends Component {
 
     submitForm = async(values) => {
         this.setState({ buttonDisabled: "both", formDisabled: true });
-        let resultMessageState;
-
+        
         const {history, userId='a9ec5c8d-455a-11ea-8fd0-a4db300c2566'} = this.props;
         const data = {
             userId: userId,
             post: values 
         }
         
+        let resultMessageState;
         try{
             const resp = await axios.post(`/api/admin/new-post`, data);
             if (resp.data.code===200) {
@@ -121,7 +120,7 @@ class NewPost extends Component {
         return (
             <div className="admin admin-background section-container center">
                 <div className="admin-background">
-                    <AdminHeader mainHistory={history}/>
+                    <AdminHeader mainHistory={this.props.history}/>
                     <NavButton text="Create New Post" buttonClasses = "title" onClick="null"/>
                     <form className="form" encType="multipart/form-data" onSubmit={this.handleSubmit}>
                         <Field name='postTitle' label="Post Title" max="60" error={err} onChange={oCB} onBlur={oCB} disabled={formDisabled}/>
