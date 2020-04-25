@@ -14,7 +14,7 @@ $green: #065006;  // app font olor, border on post tile, "dappled" on blog heade
 
 $green-space: rgba(43, 59, 43, 0.582); //green-space (used for quote, welcome, edit/delete lists, errors)
 $jade: rgba(246, 248, 246, 0.712);
-$transparent-jade: rgba(246, 248, 246, 0.404);
+$opaque-jade: rgba(246, 248, 246, 0.856);
 $grey: rgb(49, 51, 48);
 
 $extra-dark: rgba(3, 51, 3, 0.493);   //admin background, lrgbtton hover, postTile -> title
@@ -84,55 +84,49 @@ h4{
     border: none;  
     border-radius: 4px;
 }
-///////////////////////////////////////////////////
-.fat-border{
-    border-style: solid;
-    border-width: 1.5px;
-    border-color: $green;  
-    border-radius: 4px;
-}
-///////////////////////////
-.admin{
-    min-height: 100vh;
-    color: $jade;
-    // border-color: $grey;
-    .large-button, .small-button{
-        background-color: $jade;
-        color: $grey
-    }  
-    .title{
-        background-color: $jade;
-    }
-    .large-button:hover, .small-button:hover{
-        background-color: $transparent-jade;
-    }
-}
 .large-button, .small-button{
     display: inline-block;
     padding: .3rem;
     text-align: center;
-}
-.large-button:hover{
-    background-color: $extra-dark;
-    text-decoration: underline;
-    border: 1.5px solid $green;
-    cursor: pointer;
-}
-.small-button:hover{
-    background-color: $green;
-    color: $jade;
-    text-decoration: underline;
-    cursor: pointer;
 }
 .large-button{
     width: 30rem;
 }
 .small-button{
     width: 12rem;
-    background-color: $jade;   
+}
+.admin{
+    min-height: 100vh;
+    color: $jade;
+    .large-button, .small-button{
+        background-color: $jade;
+        color: $grey
+    }  
+    .title{
+        font-size: 2rem;
+        background-color: $jade;
+        color: $grey
+    }
+    .large-button:hover, .small-button:hover{
+        background-color: $opaque-jade;
+    }
+}
+.blog{
+    .large-button:hover{
+        background-color: $extra-dark;
+        text-decoration: underline;
+        border: 1.5px solid $green;
+        cursor: pointer;
+    }
+    .small-button:hover{
+        background-color: $green;
+        color: $jade;
+        text-decoration: underline;
+        cursor: pointer;
+    }
 }
 .title{
-    background-color: $jade;   
+    background-color: $green-space;   
     display: inline-block;
     padding: .3rem;
     text-align: center;
@@ -140,7 +134,6 @@ h4{
     margin-right: auto;
     width: 30rem;
     font-weight: 600;
-    text-decoration: underline;        
 }   
       
 //general CSS styling

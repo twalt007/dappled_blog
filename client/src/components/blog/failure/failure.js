@@ -16,7 +16,6 @@ class Failure extends Component{
     }
 
     render(){
-        console.log("inside failr component; state passed from props: ", this.state.text)
         const { text } = this.props;
         let message =
         <div className="message">
