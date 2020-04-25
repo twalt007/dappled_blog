@@ -1,4 +1,4 @@
-$branding-color: #065f06;
+$green: #065f06;
 $light: rgba(6, 95, 6, 0.25);
 $extra-dark: rgba(3, 51, 3, 0.493);
 
@@ -47,7 +47,7 @@ $extra-dark: rgba(3, 51, 3, 0.493);
     
 .tile:hover{
     box-sizing: border-box;
-    border: 2px solid $branding-color;
+    border: 2px solid $green;
     cursor: pointer;
     .tile-title{
         font-weight: 500;

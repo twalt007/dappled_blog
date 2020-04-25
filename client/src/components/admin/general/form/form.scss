@@ -1,6 +1,7 @@
 $white-transparent: rgba(241, 247, 234, 0.57); 
 $white-opaque: rgba(241, 247, 234, 0.73); 
 $grey: rgb(63, 66, 62);
+$light: rgba(6, 95, 6, 0.25);
 $disabled: rgba(241, 247, 234, 0.37);
 .form{
     display: inline-block;
@@ -44,7 +45,12 @@ button{
     background-color: $white-transparent;
 }
 .disabled{
-    color: $disabled
+    color: $disabled,
+}
+.small-button.disabled:hover{
+    background-color: $white-transparent;
+    text-decoration: none;
+    border: none;
 }
 
  

@@ -46,7 +46,7 @@ class DeletePost extends Component {
                 <AdminHeader mainHistory={this.history}/>
                 <NavButton text="Delete Post" buttonClasses = "title center" onClick="null"/>
                 <div className="xlrg-flx-container center-margins flex-left">
-                    <h4 className="text top-space">Are you sure you wish to delete?</h4>
+                    <h3 className="text top-space">Are you sure you wish to delete?</h3>
                 </div>
                 <div className="green-space align-left">
                     <h5 className="text edit-list-title">{this.state.postTitle}</h5>

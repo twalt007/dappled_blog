@@ -27,9 +27,9 @@ class PostContent extends Component {
     render(){
         const formattedDate = formatDate(this.state.updatedAt);
         return (            
-            <div className="post-container">
+            <div className="blog post post-container">
                 <BlogHeader mainHistory={this.history} />                
-                <div className="dark-green-space">                    
+                <div className="green-space">                    
                     <h3 className='text italicized post-quote'>{this.state.postQuote}</h3>
                 </div>
                 <div className="post-body">

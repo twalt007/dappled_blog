@@ -75,10 +75,11 @@ class BlogHome extends Component{
             )
         });
         return(
-                <div className = "client-container blog-container">
+                <div className = "blog client-container blog-container">
                     <BlogHeader mainHistory={this.history}/>
                     <div className="welcome-text green-space">
-                        <h1 className="text center">Welcome to Dappled!</h1>
+                        <h1 className="text center">Welcome to Dappled! </h1>
+                        <h3 className="text center">Use this space as your own private journal to record the events - big and little -  that make up your life and make you into you.</h3>
                     </div>                
                     <div className="tile-list center-margins">
                         {postList}
