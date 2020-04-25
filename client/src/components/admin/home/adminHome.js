@@ -7,7 +7,6 @@ const AdminHome = props => {
     return(
         <div className = "admin admin-background section-container center">
             <AdminHeader mainHistory={history}/>
-            <div className="green-space">
             <div className="intro">
                 <h1 className="text">Welcome to your happy place!</h1>
                 <h2 className="text">What would you like to do?</h2>
@@ -19,7 +18,6 @@ const AdminHome = props => {
             </div>
             <div className="lrg-flx-container center-margins flex-right">
                 <NavButton buttonClasses='small-button' text='View' url='/home' mainHistory={history}/>
-            </div>
             </div>
         </div>        
     )

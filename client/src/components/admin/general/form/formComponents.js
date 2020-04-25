@@ -13,8 +13,6 @@ export const Field = ({
     id=null,
     }) => {
         
-    if (!value && initVal) { value=initVal[name] }
-
     let errorMessage = ' ';
     if (error){errorMessage = error[name]};
 
