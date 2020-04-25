@@ -8,7 +8,7 @@ const NavButton = props => {
     }
     return (
         <div className = "button-container">
-            <div className = {`${buttonClasses} + fat-border`} onClick={url?reroute:null} type={type} >{text}</div>                
+            <div className = {`${buttonClasses} + no-border`} onClick={url?reroute:null} type={type} >{text}</div>                
         </div>
     )
 }

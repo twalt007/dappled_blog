@@ -1,8 +1,8 @@
 $breakpoint-phone: 414px;
-$transparent-overlay: rgba(255, 255, 255, 0.384);
+$overlay: rgba(189, 197, 190, 0.418); 
 
 .header-container{ 
-    background-color: $transparent-overlay;
+    background-color: $overlay;
     margin-left: 0;
     margin-right: 0;
     margin-bottom: 4rem; 
