@@ -1,7 +1,7 @@
 import React from "react";
 
 export const Field = ({
-    name, label, onChange, onBlur, value, initVal, error, accept, 
+    name, label, onChange, onBlur, value, error, accept, 
     max='255', 
     min='1',
     disabled=false,
@@ -43,7 +43,7 @@ export const Field = ({
 }
 
 export const Textarea = ({
-    name, label, onChange, onBlur, value, initVal, error, accept, max, 
+    name, label, onChange, onBlur, value, error, accept, max, 
     min='1',
     rows='15',
     disabled=false,
@@ -55,8 +55,6 @@ export const Textarea = ({
     id=null,
     }) => {
         
-    if (!value && initVal) { value=initVal[name] }
-
     let errorMessage = ' ';
     if (error){errorMessage = error[name]};
 

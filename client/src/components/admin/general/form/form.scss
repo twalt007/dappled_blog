@@ -1,8 +1,8 @@
-$white-transparent: rgba(241, 247, 234, 0.57); 
-$white-opaque: rgba(241, 247, 234, 0.73); 
-$grey: rgb(63, 66, 62);
-$light: rgba(6, 95, 6, 0.25);
-$disabled: rgba(241, 247, 234, 0.37);
+$jade: rgba(246, 248, 246, 0.712); 
+$grey: rgb(49, 51, 48);
+$disabled-text: rgba(241, 248, 232, 0.411);
+$disabled-bkgd: rgba(246, 248, 246, 0.445);
+
 .form{
     display: inline-block;
     width: 85vw;
@@ -20,7 +20,7 @@ $disabled: rgba(241, 247, 234, 0.37);
     font-size: 1.2rem;
     height: 2.7rem;
     padding: 3px;
-    background-color: $white-transparent;
+    background-color: $jade;
     color: $grey;
     outline: none;
 }
@@ -30,7 +30,7 @@ $disabled: rgba(241, 247, 234, 0.37);
     min-height: 15rem;
     font-size: 1.2rem;
     padding: 3px;
-    background-color: $white-transparent;
+    background-color: $jade;
     color: $grey;
     vertical-align: top;
     outline: none;
@@ -42,13 +42,14 @@ $disabled: rgba(241, 247, 234, 0.37);
 }
 button{
     color: $grey;
-    background-color: $white-transparent;
+    background-color: $jade;
 }
-.disabled{
-    color: $disabled,
+.small-button.disabled{
+    color: $disabled-text;
+    background-color: $disabled-bkgd;
 }
 .small-button.disabled:hover{
-    background-color: $white-transparent;
+    background-color: $disabled-bkgd;
     text-decoration: none;
     border: none;
 }
