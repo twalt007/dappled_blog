@@ -13,7 +13,6 @@ class PostContent extends Component {
         this.state={
             history: props.history,
 
-            // postId: props.history.location.state.id,
             contentType: props.history.location.state.contentType,
             postTitle: props.history.location.state.postTitle,
             postContent: props.history.location.state.postContent,
@@ -29,7 +28,7 @@ class PostContent extends Component {
         return (            
             <div className="blog post post-container">
                 <BlogHeader mainHistory={this.history} />                
-                <div className="green-space">                    
+                <div className="blog-green-space">                    
                     <h3 className='text italicized post-quote'>{this.state.postQuote}</h3>
                 </div>
                 <div className="post-body">

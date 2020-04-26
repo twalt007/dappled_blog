@@ -102,16 +102,13 @@ h4{
     }
 }
 .blog{
-    .large-button:hover{
-        background-color: $extra-dark;
-        text-decoration: underline;
-        border: 1.5px solid $green;
-        cursor: pointer;
+    .small-button{
+        background-color: $opaque-green;
+        color: $jade
     }
     .small-button:hover{
-        background-color: $green;
-        color: $jade;
-        text-decoration: underline;
+        // text-decoration: underline;
+        font-weight: 600;
         cursor: pointer;
     }
 }
@@ -139,6 +136,15 @@ h4{
     padding: 3%;
     border-radius: 3px;
     background-color: $green-space;
+}
+.blog-green-space{
+    margin: auto;
+    max-height: max-content;
+    width: 85vw;
+    padding: 3%;
+    border-radius: 3px;
+    background-color: $opaque-green;
+    color: $jade;
 }
 
 .lrg-container{
