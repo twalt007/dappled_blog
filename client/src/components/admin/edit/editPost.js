@@ -14,12 +14,12 @@ class EditPost extends Component {
         this.state = {
             postId: props.history.location.state.id,
             data: {
-                postTitle: 'PPlease name your soon-to-be bran child',
+                postTitle: 'Please name your soon-to-be brain child',
                 postContent: 'Now write a great work of genius!',
                 postQuote: 'Say something pithy for people to quote'
             },
             errors: {},
-            buttonDisabled: "submit",
+            buttonDisabled: false,
             formDisabled: false
         }
 
