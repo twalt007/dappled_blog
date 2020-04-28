@@ -10,7 +10,6 @@ module.exports = async (req, res, next) => {
     try{
         const { userId='a9ec5c8d-455a-11ea-8fd0-a4db300c2566', post} = req.body;
         const { postType='standard', contentType='philosophy', postTitle, postContent, postQuote } = post;
-        console.log('postType', postType);
         //later will have postType and contentType set to default to null; currently set to these value while features sets are being built out
 
         let output = {

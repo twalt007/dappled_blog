@@ -62,7 +62,7 @@ This project was coded in a dev environment configured with the assistance of Le
  1. `npm run dev` will run the full site, **both client and server**.
     - **Client Only:** `npm run dev:client`
     - **Server Only** `npm run dev:server`
- 2. The project will start at **localhost:3000**, and should render a page with the logoand background depicted in the image above, along with a welcome message and four buttons to create, edit, delete or view blog content.
+ 2. The project will start at **localhost:3000**, and should render a page with the logo and background depicted in the image above, along with a welcome message and four buttons to create, edit, delete or view blog content.
 
 ### 5. Build For Deployment
 1. To deploy, run webpack in the client directory to build project. From the command line type:
