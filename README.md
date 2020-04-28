@@ -32,7 +32,7 @@ Server **CRUD** abilities built in **Node.js** using **Express** for efficient r
 ### 1. System Requirements
 This project requires that the latest versions of Node.js and MySql be installed on your machine.
 #### Dev Environment
-This project was coded in a dev environment configured with the assistance of LearningFuze Coding School.  If desired, the below link contains instructions for duplicating this environment. 
+This project was coded in a dev environment configured with the assistance of LearningFuze Coding School.  If desired, the below link contains instructions for duplicating this environment. Repo cloned from their official github.
 
 [LearningFuze Coding School - Sample Dev Environment](https://github.com/twalt007/lfz-dev "LearningFuze Coding School - Dev Environment")
 
