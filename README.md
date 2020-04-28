@@ -3,7 +3,7 @@
 ### <a href="http://dappled.twalt007.com/">VIEW LIVE SITE</a> 
 
 <p align="center">
-  <img height="600" alt="Products Page Example Screenshot" src="https://github.com/twalt007/sweet_corner_ecommerce/blob/master/client/dist/assets/images/dappled_square.JPG">
+  <img height="600" alt="Create Post Sample Screenshot" src="https://github.com/twalt007/dappled_blog/blob/master/client/src/assets/images/dappled_square.JPG">
 </p>
 
 ## Description
@@ -70,6 +70,6 @@ This project was coded in a dev environment configured with the assistance of Le
 
 ## Credits
 ### LearningFuze Coding Camp Dev Environment
-[Sample Dev Environment](https://github.com/twalt007/lfz-dev "LearningFuze Coding School - Dev Environment")
+[Sample Dev Environment Configuration Guide](https://github.com/twalt007/lfz-dev "LearningFuze Coding School - Dev Environment")
 
-## Have a *Sweet* Time with the Code!
+## Enjoy Dappled!
