@@ -77,7 +77,7 @@ class EditList extends Component{
                     {postList}                                  
                 </div>
                 <div className="xlrg-flx-container center-margins flex-right">
-                    <NavButton buttonClasses='small-button' text='Return' url='/' mainHistory={this.history}/>
+                    <NavButton buttonClasses='small-button' text='Return' goBack={true} mainHistory={this.history}/>
                 </div>
             </div>
         );

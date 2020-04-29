@@ -23,9 +23,9 @@ class Failure extends Component{
             <h4 className="text center top-space">Something didn't work right!</h4>
         </div>
     return (
-        <div className = "section-container">
+        <div className = "blog section-container">
             <BlogHeader mainHistory={this.history}/>
-            <div className = "green-space">{message}</div>
+            <div className = "blog-green-space">{message}</div>
             <div className="xlrg-flx-container center-margins flex-right">
                 <NavButton buttonClasses='small-button' text='Home' url='/home' mainHistory={this.history}/>
             </div>

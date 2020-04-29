@@ -12,8 +12,6 @@ class DeletePost extends Component {
             history: props.history,
 
             postTitle: props.history.location.state.postTitle,
-            // postContent: props.history.location.state.postContent,
-            // postQuote: props.history.location.state.postQuote,
             postId: props.history.location.state.id,
             updatedAt: props.history.location.state.updatedAt
         }
@@ -21,7 +19,7 @@ class DeletePost extends Component {
         this.history = props.history;
     }
     reroute = () => {
-        this.history.push('/delete');
+        this.history.goBack();
     }
     handleDelete = async() => {
         let resultMessageState;
@@ -54,8 +52,8 @@ class DeletePost extends Component {
                 </div>
                 <div className="xlrg-flx-container center-margins flex-right">
                     <div className="lrg-container align-right top-space">
-                        <div className = 'text small-button fat-border after-space' onClick={this.reroute} >Return</div>                
-                        <div className='text small-button fat-border' onClick={this.handleDelete}>Delete</div>
+                        <div className = 'text small-button no-border after-space' onClick={this.reroute} >Return</div>                
+                        <div className='text small-button no-border' onClick={this.handleDelete}>Delete</div>
                     </div>
                 </div>
             </div>
