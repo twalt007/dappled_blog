@@ -48,12 +48,11 @@ class BlogHome extends Component{
     render(){
         const postData = this.state.posts;
         const { name } = this.state;
-        console.log("history: ", this.history);
         if(!postData){
             return(
                 <div className='section-container'>
                     <BlogHeader mainHistory={this.history} />
-                    <div className="welcome-text green-space center">
+                    <div className="welcome-text blog-green-space center">
                         <div className="tile-container">
                             <h2 className="text">Welcome to Dappled! </h2>
                             <h4 className="text top-space">We're busy getting your content.</h4>                        

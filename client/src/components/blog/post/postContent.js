@@ -25,7 +25,6 @@ class PostContent extends Component {
 
     render(){
         const formattedDate = formatDate(this.state.updatedAt);
-        console.log("history: ", this.history);
         return (            
             <div className="blog post post-container">
                 <BlogHeader mainHistory={this.history} />                
@@ -38,7 +37,7 @@ class PostContent extends Component {
                     <div className='text post-content top-space'>{this.state.postContent}</div>
                 </div>
                 <div className="xlrg-flx-container center-margins flex-right">
-                    <NavButton buttonClasses='small-button left' text='Return' url='/home' mainHistory={this.history}/>
+                    <NavButton buttonClasses='small-button left' text='Return' goBack={true} mainHistory={this.history}/>
                 </div>
                 <BlogFooter mainHistory={this.history}/>
             </div>
