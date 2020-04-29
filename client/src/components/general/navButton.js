@@ -1,10 +1,18 @@
 import React from 'react'
 
 const NavButton = props => {
-    const {text, buttonClasses = "large-button", url=null, mainHistory, type=null} = props;
+    const {text, buttonClasses = "large-button", url=null, mainHistory, type=null, } = props;
 
-    function reroute(){
-        mainHistory.push(url);
+    // function reroute(){
+    //     if(url){
+    //         mainHistory.push(url);
+    //     }
+    //     else if (){
+            
+    //     }
+    // }
+    function goBack(){
+        history.goBack();
     }
     return (
         <div className = "button-container">

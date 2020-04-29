@@ -44,7 +44,7 @@ button{
     color: $grey;
     background-color: $jade;
 }
-.small-button.disabled{
+.small-button.disabled, .disabled{
     color: $disabled-text;
     background-color: $disabled-bkgd;
 }
@@ -54,5 +54,4 @@ button{
     border: none;
 }
 
- 
 

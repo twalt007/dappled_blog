@@ -48,6 +48,7 @@ class BlogHome extends Component{
     render(){
         const postData = this.state.posts;
         const { name } = this.state;
+        console.log("history: ", this.history);
         if(!postData){
             return(
                 <div className='section-container'>

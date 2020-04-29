@@ -16,9 +16,7 @@ export const Field = ({
     let errorMessage = ' ';
     if (error){errorMessage = error[name]};
 
-    if (disabled){
-        divClass=`${divClass} disabled`, 
-        labelClass=`${labelClass} disabled`, 
+    if (disabled){ 
         fieldClass=`${fieldClass} disabled`
     };
 
@@ -59,8 +57,6 @@ export const Textarea = ({
     if (error){errorMessage = error[name]};
 
     if (disabled){
-        divClass=`${divClass} disabled`, 
-        labelClass=`${labelClass} disabled`, 
         fieldClass=`${fieldClass} disabled`
     };
 
@@ -114,7 +110,7 @@ export const FormButton = ({
                 <div className ={divClass} onClick={reroute} role="button">{returnText}</div>                
                 <button className={buttonClass} type={type} onClick={onClick}>{text}</button>
             </div>
-            {error && <div className={errorClass} >{error}</div>}
+            {error && <div className={errorClass}> {error} </div>}
         </div>
     )
 }
