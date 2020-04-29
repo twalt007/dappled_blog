@@ -22,7 +22,6 @@ class BlogHome extends Component{
         try{  
             const resp = await axios.get(`/api/admin/post-list/${userId}`);
             const returnedPosts = resp.data;
-            console.log("axios call data post-list: ", returnedPosts);
             this.setState({
                 posts: returnedPosts
             })
@@ -33,7 +32,6 @@ class BlogHome extends Component{
         }  
     }
     goToDetails = async(postId) => {
-        console.log("inside goToDetails for Blog_home");
         try{           
             const resp = await axios.get(`/api/admin/post-details/${postId}`);
             const [ postDetails ] = resp.data;
@@ -50,6 +48,7 @@ class BlogHome extends Component{
     render(){
         const postData = this.state.posts;
         const { name } = this.state;
+        console.log("history: ", this.history);
         if(!postData){
             return(
                 <div className='section-container'>

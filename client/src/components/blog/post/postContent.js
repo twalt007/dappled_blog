@@ -25,6 +25,7 @@ class PostContent extends Component {
 
     render(){
         const formattedDate = formatDate(this.state.updatedAt);
+        console.log("history: ", this.history);
         return (            
             <div className="blog post post-container">
                 <BlogHeader mainHistory={this.history} />                

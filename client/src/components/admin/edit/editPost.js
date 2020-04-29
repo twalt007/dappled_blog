@@ -115,7 +115,6 @@ class EditPost extends Component {
                 ...values
             }
         }
-        console.log("data: ", data)
         let resultMessageState;
         try{
             const resp = await axios.patch(`/api/admin/post-details/${this.state.postId}`, data);
