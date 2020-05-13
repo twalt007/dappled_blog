@@ -82,7 +82,7 @@ class BlogHome extends Component{
                     <div className="tile-list center-margins">
                         {postList}
                     </div>
-                    <BlogFooter mainHistory={history} name={name}/>
+                    <BlogFooter mainHistory={this.history} name={name}/>
                 </div>
         );
     }

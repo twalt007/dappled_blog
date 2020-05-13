@@ -6,29 +6,20 @@
 @import url('https://fonts.googleapis.com/css?family=Simonetta&display=swap');
 
 
-//want to change top welcome color so that now tile green, turn tile green to welcome green, 
-//need to correct the blog header and footer, 
-//as well as the blog tile css spacing and sizing with breakpoints
+$green: #065006;  
 
-$green: #065006;  // app font olor, border on post tile, "dappled" on blog header, lines inheader
-
-$green-space: rgba(43, 59, 43, 0.582); //green-space (used for quote, welcome, edit/delete lists, errors)
+$green-space: rgba(43, 59, 43, 0.582); 
 $jade: rgba(246, 248, 246, 0.712);
 $opaque-jade: rgba(246, 248, 246, 0.856);
 $grey: rgb(49, 51, 48);
 
-$extra-dark: rgba(3, 51, 3, 0.493);   //admin background, lrgbtton hover, postTile -> title
+$extra-dark: rgba(3, 51, 3, 0.493);   
 
 $opaque-green: rgba(58, 94, 58, 0.685);  //admin image rendering
-//used on 
-//blogFooter.scss
-//postTile.scss
+
 
 $breakpoint-halfscreen: 730px;
 $breakpoint-phone: 414px;
-// $breakpoint-phone-landscape: ;
-// $breakpoint-phone-portrait: ;
-// $breakpoint-max: ;
 
 
 html{
