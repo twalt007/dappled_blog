@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../../../../assets/images/logo.png';
 import ColoredLine from '../../../general/coloredLine';
-import { Black, BrandingColor } from '../../../general/helpers';
+import { BrandingColor } from '../../../general/helpers';
 import './blogFooter.scss'
 
 const BlogFooter = props => {
