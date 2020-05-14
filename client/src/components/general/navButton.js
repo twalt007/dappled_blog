@@ -1,7 +1,7 @@
 import React from 'react'
 
 const NavButton = props => {
-    const {text, buttonClasses = "large-button", url=null, mainHistory, goBack=null, type=null, } = props;
+    const {text, buttonClasses = "large-button", url=null, mainHistory, goBack=null } = props;
 
     function reroute(){
         if(url){
@@ -14,7 +14,7 @@ const NavButton = props => {
     }
     return (
         <div className = "button-container">
-            <div className = {`${buttonClasses} + no-border`} onClick={reroute} type={type} >{text}</div>                
+            <div className = {`${buttonClasses} + no-border`} onClick={reroute}>{text}</div>                
         </div>
     )
 }
