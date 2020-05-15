@@ -7,7 +7,7 @@ class AdminHome extends Component{
         super(props);
         
         this.state={
-            renderedContent: 'intro',
+            renderedContent: null,
         }
 
         this.history = props.history
@@ -15,13 +15,23 @@ class AdminHome extends Component{
         this.showOptions = this.showOptions.bind(this);
     }
 
+    componentDidMount = () => {
+        const sessionStatus = sessionStorage.getItem('renderedContent');
+        if (sessionStatus){
+            this.setState({renderedContent: sessionStatus});
+        }else{
+            this.setState({renderedContent: 'intro'});
+        }
+    }
+
     showOptions = () => {
-        console.log("Show Options working");
+        sessionStorage.setItem('renderedContent', 'call-to-action');
         this.setState({renderedContent: 'call-to-action'});
+
     }
 
     render(){
-
+        console.log("state", this.state);
         let renderedContent = (
             <div className="intro green-space">
                 <h1 className="text">Welcome to Dappled!</h1>

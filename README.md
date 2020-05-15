@@ -9,7 +9,7 @@
 ## Description
 This is a **Full-stack personal blog** site that enables users to publish, edit, delete, and view their personal content.  
 
-Client built in **React JS** using **SCSS**. State managed through **life-cycle fuctions** and **class components**. **Personally built and handled forms**, upgrading from Formik as feature expansion required specialized file upload. Data validated with **Yup/jquense**. Styled with **Flexbox** and **media queries** on **SCSS** for smooth transition between viewing media. 
+Client built in **React JS**. State managed through **life-cycle fuctions** and **class components**, with **sessionStorage** for a one-time rendering landing page. **Personally built and handled forms**, upgrading from Formik as feature expansion required specialized file upload. Data validated with **Yup/jquense**. Styled with **Flexbox** and **media queries** on **SCSS** for smooth transition between viewing media. 
 
 Server **CRUD** abilities built in **Node.js** using **Express** for efficient routing. Database built with **MySQL**, using **placeholders** and **'execute'** commands to prevent SQL injections. 
 
