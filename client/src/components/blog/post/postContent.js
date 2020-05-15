@@ -11,8 +11,6 @@ class PostContent extends Component {
         super(props);
         
         this.state={
-            history: props.history,
-
             contentType: props.history.location.state.contentType,
             postTitle: props.history.location.state.postTitle,
             postContent: props.history.location.state.postContent,

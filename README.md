@@ -9,7 +9,7 @@
 ## Description
 This is a **Full-stack personal blog** site that enables users to publish, edit, delete, and view their personal content.  
 
-Client built in **React JS** using **JSX**. State managed through **life-cycle fuctions** and **class components**. **Personally built and handled forms**, upgrading from Formik as feature expansion required specialized file upload. Data validated with **Yup/jquense**. Styled with **Flexbox** and **media queries** on **SCSS** for smooth transition between viewing media. 
+Client built in **React JS**. State managed through **life-cycle fuctions** and **class components**, with **sessionStorage** for a one-time rendering landing page. **Personally built and handled forms**, upgrading from Formik as feature expansion required specialized file upload. Data validated with **Yup/jquense**. Styled with **Flexbox** and **media queries** on **SCSS** for smooth transition between viewing media. 
 
 Server **CRUD** abilities built in **Node.js** using **Express** for efficient routing. Database built with **MySQL**, using **placeholders** and **'execute'** commands to prevent SQL injections. 
 
@@ -20,7 +20,7 @@ Server **CRUD** abilities built in **Node.js** using **Express** for efficient r
 ### Client
 + Flexbox
 + React.js
-+ JSX
++ SCSS
 + Yup
 
 ### Server
@@ -43,13 +43,13 @@ This project requires that the latest versions of Node.js and MySql be installed
     - **server:** `npm install`
 
 ### 3. Set up Local Database for Backend Development
-1. This project used **phpMyAdmin**, which requires **Apache** and **MySQL** to be running. If you are using the dev environment recommended above, you will already have these installed. 
-    - To start, into your commander type:       
+1. Import the database structure into MySQL from the `/db/sql/db_dump.sql` file. 
+EX: One way to accomplish this is by using **phpMyAdmin** and a local **Apache** server. The below steps demonstrate how to proccceed with such as system:
+    - To start, into your command line type:       
         - `sudo service apache2 start` 
         - `sudo service mysql start` 
     - Go to [phpMyAdmin Login Page](http://localhost/phpmyadmin/ "PhpMyAdmin Login Page")
-    - From sweet_corner_ecommerce repo, get database data from 'db' --> 'sql' --> *'db_dump'* file.
-    - Import into database
+    - Import `/db/sql/db_dump.sql` into database
 2. Create Config Files for database
     - In the **config** folder create the below file. (Reference template file 'db.json.template' for format.)
         - db.json
