@@ -1,3 +1,4 @@
+
 import React, {Component} from 'react'
 import AdminHeader from '../general/header/adminHeader'
 import NavButton from '../../general/navButton'
@@ -20,8 +21,11 @@ class EditPost extends Component {
             },
             errors: {},
             buttonDisabled: false,
-            formDisabled: false
+            formDisabled: false,
+            refs: {}
         }
+
+        this.myRef = React.createRef();
 
         this.validSchema = {
             postTitle: yup.string()
@@ -53,13 +57,13 @@ class EditPost extends Component {
         }
         this.setState({data})
     }
-
+    // componentDidUpdate(){
+    //     console.log('calling component did update');       
+    // }
     reroute(){
         this.props.history.goBack();
     };
-
     async validateForm(){
-        const data = {...this.state};
         const schema = yup.object().shape(this.validSchema);
         let errors = {};
         await schema.validate(this.state.data, {abortEarly:false}).catch(errs => {
@@ -87,10 +91,16 @@ class EditPost extends Component {
         this.submitForm(this.state.data);
     };
 
-    async handleChange({currentTarget: input}){
-        const {name, value} = input;
+    async handleChange(e){    
+        console.log("this.myRef: ", this.myRef);
+        console.log("this.myRef.current: ", this.myRef.current);
+        console.log("this.myRef.current.name: ", this.myRef.current.name);
+
+
+        const {name, value} = e.currentTarget;
         const errors = {...this.state.errors};
-        let errorMessage = await this.validateField(input);
+
+        let errorMessage = await this.validateField(e.currentTarget);
         if (errorMessage) errors[name] = errorMessage;
         else {
             delete errors[name];
@@ -99,11 +109,9 @@ class EditPost extends Component {
         };  
 
         const data = { ...this.state.data };
-        if(data.name){
 
-        }
         data[name] = value;
-        this.setState({ data, errors })  
+        this.setState({ data, errors});
     };
 
     submitForm = async(values) => {
@@ -131,7 +139,9 @@ class EditPost extends Component {
     }
 
     render(){
+        console.log("rendering:", this.state);
         let oC = this.handleChange;
+        let oF = this.componentDidUpdate;
         let { errors, buttonDisabled, formDisabled } = this.state;
         let {postTitle, postContent, postQuote } = this.state.data;
         return (
@@ -140,9 +150,9 @@ class EditPost extends Component {
                     <AdminHeader mainHistory={this.props.history}/>
                     <NavButton text="Edit Post" buttonClasses = "title" onClick="null"/>
                     <form className="form" encType="multipart/form-data" onSubmit={this.handleSubmit}>
-                        <Field name='postTitle' label="Post Title" max="60" value={postTitle} error={errors} onChange={oC} onBlur={oC} disabled={formDisabled}/>
-                        <Textarea name="postContent" label="Post Content" value={postContent} error={errors} onChange={oC} onBlur={oC} disabled={formDisabled}/>
-                        <Field name="postQuote" label="Post Quote" value={postQuote} error={errors} onChange={oC} onBlur={oC} disabled={formDisabled}/>
+                        <Field name='postTitle' label="Post Title" max="60" value={postTitle} error={errors} ref={this.myRef} onChange={oC} onBlur={oC} onFocus={oF} disabled={formDisabled}/>
+                        <Textarea name="postContent" label="Post Content" value={postContent} error={errors} ref={this.myRef} onChange={oC} onBlur={oC} onFocus={oF} disabled={formDisabled}/>
+                        <Field name="postQuote" label="Post Quote" value={postQuote} error={errors} ref={this.myRef} onChange={oC} onBlur={oC} onFocus={oF} disabled={formDisabled}/>
                         {/* <Field name="postImage" label="Post Image" type="file" accept="image/*" error={err} onChange={oC} onBlur={oC} disabled={formDisabled}/>  */}
                         <FormButton text="Update" onClick={this.validateForm} reroute={this.reroute} buttonClass={this.state.buttonClass} disabled={buttonDisabled}/>
                     </form>
@@ -154,3 +164,8 @@ class EditPost extends Component {
 }
 
 export default EditPost;
+
+
+
+//create ref using name of input
+//onfocus willhave to perform a check to see if already exisuts

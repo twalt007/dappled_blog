@@ -1,7 +1,7 @@
 import React from "react";
 
-export const Field = ({
-    name, label, onChange, onBlur, value, error, accept, 
+export const Field = React.forwardRef( ({
+    name, label, onChange, onBlur, onFocus, value, error, accept, 
     max='255', 
     min='1',
     disabled=false,
@@ -11,37 +11,39 @@ export const Field = ({
     fieldClass="no-border form-input", 
     errorClass="form-error", 
     id=null,
-    }) => {
-        
-    let errorMessage = ' ';
-    if (error){errorMessage = error[name]};
+    }, ref ) => {
+        let errorMessage = ' ';
+        if (error){errorMessage = error[name]};
+    
+        if (disabled){ 
+            fieldClass=`${fieldClass} disabled`
+        };
+    
+        return (
+            <div className = {divClass}>
+                <label className= {labelClass} htmlFor={name}>{label}</label>
+                <input 
+                    className={fieldClass} 
+                    name={name} 
+                    type={type} 
+                    accept={accept}
+                    value={value} 
+                    ref={ref}
+                    onChange={onChange}
+                    onBlur={onBlur}
+                    onFocus={onFocus}
+                    id={id}
+                    maxLength={max}
+                    minLength={min}
+                />
+                <div className={errorClass} name={name}>{errorMessage}</div>
+            </div>
+        )
+});
 
-    if (disabled){ 
-        fieldClass=`${fieldClass} disabled`
-    };
 
-    return (
-        <div className = {divClass}>
-            <label className= {labelClass} htmlFor={name}>{label}</label>
-            <input 
-                className={fieldClass} 
-                name={name} 
-                type={type} 
-                accept={accept}
-                value={value} 
-                onChange={onChange}
-                onBlur={onBlur}
-                id={id}
-                maxLength={max}
-                minLength={min}
-            />
-            <div className={errorClass} name={name}>{errorMessage}</div>
-        </div>
-    )
-}
-
-export const Textarea = ({
-    name, label, onChange, onBlur, value, error, accept, max, 
+export const Textarea = React.forwardRef( ({
+    name, label, onChange, onBlur, onFocus, value, error, accept, max, 
     min='1',
     rows='15',
     disabled=false,
@@ -51,7 +53,7 @@ export const Textarea = ({
     fieldClass="no-border form-textarea", 
     errorClass="form-error", 
     id=null,
-    }) => {
+    }, ref) => {
         
     let errorMessage = ' ';
     if (error){errorMessage = error[name]};
@@ -69,8 +71,10 @@ export const Textarea = ({
                 type={type} 
                 accept={accept}
                 value={value} 
+                ref={ref}
                 onChange={onChange}
                 onBlur={onBlur}
+                onFocus={onFocus}
                 id={id}
                 rows={rows}
                 maxLength={max}
@@ -79,7 +83,7 @@ export const Textarea = ({
             <div className={errorClass} name={name}>{errorMessage}</div>
         </div>
     )
-}
+});
 
 
 export const FormButton = ({

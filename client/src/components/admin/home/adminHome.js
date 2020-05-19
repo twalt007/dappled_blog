@@ -31,7 +31,6 @@ class AdminHome extends Component{
     }
 
     render(){
-        console.log("state", this.state);
         let renderedContent = (
             <div className="intro green-space">
                 <h1 className="text">Welcome to Dappled!</h1>
