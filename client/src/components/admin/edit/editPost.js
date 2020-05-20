@@ -30,6 +30,7 @@ class EditPost extends Component {
 
         //could pass a 'last refernced' something into state, and see if that is focused.  
 
+        this.currentRef = null;
         this.postTitleRef = React.createRef();
         this.postContentRef = React.createRef();
         this.postQuoteRef = React.createRef();
@@ -67,35 +68,19 @@ class EditPost extends Component {
         this.setState({data});
     }
     componentDidUpdate(){
-        console.log("compoent did update cursor: ", this.cursor);
-        this.postContentRef.current.setSelectionRange(this.cursor.postContent, this.cursor.postContent);
-        // let name = this.state.lastfocused;
-        // this.handleFocus(null,name);
-        // if(e){
-        //     switch(name){
-        //         case 'postTitle':
-        //             if (this.cursor.postTitle){
-        //                 this.postTitleRef.current.setSelectionRange(this.cursor, this.cursor);
-        //             } else {
-        //                 this.cursor.name = e.currentTarget.selectionStart;
-        //             }
-        //             break;
-        //         case 'postContent':
-        //             if (this.cursor.postContent){
-        //                 this.postContentRef.current.setSelectionRange(this.cursor, this.cursor);
-        //             } else {
-        //                 this.cursor.name = e.currentTarget.selectionStart;
-        //             }
-        //             break;
-        //         case 'postQuote':
-        //             if (this.cursor.postQuote){
-        //                 this.postQuoteRef.current.setSelectionRange(this.cursor, this.cursor);
-        //             } else {
-        //                 this.cursor.name = e.currentTarget.selectionStart;
-        //             }
-        //             break;
-        //     }
-        // }        
+        if(this.currentRef){
+            switch(this.currentRef){
+                case 'postTitle':
+                    this.postTitleRef.current.setSelectionRange(this.cursor.postTitle, this.cursor.postTitle);
+                    break;
+                case 'postContent':
+                    this.postContentRef.current.setSelectionRange(this.cursor.postContent, this.cursor.postContent);
+                    break;
+                case 'postQuote':
+                    this.postQuoteRef.current.setSelectionRange(this.cursor.postQuote, this.cursor.postQuote);
+                    break;
+            }
+        }        
     }
     handleFocus(e, name){
         console.log("inside handleFocus: ", name);
@@ -161,10 +146,9 @@ class EditPost extends Component {
         const {name, value} = e.currentTarget;
 
         this.cursor[name] = e.currentTarget.selectionStart;
-        console.log("handleChange cursor: ", this.cursor);
+        this.currentRef = name;
 
         const errors = {...this.state.errors};
-
         let errorMessage = await this.validateField(e.currentTarget);
         if (errorMessage) errors[name] = errorMessage;
         else {
@@ -174,11 +158,9 @@ class EditPost extends Component {
         };  
 
         const data = { ...this.state.data };
-
         data[name] = value;
-        this.setState({ data, errors});
-        //this.postContentRef.current.setSelectionRange(this.cursor.[name], this.cursor.[name]);
 
+        this.setState({ data, errors});
     };
 
     submitForm = async(values) => {
