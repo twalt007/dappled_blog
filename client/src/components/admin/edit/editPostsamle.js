@@ -21,19 +21,11 @@ class EditPost extends Component {
             errors: {},
             buttonDisabled: false,
             formDisabled: false,
-            focused: null,
+            refs: {}
         }
 
-        //need way to show which ref referencing.  can do this.[name] = createRef();, 
-        //but how will componentDidMount know?
-        //could always have componentDid Mount reference another function, this function could test to see 
-
-        //could pass a 'last refernced' something into state, and see if that is focused.  
-
-        this.postTitleRef = React.createRef();
-        this.postContentRef = React.createRef();
-        this.postQuoteRef = React.createRef();
-        this.cursor = {};
+        this.myRef = React.createRef();
+        this.cursor;
 
         this.validSchema = {
             postTitle: yup.string()
@@ -54,7 +46,6 @@ class EditPost extends Component {
         this.validateField = this.validateField.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.handleFocus = this.handleFocus.bind(this);
         this.submitForm = this.submitForm.bind(this);
     }
 
@@ -67,64 +58,12 @@ class EditPost extends Component {
         this.setState({data});
     }
     componentDidUpdate(){
-        console.log("compoent did update cursor: ", this.cursor);
-        this.postContentRef.current.setSelectionRange(this.cursor.postContent, this.cursor.postContent);
-        // let name = this.state.lastfocused;
-        // this.handleFocus(null,name);
-        // if(e){
-        //     switch(name){
-        //         case 'postTitle':
-        //             if (this.cursor.postTitle){
-        //                 this.postTitleRef.current.setSelectionRange(this.cursor, this.cursor);
-        //             } else {
-        //                 this.cursor.name = e.currentTarget.selectionStart;
-        //             }
-        //             break;
-        //         case 'postContent':
-        //             if (this.cursor.postContent){
-        //                 this.postContentRef.current.setSelectionRange(this.cursor, this.cursor);
-        //             } else {
-        //                 this.cursor.name = e.currentTarget.selectionStart;
-        //             }
-        //             break;
-        //         case 'postQuote':
-        //             if (this.cursor.postQuote){
-        //                 this.postQuoteRef.current.setSelectionRange(this.cursor, this.cursor);
-        //             } else {
-        //                 this.cursor.name = e.currentTarget.selectionStart;
-        //             }
-        //             break;
-        //     }
-        // }        
-    }
-    handleFocus(e, name){
-        console.log("inside handleFocus: ", name);
-        if(e){
-            this.setState({focused: name})
-            switch(name){
-                case 'postTitle':
-                    if (this.cursor.postTitle){
-                        this.postTitleRef.current.setSelectionRange(this.cursor, this.cursor);
-                    } else {
-                        this.cursor.name = e.currentTarget.selectionStart;
-                    }
-                    break;
-                case 'postContent':
-                    if (this.cursor.postContent){
-                        this.postContentRef.current.setSelectionRange(this.cursor, this.cursor);
-                    } else {
-                        this.cursor.name = e.currentTarget.selectionStart;
-                    }
-                    break;
-                case 'postQuote':
-                    if (this.cursor.postQuote){
-                        this.postQuoteRef.current.setSelectionRange(this.cursor, this.cursor);
-                    } else {
-                        this.cursor.name = e.currentTarget.selectionStart;
-                    }
-                    break;
-            }
-        }        
+        console.log("this.curosr in componentDidUpdate: ", this.cursor);
+        console.log("componentDidUpdate checking Ref Name: ", this.myRef);
+        let { value } = this.myRef.current;
+        console.log("value: ", value);
+        this.myRef.current.focus();
+        this.myRef.current.setSelectionRange(this.cursor, this.cursor);
     }
     reroute(){
         this.props.history.goBack();
@@ -157,12 +96,21 @@ class EditPost extends Component {
         this.submitForm(this.state.data);
     };
 
-    async handleChange(e){  
+    async handleChange(e){    
+        console.log("this.myRef: ", this.myRef);
+        console.log("this.myRef.current: ", this.myRef.current);
+        console.log("this.myRef.current.name: ", this.myRef.current.name);
+        console.log("e.currentTarget.selectionStart: ", e.currentTarget.selectionStart);
+        this.cursor = e.currentTarget.selectionStart;
+        console.log("this.curosr in componentDidMount: ", this.cursor);
+
+//access where cursor currently is
+//save into a variable
+//at end have it display again.  how does this work with refs again??
+//need to have it save and be referenced also for onFocus
+//after basic working, add in the array portion, so that have different refs created to tarck differet inputs
+
         const {name, value} = e.currentTarget;
-
-        this.cursor[name] = e.currentTarget.selectionStart;
-        console.log("handleChange cursor: ", this.cursor);
-
         const errors = {...this.state.errors};
 
         let errorMessage = await this.validateField(e.currentTarget);
@@ -177,8 +125,6 @@ class EditPost extends Component {
 
         data[name] = value;
         this.setState({ data, errors});
-        //this.postContentRef.current.setSelectionRange(this.cursor.[name], this.cursor.[name]);
-
     };
 
     submitForm = async(values) => {
@@ -208,6 +154,7 @@ class EditPost extends Component {
     render(){
         console.log("rendering:", this.state);
         let oC = this.handleChange;
+        let oF = this.handleFocus;
         let { errors, buttonDisabled, formDisabled } = this.state;
         let {postTitle, postContent, postQuote } = this.state.data;
         return (
@@ -216,9 +163,9 @@ class EditPost extends Component {
                     <AdminHeader mainHistory={this.props.history}/>
                     <NavButton text="Edit Post" buttonClasses = "title" onClick="null"/>
                     <form className="form" encType="multipart/form-data" onSubmit={this.handleSubmit}>
-                        <Field name='postTitle' label="Post Title" max="60" value={postTitle} error={errors} ref={this.postTitleRef} onChange={oC} onBlur={oC} disabled={formDisabled}/>
-                        <Textarea name="postContent" label="Post Content" value={postContent} error={errors} ref={this.postContentRef} onChange={oC} onBlur={oC} disabled={formDisabled}/>
-                        <Field name="postQuote" label="Post Quote" value={postQuote} error={errors} ref={this.postQuoteRef} onChange={oC} onBlur={oC} disabled={formDisabled}/>
+                        <Field name='postTitle' label="Post Title" max="60" value={postTitle} error={errors} ref={this.myRef} onChange={oC} onBlur={oC} onFocus={oF} disabled={formDisabled}/>
+                        <Textarea name="postContent" label="Post Content" value={postContent} error={errors} ref={this.myRef} onChange={oC} onBlur={oC} onFocus={oF} disabled={formDisabled}/>
+                        <Field name="postQuote" label="Post Quote" value={postQuote} error={errors} ref={this.myRef} onChange={oC} onBlur={oC} onFocus={oF} disabled={formDisabled}/>
                         {/* <Field name="postImage" label="Post Image" type="file" accept="image/*" error={err} onChange={oC} onBlur={oC} disabled={formDisabled}/>  */}
                         <FormButton text="Update" onClick={this.validateForm} reroute={this.reroute} buttonClass={this.state.buttonClass} disabled={buttonDisabled}/>
                     </form>
@@ -230,7 +177,3 @@ class EditPost extends Component {
 }
 
 export default EditPost;
-
-
-
-
