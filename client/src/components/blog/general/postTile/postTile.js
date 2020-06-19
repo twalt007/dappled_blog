@@ -8,7 +8,7 @@ const PostTile = (props) => {
     const formattedDate = formatDate(updatedAt);
     
     return(
-        <div>
+        <div className='tile-container'>
             <div className='tile' onClick={onClick}>
                 <div className="preview-container">
                     <div className="center-text">
