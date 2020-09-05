@@ -83,7 +83,6 @@ class EditPost extends Component {
         }        
     }
     handleFocus(e, name){
-        console.log("inside handleFocus: ", name);
         if(e){
             this.setState({focused: name})
             switch(name){
@@ -188,7 +187,6 @@ class EditPost extends Component {
     }
 
     render(){
-        console.log("rendering:", this.state);
         let oC = this.handleChange;
         let { errors, buttonDisabled, formDisabled } = this.state;
         let {postTitle, postContent, postQuote } = this.state.data;
