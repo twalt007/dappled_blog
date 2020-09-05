@@ -74,6 +74,7 @@ class NewPost extends Component {
     };
 
     async handleChangeBlur({currentTarget: input}){
+        console.log('state', this.state);
         const errors = {...this.state.errors};
 
         let errorMessage = await this.validateField(input);
@@ -95,7 +96,7 @@ class NewPost extends Component {
         const {history, userId='a9ec5c8d-455a-11ea-8fd0-a4db300c2566'} = this.props;
         const data = {
             userId: userId,
-            post: values 
+            postText: values 
         }
         
         let resultMessageState;
@@ -126,7 +127,7 @@ class NewPost extends Component {
                         <Field name='postTitle' label="Post Title" max="60" error={err} onChange={oCB} onBlur={oCB} disabled={formDisabled}/>
                         <Textarea name="postContent" label="Post Content" error={err} onChange={oCB} onBlur={oCB} disabled={formDisabled}/>
                         <Field name="postQuote" label="Post Quote" error={err} onChange={oCB} onBlur={oCB} disabled={formDisabled}/>
-                        {/* <Field name="postImage" label="Post Image" type="file" accept="image/*" error={err} onChange={oCB} onBlur={oCB} disabled={formDisabled}/> */}
+                        <Field name="postImage" label="Post Image" type="file" accept="image/*" error={err} onChange={oCB} onBlur={oCB} disabled={formDisabled}/> 
                         <FormButton text="Post" onClick={this.validateForm} reroute={this.reroute} buttonClass={this.state.buttonClass} disabled={buttonDisabled}/>
                     </form>
                     <div className="bottom-space"></div>
