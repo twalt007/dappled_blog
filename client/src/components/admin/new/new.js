@@ -1,3 +1,7 @@
+//will need to add in error handling on form + relevant styling for image
+//need to update edit post portion
+//add preview area for image on admin side
+
 import React, { Component } from 'react'
 import AdminHeader from '../general/header/adminHeader'
 import NavButton from '../../general/navButton'
@@ -18,8 +22,6 @@ class NewPost extends Component {
             formDisabled: false
         }
 
-        
-        this.imageFormats = ['image/jpg', 'image/jpeg', 'image/gif', 'image/png'];
         this.validSchema = {
             postTitle: yup.string()
             .required('Please provide a title. Don\'t forget to name your latest brainchild!')
@@ -33,11 +35,6 @@ class NewPost extends Component {
             .max(255,'Sorry - too long!  There is a difference between a quote and a post you know!')
             .trim()
         }
-            
-
-
-
-        this.imageErrorMessage = 'Don\'t forget an image!  Its worth 1,000 words of post you know!'
 
         this.reroute = this.reroute.bind(this);
         this.validateForm = this.validateForm.bind(this);
@@ -62,13 +59,9 @@ class NewPost extends Component {
     };
 
     async validateField({name, value }){
-        // if (name === 'postImage' && !this.state.postImage){
-        //     return this.imageErrorMessage;
-        // }
         const schema = yup.object().shape({ [name]: this.validSchema[name] });
         let obj = {[name]:value};
         let errorMessage = await schema.validate(obj).catch(errs => errs);
-        console.log('errorMesage',errorMessage);
         if (errorMessage.message) {
             return errorMessage.message
         } else return null;
@@ -89,7 +82,6 @@ class NewPost extends Component {
 
         let errorMessage = await this.validateField(input);
         if (errorMessage) errors[input.name] = errorMessage;
-        // if (name === 'postImage' && !this.state.postImage) errors[input.name] = this.imageErrorMessage;
         else {
             delete errors[input.name];
             let allErrors = await this.validateForm();
@@ -97,11 +89,12 @@ class NewPost extends Component {
         };  
 
         const data = { ...this.state.data };
-        if (input.files){ 
+        if (input.files){
             data[input.name] = input.files[0]
         } else {
             data[input.name] = input.value;
         };
+        console.log('data',data);
         this.setState({ data, errors })        
     };
 
@@ -155,40 +148,3 @@ class NewPost extends Component {
 
 export default NewPost;
 
-
-
-//will need to add in error handling on form + relevant styling for image
-//need to update edit post portion
-//add preview area for image on admin side
-//style the choose file button
-
-
-
-
-
-//preview:
-//https://www.cluemediator.com/image-upload-in-reactjs
-{/* <p className="title" style={{ marginTop: 30 }}>Uploaded Image:</p>
-        {imageUrl && <img src={imageUrl} alt="Uploaded File" height="100" width="100" />} */}  //imageURL coming from state
-
-//test image upload with formik based on: https://github.com/formium/formik/issues/926
-//https://hackernoon.com/formik-handling-files-and-recaptcha-209cbeae10bc
-//https://www.thetopsites.net/article/54020719.shtml
-
-
-//validation:
-// postImage: yup.mixed()
-            // .nullable()
-            // .test('fileSize', "File Size is too large", value => value.size <= this.fileSize)
-            // .test('fileType', "Unsupported File Format", value => this.imageFormats.includes(value.type))
-            // postImage: yup.mixed().shape({
-            //     name: yup.string().required('Don\'t forget an image!  Its worth 1,000 words of post you know!')
-            //   })
-        }
-
-        // params:
-        // label: "File"
-        // originalValue: "C:\fakepath\20191016_094222_flipped.jpg"
-        // path: "File"
-        // type: "object"
-        // value: null
