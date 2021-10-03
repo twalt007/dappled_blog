@@ -20,7 +20,7 @@
     "url": "https://github.com/twalt007/dappled_blog"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.2",
     "bootstrap": "^4.4.1",
     "formik": "^2.1.4",
     "react": "^16.12.0",
